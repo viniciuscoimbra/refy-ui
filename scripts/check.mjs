@@ -1,0 +1,27 @@
+import assert from 'node:assert/strict';
+import { readFileSync, existsSync } from 'node:fs';
+import React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { Button, Input, BrandLogo } from '../dist/index.js';
+
+const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
+assert.equal(pkg.license, 'MIT');
+assert.match(readFileSync('LICENSE', 'utf8'), /Copyright \(c\) 2026 Vinícius Coimbra/);
+for (const target of ['dist/index.js', 'dist/index.d.ts', 'dist/style.css', 'src/tokens/tokens.css', 'src/styles/global.css']) assert(existsSync(target), `Arquivo de distribuição ausente: ${target}`);
+const loading = renderToStaticMarkup(React.createElement(Button, { loading: true }, 'Salvar'));
+assert.match(loading, /disabled/);
+assert.match(loading, /aria-busy="true"/);
+const input = renderToStaticMarkup(React.createElement(Input, { label: 'Nome', required: true }));
+assert.match(input, /Nome/);
+assert.match(input, /required/);
+const wordmark = renderToStaticMarkup(React.createElement(BrandLogo));
+const mark = renderToStaticMarkup(React.createElement(BrandLogo, { markOnly: true, animated: false }));
+assert.match(wordmark, /role="img" aria-label="refy"/);
+assert.match(wordmark, />refy</);
+assert.match(mark, />r</);
+assert.doesNotMatch(mark, />refy</);
+const css = readFileSync('src/tokens/tokens.css', 'utf8');
+for (const theme of ['light', 'dark', 'editorial']) assert(css.includes(`[data-theme="${theme}"]`));
+assert.doesNotMatch(css, /data-theme="dommus/);
+assert(!existsSync('src/prototypes'), 'Protótipos internos não pertencem ao repositório público');
+console.log('OK: distribuição, MIT, temas e renderização de Button, Input e BrandLogo.');
