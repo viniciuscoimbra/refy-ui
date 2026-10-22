@@ -21,6 +21,11 @@ for (const mode of ['light', 'dark', 'editorial']) {
     ['--primary-ink', '--surface', 'foco externo na superfície', 3],
     ['--outline', '--surface', 'borda identificadora de Input', 3],
     ['--critical', '--surface', 'erro de campo', 4.5],
+    ['--critical-ink', '--critical-soft', 'chip/aviso crítico', 4.5],
+    ['--weak-ink', '--weak-soft', 'chip/aviso de atenção', 4.5],
+    ['--good-ink', '--good-soft', 'chip/aviso de sucesso', 4.5],
+    ['--info-ink', '--info-soft', 'chip/aviso informativo', 4.5],
+    ['--outline', '--bg', 'trilho da timeline', 3],
   ]) {
     const a = resolveToken(fg, values), b = resolveToken(bg, values), result = ratio(a, b);
     rows.push({ mode, context, fg, bg, foreground: a, background: b, ratio: +result.toFixed(3), minimum, pass: result >= minimum });

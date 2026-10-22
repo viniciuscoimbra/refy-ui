@@ -55,7 +55,7 @@ export const SingleControlled: Story = {
     return (
       <div style={{ display: "flex", flexDirection: "column", gap: 12, alignItems: "flex-start" }}>
         <Calendar {...args} mode="single" value={date} onChange={(v) => setDate(v as Date)} />
-        <code style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "#3e3e44" }}>
+        <code style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--ink-2)" }}>
           {date ? date.toLocaleDateString("pt-BR") : "nenhuma data"}
         </code>
       </div>
@@ -72,7 +72,7 @@ export const RangeDualMonth: Story = {
     return (
       <div style={{ display: "flex", flexDirection: "column", gap: 12, alignItems: "flex-start" }}>
         <Calendar {...args} mode="range" numberOfMonths={2} value={range} onChange={(v) => setRange(v as DateRange)} />
-        <code style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "#3e3e44" }}>
+        <code style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--ink-2)" }}>
           {fmt(range.start)} → {fmt(range.end)}
         </code>
       </div>

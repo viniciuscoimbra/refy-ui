@@ -114,10 +114,10 @@ A execução atual e os limites estão nos [contratos essenciais](docs/CORE_CONT
 
 ## Revisão visual e liberdade de aparência
 
-No Storybook, comece por **Fundamentos → Refy**. **Personalizar** permite alternar entre Refy original, contorno quadrado e degradê arredondado, mantendo o mesmo formulário e suas interações. **Tokens → Explorar** pesquisa e exporta os valores de cada modo. **Revisão → Visual → Antes e depois** mostra as capturas reais e o motivo das mudanças.
+No Storybook, comece por **Fundamentos → Refy**. **Personalizar** permite alternar entre Refy, contorno quadrado e degradê arredondado, mantendo o mesmo formulário e suas interações. **Tokens → Explorar** pesquisa e exporta os valores de cada modo. Revisões técnicas ficam fora da navegação principal; os componentes têm links diretos para inspeção.
 
 Consulte [o guia de aparência e nomes genéricos](docs/SKINS.md) e [o registro da revisão visual](docs/VISUAL_REVIEW.md). As páginas de exemplo usam dados locais; não constituem um produto integrado.
 
 ### Experimente a identidade na aplicação
 
-No Storybook, abra **Fundamentos → Playground → Aplicação completa**. Troque modo, aparência e fontes; navegue pelas quatro áreas e copie a configuração em “Usar no meu projeto”. A [documentação de temas](docs/THEMING.md#fontes-e-playground) explica os três novos conjuntos e o preset legado.
+No Storybook, abra **Fundamentos → Playground → Aplicação completa**. Troque modo, aparência e fontes; navegue pelas quatro telas de aplicação ou pelas sete áreas de componentes, que cobrem as 92 famílias catalogadas. Cada área mostra uma família por vez, com link à story original. Copie a configuração em “Usar no meu projeto”. A [documentação de temas](docs/THEMING.md#fontes-e-playground) explica os três novos conjuntos e o preset legado.

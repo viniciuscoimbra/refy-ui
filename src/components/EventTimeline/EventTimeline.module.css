@@ -7,7 +7,7 @@
 .dateRow h3 { margin: 0; color: var(--ink-2); font-family: var(--font-headline); font-size: var(--text-sm); text-transform: capitalize; }
 .list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
 .item { position: relative; display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: var(--space-3); padding-bottom: var(--space-4); }
-.item:not(:last-child)::before { content: ""; position: absolute; top: 34px; bottom: 0; left: 15px; width: 1px; background: var(--line-soft); }
+.item:not(:last-child)::before { content: ""; position: absolute; top: 34px; bottom: 0; left: 15px; width: 2px; background: var(--timeline-line, var(--outline)); }
 .marker { position: relative; z-index: 1; display: grid; place-items: start center; min-height: 32px; padding-top: var(--space-1); }
 .marker > :global(span:not([class*="avatar"])) { margin-top: 10px; }
 .event { min-width: 0; padding: var(--space-4); border: 1px solid var(--line-soft); border-radius: var(--radius-lg); background: var(--surface); }

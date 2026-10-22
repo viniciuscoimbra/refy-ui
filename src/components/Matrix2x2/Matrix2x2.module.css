@@ -7,7 +7,7 @@
   position: relative;
   min-height: 460px;
   overflow: hidden;
-  border-radius: 14px;
+  border-radius: var(--card-radius);
   border: 1px solid var(--line, var(--surface-container-high));
   /* mira central + grade pontilhada da marca */
   background:

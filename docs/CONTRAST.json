@@ -123,13 +123,68 @@
       "pass": true
     },
     {
+      "mode": "light",
+      "context": "chip/aviso crítico",
+      "fg": "--critical-ink",
+      "bg": "--critical-soft",
+      "foreground": "#991b1b",
+      "background": "#fee7e5",
+      "ratio": 7.034,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "mode": "light",
+      "context": "chip/aviso de atenção",
+      "fg": "--weak-ink",
+      "bg": "--weak-soft",
+      "foreground": "#92400e",
+      "background": "#fef3cc",
+      "ratio": 6.383,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "mode": "light",
+      "context": "chip/aviso de sucesso",
+      "fg": "--good-ink",
+      "bg": "--good-soft",
+      "foreground": "#065f46",
+      "background": "#dcfce7",
+      "ratio": 6.996,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "mode": "light",
+      "context": "chip/aviso informativo",
+      "fg": "--info-ink",
+      "bg": "--info-soft",
+      "foreground": "#0a66c4",
+      "background": "#dbeafe",
+      "ratio": 4.639,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "mode": "light",
+      "context": "trilho da timeline",
+      "fg": "--outline",
+      "bg": "--bg",
+      "foreground": "#707973",
+      "background": "#ffffff",
+      "ratio": 4.495,
+      "minimum": 3,
+      "pass": true
+    },
+    {
       "mode": "dark",
       "context": "título",
       "fg": "--ink-1",
       "bg": "--surface",
-      "foreground": "#e0e3e5",
-      "background": "#101415",
-      "ratio": 14.377,
+      "foreground": "#f0f3f2",
+      "background": "#191e20",
+      "ratio": 15.071,
       "minimum": 4.5,
       "pass": true
     },
@@ -139,8 +194,8 @@
       "fg": "--ink-2",
       "bg": "--surface",
       "foreground": "#bbcabf",
-      "background": "#101415",
-      "ratio": 10.869,
+      "background": "#191e20",
+      "ratio": 9.867,
       "minimum": 4.5,
       "pass": true
     },
@@ -150,8 +205,8 @@
       "fg": "--ink-3",
       "bg": "--surface",
       "foreground": "#bbcabf",
-      "background": "#101415",
-      "ratio": 10.869,
+      "background": "#191e20",
+      "ratio": 9.867,
       "minimum": 4.5,
       "pass": true
     },
@@ -161,8 +216,8 @@
       "fg": "--ink-4",
       "bg": "--surface",
       "foreground": "#a7b7ac",
-      "background": "#101415",
-      "ratio": 8.837,
+      "background": "#191e20",
+      "ratio": 8.023,
       "minimum": 4.5,
       "pass": true
     },
@@ -216,8 +271,8 @@
       "fg": "--primary-ink",
       "bg": "--surface",
       "foreground": "#6ffbbe",
-      "background": "#101415",
-      "ratio": 14.315,
+      "background": "#191e20",
+      "ratio": 12.996,
       "minimum": 3,
       "pass": true
     },
@@ -227,8 +282,8 @@
       "fg": "--outline",
       "bg": "--surface",
       "foreground": "#86948a",
-      "background": "#101415",
-      "ratio": 5.84,
+      "background": "#191e20",
+      "ratio": 5.302,
       "minimum": 3,
       "pass": true
     },
@@ -238,9 +293,64 @@
       "fg": "--critical",
       "bg": "--surface",
       "foreground": "#ffb4ab",
-      "background": "#101415",
-      "ratio": 10.917,
+      "background": "#191e20",
+      "ratio": 9.911,
       "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "mode": "dark",
+      "context": "chip/aviso crítico",
+      "fg": "--critical-ink",
+      "bg": "--critical-soft",
+      "foreground": "#ffb4ab",
+      "background": "#4b1714",
+      "ratio": 8.638,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "mode": "dark",
+      "context": "chip/aviso de atenção",
+      "fg": "--weak-ink",
+      "bg": "--weak-soft",
+      "foreground": "#ffd58a",
+      "background": "#443519",
+      "ratio": 8.556,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "mode": "dark",
+      "context": "chip/aviso de sucesso",
+      "fg": "--good-ink",
+      "bg": "--good-soft",
+      "foreground": "#6ffbbe",
+      "background": "#123c2d",
+      "ratio": 9.485,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "mode": "dark",
+      "context": "chip/aviso informativo",
+      "fg": "--info-ink",
+      "bg": "--info-soft",
+      "foreground": "#b9c8de",
+      "background": "#20344c",
+      "ratio": 7.471,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "mode": "dark",
+      "context": "trilho da timeline",
+      "fg": "--outline",
+      "bg": "--bg",
+      "foreground": "#86948a",
+      "background": "#101415",
+      "ratio": 5.84,
+      "minimum": 3,
       "pass": true
     },
     {
@@ -362,6 +472,61 @@
       "background": "#fffdf8",
       "ratio": 5.077,
       "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "mode": "editorial",
+      "context": "chip/aviso crítico",
+      "fg": "--critical-ink",
+      "bg": "--critical-soft",
+      "foreground": "#991b1b",
+      "background": "#fee7e5",
+      "ratio": 7.034,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "mode": "editorial",
+      "context": "chip/aviso de atenção",
+      "fg": "--weak-ink",
+      "bg": "--weak-soft",
+      "foreground": "#92400e",
+      "background": "#fef3cc",
+      "ratio": 6.383,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "mode": "editorial",
+      "context": "chip/aviso de sucesso",
+      "fg": "--good-ink",
+      "bg": "--good-soft",
+      "foreground": "#065f46",
+      "background": "#dcfce7",
+      "ratio": 6.996,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "mode": "editorial",
+      "context": "chip/aviso informativo",
+      "fg": "--info-ink",
+      "bg": "--info-soft",
+      "foreground": "#0a66c4",
+      "background": "#dbeafe",
+      "ratio": 4.639,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "mode": "editorial",
+      "context": "trilho da timeline",
+      "fg": "--outline",
+      "bg": "--bg",
+      "foreground": "#707973",
+      "background": "#f7f3ea",
+      "ratio": 4.059,
+      "minimum": 3,
       "pass": true
     }
   ]

@@ -539,6 +539,21 @@
           "value": "var(--radius-xl)",
           "description": "Skin: drawer-radius. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
           "deprecated": false
+        },
+        "--radius-lg-token": {
+          "value": "var(--radius-md)",
+          "description": "Papel CSS --radius-lg-token; origem Refy 0.4.0; escopo light; ativo, sem remoção prevista.",
+          "deprecated": false
+        },
+        "--radius-xl-token": {
+          "value": "var(--radius-lg)",
+          "description": "Papel CSS --radius-xl-token; origem Refy 0.4.0; escopo light; ativo, sem remoção prevista.",
+          "deprecated": false
+        },
+        "--radius-full-token": {
+          "value": "var(--radius-pill)",
+          "description": "Papel CSS --radius-full-token; origem Refy 0.4.0; escopo light; ativo, sem remoção prevista.",
+          "deprecated": false
         }
       }
     },
@@ -2075,6 +2090,15 @@
       "$value": 1.65,
       "$description": "Papel CSS --leading-relaxed; origem Refy 0.4.0; escopo base; ativo, sem remoção prevista.",
       "$deprecated": false
+    },
+    "radius-default": {
+      "$type": "dimension",
+      "$value": {
+        "value": 7,
+        "unit": "px"
+      },
+      "$description": "Papel CSS --radius-default; origem Refy 0.4.0; escopo light; ativo, sem remoção prevista.",
+      "$deprecated": false
     }
   },
   "light": {
@@ -2185,21 +2209,6 @@
           "description": "Papel CSS --shadow-glow-pulse; origem Refy 0.4.0; escopo light; ativo, sem remoção prevista.",
           "deprecated": false
         },
-        "--radius-lg-token": {
-          "value": "var(--radius-md)",
-          "description": "Papel CSS --radius-lg-token; origem Refy 0.4.0; escopo light; ativo, sem remoção prevista.",
-          "deprecated": false
-        },
-        "--radius-xl-token": {
-          "value": "var(--radius-lg)",
-          "description": "Papel CSS --radius-xl-token; origem Refy 0.4.0; escopo light; ativo, sem remoção prevista.",
-          "deprecated": false
-        },
-        "--radius-full-token": {
-          "value": "var(--radius-pill)",
-          "description": "Papel CSS --radius-full-token; origem Refy 0.4.0; escopo light; ativo, sem remoção prevista.",
-          "deprecated": false
-        },
         "--shadow-focus-ring": {
           "value": "0 0 0 3px rgba(16, 185, 129, 0.16)",
           "description": "Papel CSS --shadow-focus-ring; origem Refy 0.4.0; escopo light; ativo, sem remoção prevista.",
@@ -2222,9 +2231,9 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.9490196078431372,
-          0.9490196078431372,
-          0.9490196078431372
+          1.0,
+          1.0,
+          1.0
         ],
         "alpha": 1
       },
@@ -2660,9 +2669,9 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.8588235294117647,
-          0.9098039215686274,
-          0.8784313725490196
+          0.8509803921568627,
+          0.8705882352941177,
+          0.8666666666666667
         ],
         "alpha": 1
       },
@@ -2675,8 +2684,8 @@
         "colorSpace": "srgb",
         "components": [
           0.9098039215686274,
-          0.9450980392156862,
-          0.9215686274509803
+          0.9215686274509803,
+          0.9176470588235294
         ],
         "alpha": 1
       },
@@ -2752,15 +2761,6 @@
         "alpha": 1
       },
       "$description": "Papel CSS --info; origem Refy 0.4.0; escopo light; ativo, sem remoção prevista.",
-      "$deprecated": false
-    },
-    "radius-default": {
-      "$type": "dimension",
-      "$value": {
-        "value": 7,
-        "unit": "px"
-      },
-      "$description": "Papel CSS --radius-default; origem Refy 0.4.0; escopo light; ativo, sem remoção prevista.",
       "$deprecated": false
     },
     "primary-hover": {
@@ -3022,9 +3022,8 @@
     "$extensions": {
       "org.refy.css": {
         "--border": {
-          "value": "var(--surface-container-high)",
-          "description": "Papel CSS --border; origem Refy 0.4.0; escopo dark; ativo, sem remoção prevista.",
-          "deprecated": false
+          "value": "var(--line)",
+          "description": "Alias de compatibilidade respeita a paleta escura."
         },
         "--surface-2": {
           "value": "var(--surface-container)",
@@ -3101,26 +3100,6 @@
           "description": "Papel CSS --shadow-glow-pulse; origem Refy 0.4.0; escopo dark; ativo, sem remoção prevista.",
           "deprecated": false
         },
-        "--radius-default": {
-          "value": "var(--radius-xs)",
-          "description": "Papel CSS --radius-default; origem Refy 0.4.0; escopo dark; ativo, sem remoção prevista.",
-          "deprecated": false
-        },
-        "--radius-lg-token": {
-          "value": "var(--radius-sm)",
-          "description": "Papel CSS --radius-lg-token; origem Refy 0.4.0; escopo dark; ativo, sem remoção prevista.",
-          "deprecated": false
-        },
-        "--radius-xl-token": {
-          "value": "var(--radius-md)",
-          "description": "Papel CSS --radius-xl-token; origem Refy 0.4.0; escopo dark; ativo, sem remoção prevista.",
-          "deprecated": false
-        },
-        "--radius-full-token": {
-          "value": "var(--radius-lg)",
-          "description": "Papel CSS --radius-full-token; origem Refy 0.4.0; escopo dark; ativo, sem remoção prevista.",
-          "deprecated": false
-        },
         "--shadow-focus-ring": {
           "value": "0 0 0 3px rgba(78,222,163,0.45)",
           "description": "Papel CSS --shadow-focus-ring; origem Refy 0.4.0; escopo dark; ativo, sem remoção prevista.",
@@ -3160,6 +3139,30 @@
           "value": "var(--surface-container)",
           "description": "Papel CSS --legacy-surface-muted; origem Refy 0.4.0; escopo dark; ativo, sem remoção prevista.",
           "deprecated": false
+        },
+        "--legacy-line-subtle": {
+          "value": "var(--line-soft)",
+          "description": "Alias de compatibilidade respeita a paleta escura."
+        },
+        "--legacy-line-faint": {
+          "value": "var(--line-soft)",
+          "description": "Alias de compatibilidade respeita a paleta escura."
+        },
+        "--legacy-info-soft": {
+          "value": "var(--info-soft)",
+          "description": "Alias de compatibilidade respeita a paleta escura."
+        },
+        "--legacy-brand-soft": {
+          "value": "var(--good-soft)",
+          "description": "Alias de compatibilidade respeita a paleta escura."
+        },
+        "--legacy-danger-line": {
+          "value": "var(--critical-soft)",
+          "description": "Alias de compatibilidade respeita a paleta escura."
+        },
+        "--legacy-danger-line-hover": {
+          "value": "var(--critical-ink)",
+          "description": "Alias de compatibilidade respeita a paleta escura."
         }
       }
     },
@@ -3182,9 +3185,9 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.06274509803921569,
-          0.0784313725490196,
-          0.08235294117647059
+          0.09803921568627451,
+          0.11764705882352941,
+          0.12549019607843137
         ],
         "alpha": 1
       },
@@ -3266,9 +3269,9 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.11372549019607843,
-          0.12549019607843137,
-          0.13333333333333333
+          0.13333333333333333,
+          0.1568627450980392,
+          0.16470588235294117
         ],
         "alpha": 1
       },
@@ -3322,9 +3325,9 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.8784313725490196,
-          0.8901960784313725,
-          0.8980392156862745
+          0.9411764705882353,
+          0.9529411764705882,
+          0.9490196078431372
         ],
         "alpha": 1
       },
@@ -3406,9 +3409,9 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.23529411764705882,
-          0.2901960784313726,
-          0.25882352941176473
+          0.27450980392156865,
+          0.3254901960784314,
+          0.2980392156862745
         ],
         "alpha": 1
       },
@@ -3746,9 +3749,9 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.11372549019607843,
-          0.12549019607843137,
-          0.13333333333333333
+          0.20784313725490197,
+          0.25098039215686274,
+          0.23529411764705882
         ],
         "alpha": 1
       },
@@ -4130,21 +4133,6 @@
         "--shadow-glow-pulse": {
           "value": "0 0 18px rgba(16, 185, 129, 0.45)",
           "description": "Papel CSS --shadow-glow-pulse; origem Refy 0.4.0; escopo editorial; ativo, sem remoção prevista.",
-          "deprecated": false
-        },
-        "--radius-lg-token": {
-          "value": "var(--radius-md)",
-          "description": "Papel CSS --radius-lg-token; origem Refy 0.4.0; escopo editorial; ativo, sem remoção prevista.",
-          "deprecated": false
-        },
-        "--radius-xl-token": {
-          "value": "var(--radius-lg)",
-          "description": "Papel CSS --radius-xl-token; origem Refy 0.4.0; escopo editorial; ativo, sem remoção prevista.",
-          "deprecated": false
-        },
-        "--radius-full-token": {
-          "value": "var(--radius-pill)",
-          "description": "Papel CSS --radius-full-token; origem Refy 0.4.0; escopo editorial; ativo, sem remoção prevista.",
           "deprecated": false
         },
         "--shadow-focus-ring": {
@@ -4699,15 +4687,6 @@
         "alpha": 1
       },
       "$description": "Papel CSS --info; origem Refy 0.4.0; escopo editorial; ativo, sem remoção prevista.",
-      "$deprecated": false
-    },
-    "radius-default": {
-      "$type": "dimension",
-      "$value": {
-        "value": 7,
-        "unit": "px"
-      },
-      "$description": "Papel CSS --radius-default; origem Refy 0.4.0; escopo editorial; ativo, sem remoção prevista.",
       "$deprecated": false
     },
     "primary-hover": {

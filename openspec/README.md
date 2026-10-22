@@ -4,6 +4,8 @@ O programa define contratos e evidências para evoluir a biblioteca Refy. O mant
 
 ## Prioridade de adoção
 
+Continuação autorizada em 22/10/2026: [cobertura integral e integridade de tema](changes/complete-playground-theme-integrity/proposal.md), para incluir todas as famílias e corrigir fundo branco, geometria independente do modo, seleção e contraste. As evidências anteriores não cobriam essa combinação completa.
+
 Em 22/10/2026, após a recuperação visual, o mantenedor autorizou [playground e tipografia](changes/adoption-playground-typography/proposal.md): três conjuntos de fontes, página inteira personalizável, botões verdes com texto claro e navegação simplificada. Essa experiência substitui a revisão visual como entrada de adoção.
 
 ## Ordem de execução

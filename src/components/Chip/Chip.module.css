@@ -4,10 +4,10 @@
   gap: 6px;
   height: var(--chip-height, 30px);
   padding: 0 10px;
-  border: 1px solid var(--line);
+  border: var(--control-border-width, 1px) solid var(--chip-border, var(--line));
   border-radius: var(--chip-radius, var(--radius-pill));
-  background: var(--surface);
-  color: var(--ink-2);
+  background: var(--chip-surface, var(--surface));
+  color: var(--chip-ink, var(--ink-2));
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: var(--weight-medium);
@@ -21,7 +21,7 @@
 }
 .chip:hover {
   border-color: var(--line-strong, var(--legacy-line-strong));
-  color: var(--ink-1);
+  color: var(--chip-ink, var(--ink-1));
   transform: translateY(-0.5px);
 }
 .chip:active:not(.selected) {
@@ -40,9 +40,9 @@
   color: var(--ink-2);
   transform: none;
 }
-.selected {
-  border-color: var(--ink-1);
-  background: var(--ink-1);
+.selected, .selected:hover {
+  border-color: var(--chip-ink, var(--ink-1));
+  background: var(--chip-ink, var(--ink-1));
   color: var(--surface);
 }
 
@@ -84,11 +84,12 @@
 }
 .check svg { width: 14px; height: 14px; flex: none; }
 .selected .check { width: 14px; margin-right: 0; opacity: 1; transform: scale(1) rotate(0); }
-.dot { width: 6px; height: 6px; flex: none; border-radius: 50%; }
-.tone-critical { background: var(--critical); }
-.tone-warning { background: var(--weak); }
-.tone-success { background: var(--good); }
-.tone-info { background: var(--info); }
+.dot { width: 6px; height: 6px; flex: none; border-radius: 50%; background: currentColor; }
+.tone-critical { --chip-ink: var(--critical-ink); --chip-surface: var(--critical-soft); }
+.tone-warning { --chip-ink: var(--weak-ink); --chip-surface: var(--weak-soft); }
+.tone-success { --chip-ink: var(--good-ink); --chip-surface: var(--good-soft); }
+.tone-info { --chip-ink: var(--info-ink); --chip-surface: var(--info-soft); }
+.tone-critical, .tone-warning, .tone-success, .tone-info { --chip-border: color-mix(in srgb, var(--chip-ink) 45%, var(--surface)); }
 .remove {
   display: inline-flex;
   align-items: center;
@@ -96,7 +97,7 @@
   width: 16px;
   height: 16px;
   border-radius: var(--chip-radius, var(--radius-pill));
-  color: var(--ink-3);
+  color: inherit;
   margin-right: -2px;
   transition: background-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
 }

@@ -94,6 +94,12 @@ validar somente a paleta.
 
 Abra **Fundamentos → Playground → Aplicação completa**. Modo, aparência e conjunto de fontes são independentes. Navegue entre visão geral, trabalho (lista/quadro/revisão), biblioteca e configurações. “Usar no meu projeto” mostra os papéis tipográficos e uma configuração copiável que inclui todos os overrides da aparência escolhida. Dados são locais e reiniciam ao recarregar.
 
+O menu **Todos os componentes** organiza as 92 famílias em Ações, Formulários, Navegação, Feedback e camadas, Dados e atividades, Conteúdo e mídia, Estrutura e conta. Escolha uma família ou use a busca do topo. Cada família tem um exemplo interativo carregado sob demanda na mesma árvore do tema; as demais variantes continuam no catálogo. A troca de fonte/modo preserva o estado do exemplo aberto. Trocar de família reinicia aquela demonstração.
+
+O claro Refy usa fundo branco. Claro e escuro compartilham os mesmos raios e dimensões; somente a aparência deve mudar a geometria. Para personalizar toda a escala, ajuste `--radius-xs`, `--radius-sm`, `--radius-md`, `--radius-lg`, `--radius-xl`, `--radius-pill` e `--radius-default`, além dos hooks específicos quando necessários. Chips semânticos usam pares de texto/fundo de status; o hover preserva o contraste da seleção. A aparência dos menus de `select` nativo também depende do navegador/SO, com cores de opções e `color-scheme` definidos pelo tema.
+
+Mapa, autenticação, áudio e integrações usam demonstrações locais identificadas. O playground não solicita microfone, conecta contas nem envia arquivos automaticamente.
+
 | Preset | Títulos e assinatura | Corpo e controles | Código e valores |
 |---|---|---|---|
 | `humanist` (referência inicial) | Manrope | Source Sans 3 | Source Code Pro |

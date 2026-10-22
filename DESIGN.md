@@ -6,6 +6,8 @@ Referência: tokens, componentes e composição do commit c3f03fd. Recuperação
 ## Colors
 Acento verde Refy, superfícies neutras e estados semânticos da fonte versionada em src/tokens/foundations.tokens.json. Não criar paleta paralela. Cores de texto/estado continuam cores; degradês pertencem a tokens de superfície de componente. Presets demonstrativos têm nomes descritivos e não representam clientes.
 
+Correção explícita do mantenedor em 22/10/2026: o fundo Refy claro é branco (#ffffff). No escuro, superfície elevada se distingue do fundo. O modo editorial legado mantém sua paleta própria e é identificado no seletor; não define o fundo do Refy claro. Claro/escuro nunca alteram geometria, raios, espessuras ou fontes. A aparência controla esses atributos, com escala de raios consistente e exceções funcionais como avatares/indicadores circulares.
+
 ## Typography
 Referência atual autorizada em 22/10/2026: Manrope em títulos e assinatura, Source Sans 3 em corpo/controles, Source Code Pro em código e valores. Alternativas selecionáveis: IBM Plex Sans/Mono e DM Sans/Geist Mono. O conjunto anterior Space Grotesk/Inter/JetBrains Mono permanece como legado para comparação, não como preferência atual. Fontes locais opcionais e papéis de tokens preservados. O playground demonstra a mudança na aplicação inteira, inclusive overlays.
 

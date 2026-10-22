@@ -27,7 +27,7 @@ export interface ChipProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>,
 
 /**
  * Chip / filter-chip. Clicável para alternar seleção; opcionalmente removível.
- * Selecionado usa a superfície suave da marca, sem depender de uma cor fixa.
+ * A seleção inverte o par semântico, preservando contraste também em hover.
  */
 export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
   { selected = false, count, tone = "neutral", selectionMode = "toggle", showCheck = false, removable = false, onRemove, onClick, leadingIcon, className, children, ...rest },
@@ -37,7 +37,7 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
     <button
       ref={ref}
       type="button"
-      className={cn(styles.chip, selected && styles.selected, className)}
+      className={cn(styles.chip, styles[`tone-${tone}`], selected && styles.selected, className)}
       role={selectionMode === "radio" ? "radio" : undefined}
       aria-checked={selectionMode === "radio" ? selected : undefined}
       aria-pressed={selectionMode === "toggle" ? selected : undefined}
@@ -53,7 +53,7 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
         </span>
       )}
       {leadingIcon && <span className={styles.icon}>{leadingIcon}</span>}
-      {tone !== "neutral" && <span className={cn(styles.dot, styles[`tone-${tone}`])} aria-hidden="true" />}
+      {tone !== "neutral" && <span className={styles.dot} aria-hidden="true" />}
       <span className={styles.label}>{children}</span>
       {typeof count === "number" && <span className={styles.count}>{count}</span>}
       {removable && (

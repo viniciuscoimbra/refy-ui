@@ -15,6 +15,15 @@ export const skins: Record<
     theme: {
       name: "outline",
       tokens: {
+        "--radius-xs": "0px",
+        "--radius-sm": "0px",
+        "--radius-md": "0px",
+        "--radius-lg": "0px",
+        "--radius-xl": "0px",
+        "--radius-pill": "0px",
+        "--radius-default": "0px",
+        "--control-group-radius": "0px",
+        "--chip-radius": "0px",
         "--control-radius": "0px",
         "--card-radius": "0px",
         "--dialog-radius": "0px",
@@ -72,6 +81,14 @@ export const skins: Record<
     theme: {
       name: "gradient",
       tokens: {
+        "--radius-xs": "2px",
+        "--radius-sm": "6px",
+        "--radius-md": "12px",
+        "--radius-lg": "24px",
+        "--radius-xl": "24px",
+        "--radius-default": "20px",
+        "--control-group-radius": "20px",
+        "--chip-radius": "20px",
         "--control-radius": "20px",
         "--card-radius": "24px",
         "--dialog-radius": "24px",

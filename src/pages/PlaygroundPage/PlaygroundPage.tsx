@@ -15,9 +15,12 @@ import { TypographySample } from '../../stories/TypographySample';
 import { sampleArtwork } from '../../_demo/content';
 import { Icons } from '../../_demo/icons';
 import styles from './PlaygroundPage.module.css';
+import { ComponentArea } from './ComponentArea';
+import { componentAreas, componentCatalog, type ComponentAreaId } from './catalog';
 
-type Area = 'overview' | 'work' | 'library' | 'settings';
-const areas = { overview: 'Visão geral', work: 'Trabalho', library: 'Biblioteca', settings: 'Configurações' };
+const workspaceAreas = { overview: 'Visão geral', work: 'Trabalho', library: 'Biblioteca', settings: 'Configurações' };
+const areas = { ...workspaceAreas, ...componentAreas };
+type Area = keyof typeof areas;
 const initialProjects = [
   { id: 'aurora', name: 'Projeto Aurora', owner: 'Ana Lima', status: 'Em andamento', progress: 72 },
   { id: 'horizonte', name: 'Projeto Horizonte', owner: 'Bruno Reis', status: 'Em revisão', progress: 90 },
@@ -48,6 +51,7 @@ const components = [
 export function PlaygroundPage({ mode, fonts, onModeChange: setMode, onFontsChange: setFonts }: { mode: ThemeMode; fonts: FontSet; onModeChange: (mode: ThemeMode) => void; onFontsChange: (fonts: FontSet) => void }) {
   const [skin, setSkin] = useState<keyof typeof skins>('refy');
   const [area, setArea] = useState<Area>('overview');
+  const [selectedComponent, setSelectedComponent] = useState('');
   const [workView, setWorkView] = useState('list');
   const [projects, setProjects] = useState(initialProjects);
   const [name, setName] = useState('');
@@ -90,7 +94,10 @@ export function PlaygroundPage({ mode, fonts, onModeChange: setMode, onFontsChan
       workspace: { name: workspace, role: 'Ambiente de demonstração', initials: 'EA' },
       account: { name: 'Ana Lima', email: 'ana@example.com', initials: 'AL' },
       cta: { label: 'Novo projeto', icon: Icons.plus, onClick: () => setCreating(true) },
-      groups: [{ section: 'Workspace', items: Object.entries(areas).map(([id, label]) => ({ id, label, icon: id === 'overview' ? Icons.dashboard : id === 'work' ? Icons.projects : id === 'library' ? Icons.competitors : Icons.settings })) }],
+      groups: [
+        { section: 'Workspace', items: Object.entries(workspaceAreas).map(([id, label]) => ({ id, label, icon: id === 'overview' ? Icons.dashboard : id === 'work' ? Icons.projects : id === 'library' ? Icons.competitors : Icons.settings })) },
+        { section: 'Todos os componentes', items: Object.entries(componentAreas).map(([id, label]) => ({ id, label, icon: Icons.projects })) },
+      ],
       onNavigate: item => setArea(item.id as Area),
     }} topbar={{
       crumbs: [{ label: workspace, onClick: () => setArea('overview') }, { label: areas[area] }],
@@ -98,8 +105,9 @@ export function PlaygroundPage({ mode, fonts, onModeChange: setMode, onFontsChan
       actions: <><Tooltip label="Avisos da equipe"><IconButton aria-label="Notificações" icon={Icons.bell} onClick={() => setNotice('Tudo em dia. Esta demonstração usa dados locais.')} /></Tooltip><Avatar initials="AL" size="md" /></>,
     }}>
       <div className={styles.stack}>
-        <PageHeader eyebrow="Workspace de exemplo · dados locais" title={areas[area]} lead={area === 'overview' ? 'Um lugar para acompanhar o trabalho, organizar ideias e colaborar.' : area === 'work' ? 'Da lista à revisão, os mesmos componentes e a mesma identidade.' : area === 'library' ? 'Referências, decisões e uma agenda compartilhada.' : 'As preferências continuam preenchidas quando você troca a aparência.'}
-          actions={<Button variant="primary" leadingIcon={Icons.plus} onClick={() => setCreating(true)}>Criar projeto</Button>} />
+        <PageHeader eyebrow={area in componentAreas ? 'Todos os componentes · exemplos interativos' : 'Workspace de exemplo · dados locais'} title={areas[area]} lead={area in componentAreas ? 'Escolha um componente. Tema, aparência e fontes do topo também se aplicam aqui.' : area === 'overview' ? 'Um lugar para acompanhar o trabalho, organizar ideias e colaborar.' : area === 'work' ? 'Da lista à revisão, os mesmos componentes e a mesma identidade.' : area === 'library' ? 'Referências, decisões e uma agenda compartilhada.' : 'As preferências continuam preenchidas quando você troca a aparência.'}
+          actions={area in componentAreas ? undefined : <Button variant="primary" leadingIcon={Icons.plus} onClick={() => setCreating(true)}>Criar projeto</Button>} />
+        {area in componentAreas && <ComponentArea area={area as ComponentAreaId} selected={selectedComponent} onSelect={setSelectedComponent} mode={mode} fonts={fonts} />}
         {area === 'overview' && <>
           <StatGroup><Stat label="Projetos ativos" value={projects.length} description="Neste workspace" /><Stat label="Conclusão do ciclo" value="72%" delta={{ value: '+8%', trend: 'up' }} /><Stat label="Próxima revisão" value="24" unit="out." description="Equipe de criação · 10h" /></StatGroup>
           <div className={styles.columns}>
@@ -136,7 +144,7 @@ export function PlaygroundPage({ mode, fonts, onModeChange: setMode, onFontsChan
           <Card><CardHeader title="Compartilhamento padrão" /><ChoiceCardGroup label="Visibilidade" columns={1} value={visibility} onChange={value => setVisibility(String(value))}><ChoiceCard value="Equipe" title="Equipe" description="Colaboração com todos os integrantes." /><ChoiceCard value="Privado" title="Privado" description="Apenas pessoas convidadas." /></ChoiceCardGroup></Card>
           <Callout title="Sua aplicação, sua identidade">Use os controles no topo para testar cores, geometria e fontes. Os dados preenchidos permanecem aqui.</Callout></div>
         </div>}
-        <details className={styles.inventory}><summary>Quais componentes formam esta aplicação?</summary><p>Composição de átomos, moléculas e organismos existentes. Explore cada área e suas ações. O catálogo mantém os demais componentes e suas variantes.</p><nav aria-label="Componentes usados">{components.map(([name, id]) => <a key={id} href={`./?path=/story/${id}&globals=theme:${mode};fonts:${fonts}`} target="_top">{name}</a>)}</nav></details>
+        <details className={styles.inventory}><summary>Quais componentes formam esta aplicação?</summary><p>As quatro telas compõem átomos, moléculas e organismos. Todas as {componentCatalog.length} famílias estão disponíveis nas áreas de componentes do menu, com a mesma personalização.</p><nav aria-label="Componentes usados">{components.map(([name, id]) => <a key={id} href={`./?path=/story/${id}&globals=theme:${mode};fonts:${fonts}`} target="_top">{name}</a>)}</nav></details>
       </div>
     </AppShell>
     <Modal open={creating} onClose={() => setCreating(false)} title="Criar projeto">
@@ -150,7 +158,7 @@ export function PlaygroundPage({ mode, fonts, onModeChange: setMode, onFontsChan
     <Drawer open={configuration} onOpenChange={setConfiguration} title="Leve a identidade para seu projeto" width={740}>
       <div className={styles.stack}><div className={styles.controls}>{controls}</div><TypographySample value={fonts} /><CodeBlock label="Configuração da aplicação" language="tsx" code={snippet} /><p>Fontes opcionais, locais e com licença OFL. Substitua MinhaAplicacao pela composição das suas telas.</p></div>
     </Drawer>
-    <Command open={search} onOpenChange={setSearch} placeholder="Encontrar uma área…" items={Object.entries(areas).map(([id, label]) => ({ id, label, group: 'Workspace' }))} onSelect={item => { setArea(item.id as Area); setSearch(false); }} />
+    <Command open={search} onOpenChange={setSearch} placeholder="Encontrar área ou componente…" items={[...Object.entries(areas).map(([id, label]) => ({ id, label, group: 'Áreas' })), ...componentCatalog.map(entry => ({ id: `component:${entry.id}`, label: entry.label, group: 'Componentes' }))]} onSelect={item => { const entry = componentCatalog.find(entry => item.id === `component:${entry.id}`); if (entry) { setArea(entry.area); setSelectedComponent(entry.id); } else setArea(item.id as Area); setSearch(false); }} />
     <ToastRegion toasts={notice ? [{ id: 'playground-notice', title: notice, duration: 5000 }] : []} onDismiss={() => setNotice('')} />
   </ThemeProvider>;
 }

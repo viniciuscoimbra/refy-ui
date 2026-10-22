@@ -5,7 +5,7 @@ configuração do `ThemeProvider`; estado, eventos e semântica continuam na mes
 implementação. As páginas são composições de átomos, moléculas e organismos.
 
 Importe tokens e estilos no projeto. Para reproduzir a tipografia original,
-importe também `@refy/ui/fonts.css`: as três famílias são locais e opcionais.
+importe também `@refy/ui/fonts.css`: os conjuntos de fontes são locais e opcionais.
 Quem usa uma fonte própria não precisa carregar essas fontes.
 
 ```tsx
@@ -18,7 +18,14 @@ import '@refy/ui/fonts.css';
 const identidade: RefyTheme = {
   name: 'meu-produto',
   tokens: {
-    '--font-body': 'Inter, sans-serif',
+    '--font-body': '"Source Sans 3", sans-serif',
+    '--radius-xs': '0px',
+    '--radius-sm': '0px',
+    '--radius-md': '0px',
+    '--radius-lg': '0px',
+    '--radius-xl': '0px',
+    '--radius-pill': '0px',
+    '--radius-default': '0px',
     '--control-radius': '0px',
     '--control-border-width': '3px',
     '--button-primary-border': 'var(--ink-1)',
@@ -76,7 +83,7 @@ Contorno e Degradê são demonstrações de capacidade, não marcas aprovadas de
 | Rótulos | `--field-label-font`, `--field-label-size`, `--field-label-transform`, `--field-label-tracking` |
 | Cards | `--card-background`, `--card-radius`, `--card-border-width`, `--card-padding` |
 | Modal | `--dialog-surface`, `--dialog-radius`, `--dialog-border-width`, `--dialog-border-color`, `--dialog-shadow` |
-| Drawer | `--drawer-width`, `--drawer-radius` (painel inferior), `--drawer-surface`, `--drawer-body-padding` |
+| Drawer | `--drawer-width`, `--drawer-radius` (cantos expostos), `--drawer-surface`, `--drawer-body-padding` |
 | Foco, carregamento e movimento | `--control-focus-outline`, `--control-focus-offset`, `--control-disabled-opacity`, `--duration-*`, `--ease-*` |
 
 `--primary` continua sendo uma **cor**, usada também em checks e foco; não coloque

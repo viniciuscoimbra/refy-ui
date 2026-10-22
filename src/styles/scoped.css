@@ -14,6 +14,10 @@
   outline: 2px solid var(--primary-ink);
   outline-offset: 3px;
 }
+:where([data-refy-scope]) :is(option, optgroup) {
+  color: var(--ink-1);
+  background: var(--field-background, var(--surface));
+}
 @media (prefers-reduced-motion: reduce) {
   :where([data-refy-scope]) *, :where([data-refy-scope]) *::before, :where([data-refy-scope]) *::after {
     animation-duration: 0.001ms !important;

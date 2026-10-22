@@ -228,7 +228,7 @@
   gap: 4px;
   margin-inline: auto;
   padding: 6px 2px;
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
 }
 .rail .itemIcon :global(svg) { width: 20px; height: 20px; }
 .rail .itemLabel {
@@ -247,7 +247,7 @@
   height: 40px;
   margin-inline: auto;
   padding: 0;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
 }
 .collapsed .badge {
   position: absolute;

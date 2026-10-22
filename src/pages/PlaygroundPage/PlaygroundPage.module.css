@@ -16,5 +16,15 @@
 .inventory p { max-width: 70ch; line-height: 1.6; }
 .inventory nav { display: flex; flex-wrap: wrap; gap: 12px 24px; }
 .inventory a { color: var(--primary-ink); text-underline-offset: 3px; }
+.componentArea { display: grid; gap: 20px; min-width: 0; }
+.componentChooser { display: flex; align-items: end; flex-wrap: wrap; gap: 16px; }
+.componentChooser > :first-child { flex: 1 1 240px; }
+.componentChooser .actions { margin: 0; }
+.componentHeading { display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding-top: 24px; }
+.componentHeading h2 { margin: 0; font: var(--weight-semi) var(--text-h3)/var(--leading-tight) var(--font-heading); }
+.componentHeading p, .demoNote { margin: 8px 0 0; color: var(--ink-3); font-size: var(--text-sm); }
+.componentHeading a { color: var(--primary-ink); text-decoration: underline; text-underline-offset: 3px; }
+.demoStage { min-width: 0; max-width: 100%; overflow-x: auto; padding: 24px 4px; }
+.demoStage > * { max-width: 100%; }
 @media(max-width: 1000px) { .columns { grid-template-columns: 1fr; } }
 @media(max-width: 760px) { .toolbar { padding: 16px; gap: 16px; } .toolbar > .controls { flex-basis: 100%; } .controls { grid-template-columns: repeat(2, minmax(0, 1fr)); } .controls > :last-child { grid-column: 1 / -1; } .twoColumns { grid-template-columns: 1fr; } .stack { gap: 20px; } }

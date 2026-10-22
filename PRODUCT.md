@@ -20,6 +20,7 @@ Catálogo com linguagem imobiliária herdada do Dommus/Domuz; telas de laborató
 - Componentes são genéricos; páginas compõem átomos, moléculas e organismos.
 - Identidade e modo são independentes; a mesma interação suporta geometrias e superfícies diferentes.
 - Personalização deve ser explícita, fácil e documentada, sem copiar CSS interno.
+- O playground inclui todas as famílias catalogadas por finalidade, com montagem progressiva e a mesma personalização; exemplos de serviços externos deixam o limite local explícito.
 - Preservar APIs e dados dos consumidores; adoção real exige verificação própria.
 
 ## Accessibility & Inclusion
