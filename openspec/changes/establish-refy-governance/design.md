@@ -18,6 +18,8 @@ Não objetivos: Criar componentes, alterar tokens, publicar npm, certificar aces
 
 Alternativa descartada: alterar toda a biblioteca de uma vez e promover o catálogo pelo build/quantidade de stories. Essa abordagem não permite atribuir comportamento e falhas a contratos verificados. Reutilizar helpers/componentes atuais antes de criar abstrações ou dependências.
 
+Toda revisão de contrato público deve considerar consumidores existentes: Dommus/Domuz, Plyngo e bioma. O checklist deve exigir análise de impacto em tokens, imports, props, defaults e identidade, com migração explícita quando necessário; uma versão 0.x não dispensa essa análise.
+
 ## Risks / Trade-offs
 
 Um gate pode virar só um checkbox. Cada conclusão precisa apontar para evidência real; exceções não podem declarar conformidade inexistente.

@@ -8,6 +8,8 @@ Há tokens usados pelo Button que só existem no modo escuro. Precisamos de um c
 - Definir fonte estruturada compatível com DTCG 2025.10 e geração determinística do CSS.
 - Verificar temas, contraste, foco, movimento, fontes e regras de camadas com migração compatível.
 
+- Permitir uma base de componentes compartilhada por Dommus/Domuz, Plyngo e bioma, com identidade e modos próprios, ajustes visuais públicos e isolamento entre instâncias.
+
 Ordem 2/5. Predecessor: `establish-refy-governance` com gate aprovado e evidências.
 
 Não objetivos: Trocar a identidade Refy pela do PCF, gerar uma biblioteca Figma, criar centenas de tokens sem uso ou remover aliases públicos sem migração.
@@ -18,6 +20,7 @@ Não objetivos: Trocar a identidade Refy pela do PCF, gerar uma biblioteca Figma
 
 - `design-token-contract`: TOK-01, TOK-02, TOK-03.
 - `theme-conformance`: THM-01, THM-02, THM-03.
+- `product-theming`: BRAND-01, BRAND-02, BRAND-03.
 
 ### Modified Capabilities
 

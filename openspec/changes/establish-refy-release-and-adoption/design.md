@@ -19,6 +19,10 @@ Não objetivos: Publicar pacote nesta etapa de planejamento, obter credenciais e
 
 Alternativa descartada: alterar toda a biblioteca de uma vez e promover o catálogo pelo build/quantidade de stories. Essa abordagem não permite atribuir comportamento e falhas a contratos verificados. Reutilizar helpers/componentes atuais antes de criar abstrações ou dependências.
 
+5. Dommus/Domuz, Plyngo e bioma são consumidores prioritários, mas não são considerados idênticos. Inventariar framework, versão/base, imports, cópias, patches, fontes, assets e fluxos antes de escolher migração por pacote, mapeamento de tokens ou adaptação explícita. O inventário inicial necessário ao contrato começa na fundação; a certificação de instalação e adoção fecha nesta fase.
+6. Cada produto tem plano, versão fixada, de–para, teste de atualização e retorno ao baseline. Migrar um piloto por produto antes de expansão. Não editar instalações em node_modules nem exigir dependência por caminho local para o uso suportado do pacote. Divergências funcionais observadas exigem decisão/compatibilidade, não descarte silencioso.
+7. A matriz separa integração observada de compatibilidade comprovada: só recebe status validado a combinação de produto/versão/modo/componentes/fluxos efetivamente exercitada. Sem acesso ou evidência, registrar pendente e não declarar o produto homologado.
+
 ## Risks / Trade-offs
 
 Um pacote compilado pode não funcionar após instalação; testes precisam usar o tarball final em consumidor limpo. Uma falha após publicação não pode ser tratada sobrescrevendo versão já distribuída.

@@ -2,7 +2,7 @@
 
 ### Requirement: THM-01 — Temas completos e previsíveis
 
-Os modos light, dark e editorial SHALL cumprir o mesmo contrato semântico; a ausência de atributo SHALL produzir o tema claro proposto, e uma troca de tema não pode alterar o estado de interação.
+Os modos light, dark e editorial SHALL cumprir o mesmo contrato semântico; a ausência de configuração de identidade e modo SHALL produzir o tema claro proposto do Refy, e uma troca de tema não pode alterar o estado de interação.
 
 #### Scenario: THM-01 resultado esperado
 - **WHEN** um tema muda com um campo preenchido e menu aberto

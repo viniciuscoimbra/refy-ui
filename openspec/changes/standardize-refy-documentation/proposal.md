@@ -8,6 +8,8 @@ Autodocs e exemplos não explicam sozinhos qual elemento escolher nem os limites
 - Documentar escolhas entre controles e composições de páginas com Atomic Design.
 - Mostrar maturidade, compatibilidade e correspondência design/código sem inventar validações.
 
+- Ensinar instalação e personalização por produto, mostrando o mesmo componente em identidades e modos diferentes, sem duplicar sua implementação.
+
 Ordem 4/5. Predecessor: `certify-refy-core-components` com gate aprovado e evidências.
 
 Não objetivos: Declarar todas as famílias estáveis, implementar novas páginas de produto, criar Figma sem fonte aprovada ou colocar regras de negócio de clientes no DS.
@@ -16,7 +18,7 @@ Não objetivos: Declarar todas as famílias estáveis, implementar novas página
 
 ### New Capabilities
 
-- `component-documentation`: DOC-01, DOC-02.
+- `component-documentation`: DOC-01, DOC-02, DOC-03.
 - `catalog-maturity`: MAT-01, MAT-02.
 
 ### Modified Capabilities

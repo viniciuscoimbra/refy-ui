@@ -14,6 +14,8 @@
 - [ ] 2.7 Validar NVDA/Chrome no Windows (CORE-03, OVL-03). Aceite/evidência: versões e cenários aplicáveis registrados, incluindo anúncio/ação de aviso durante modalidade; falta de acesso permanece pendente.
 - [ ] 2.8 Validar VoiceOver/Safari no macOS (CORE-03, OVL-03). Aceite/evidência: versões e cenários aplicáveis registrados, incluindo anúncio/ação de aviso durante modalidade; WebKit automatizado não substitui Safari real.
 
+- [ ] 2.9 Reexecutar contratos essenciais com personalização (BRAND-02, BRAND-03, CORE-02, OVL-01, OVL-02). Aceite/evidência: matriz registra presets e modos exercitados, tipografia/densidade distintas e camadas aninhadas; eventos, foco, quebra de texto e semântica permanecem corretos; não extrapolar aos produtos ainda não homologados.
+
 ## 3. Gate de saída
 
 - [ ] 3.1 Revisar a rastreabilidade de CORE-01, CORE-02, CORE-03, CORE-04, OVL-01, OVL-02, OVL-03. Aceite/evidência: todos os requisitos apontam para execução e resultados observáveis; exceções válidas não substituem obrigações de conformidade.

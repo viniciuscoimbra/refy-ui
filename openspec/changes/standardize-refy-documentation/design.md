@@ -18,6 +18,8 @@ Não objetivos: Declarar todas as famílias estáveis, implementar novas página
 
 Alternativa descartada: alterar toda a biblioteca de uma vez e promover o catálogo pelo build/quantidade de stories. Essa abordagem não permite atribuir comportamento e falhas a contratos verificados. Reutilizar helpers/componentes atuais antes de criar abstrações ou dependências.
 
+Guia de instanciação: instalar o artefato distribuído, carregar estilos, fornecer identidade e modo e usar exports públicos. Demonstrar Button, Input, Card e composição Modal/Drawer com personalizações visuais e comportamento compartilhado. Exemplos por produto só usam material autorizado; na ausência dele, exemplos sintéticos identificados, sem selo de homologação.
+
 ## Risks / Trade-offs
 
 Documentar comportamento imaginado cria contrato falso. Os exemplos devem consumir exports públicos e refletir APIs reais; requisitos funcionais descobertos voltam para a mudança responsável.

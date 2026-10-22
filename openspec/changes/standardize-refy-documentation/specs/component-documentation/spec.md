@@ -23,3 +23,15 @@ Os guias SHALL explicar Menu para ações, Select para escolhas simples, Combobo
 #### Scenario: DOC-02 falha ou limite
 - **WHEN** um exemplo troca controle apenas por aparência ou transforma a página inteira em organismo
 - **THEN** a revisão recusa o exemplo e registra a correção necessária.
+
+### Requirement: DOC-03 — Guia de instanciação e personalização
+
+A documentação SHALL demonstrar instalação e uso do pacote público em um projeto novo, criação de identidade/modos e personalização de componentes existentes, diferenciando tokens, extensão por composição e mudança funcional; SHALL indicar estado de validação de Dommus/Domuz, Plyngo e bioma.
+
+#### Scenario: DOC-03 resultado esperado
+- **WHEN** o leitor segue o guia a partir de um consumidor limpo
+- **THEN** consegue reproduzir dois presets com o mesmo Button, Input e Card e uma composição Modal/Drawer, usando exports públicos e instruções verificadas.
+
+#### Scenario: DOC-03 falha ou limite
+- **WHEN** o exemplo depende de fonte privada, path local ou API não publicada
+- **THEN** o guia explicita a limitação e oferece exemplo sintético reproduzível; não o apresenta como integração homologada.

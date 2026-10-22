@@ -21,9 +21,11 @@
 - [ ] 2.14 Documentar lote 11: UserMenu, VisitSchedulePicker, VoiceRecorder, WizardStepper, WorkspaceSwitcher (DOC-01, MAT-01, MAT-02). Aceite/evidência: cada família deste lote tem ficha e fonte/limitação de design explícita; status não avaliado permanece quando não há evidência.
 - [ ] 2.15 Verificar cobertura links e exemplos do catálogo (DOC-01, DOC-02, MAT-01, MAT-02). Aceite/evidência: check detecta ficha ausente, link quebrado e estabilidade sem evidência; stories e exports continuam válidos.
 
+- [ ] 2.16 Publicar guia reproduzível de instanciação e personalização (DOC-03). Aceite/evidência: consumidor limpo usa tarball e API pública, dois presets e composição de camadas; tabela por produto distingue observado, validado e pendente, sem dependências privadas.
+
 ## 3. Gate de saída
 
-- [ ] 3.1 Revisar a rastreabilidade de DOC-01, DOC-02, MAT-01, MAT-02. Aceite/evidência: todos os requisitos apontam para execução e resultados observáveis; exceções válidas não substituem obrigações de conformidade.
+- [ ] 3.1 Revisar a rastreabilidade de DOC-03, DOC-01, DOC-02, MAT-01, MAT-02. Aceite/evidência: todos os requisitos apontam para execução e resultados observáveis; exceções válidas não substituem obrigações de conformidade.
 - [ ] 3.2 Registrar decisão do gate e sincronizar/arquivar apenas após conclusão. Aceite/evidência: testes aplicáveis passam, revisão aprova o escopo executado e specs de base refletem o comportamento real; enquanto houver tarefa necessária pendente, esta mudança não libera a próxima.
 
 Todas as tarefas começam desmarcadas. Preencher evidências durante a execução; validação sintática dos artefatos não marca implementação como concluída.

@@ -27,6 +27,14 @@ A revisão deve conferir o escopo, as decisões abertas e os cenários antes de 
 
 Cada tarefa concluída precisará registrar a execução e o resultado. Nenhuma checkbox desta entrega afirma que o comportamento foi implementado ou certificado. Uma dúvida que determina uma solução, como o escopo de avisos acionáveis durante um modal, deve ser resolvida no design antes da tarefa correspondente.
 
+## Uma base para vários produtos
+
+O objetivo é usar o mesmo componente Refy em Dommus/Domuz, Plyngo e bioma, com a identidade de cada aplicação. Identidade e modos claro/escuro são eixos distintos. Personalização cobre cores, fontes, densidade, raios e demais ajustes necessários por contrato público, preservando a interação. Logos e regras de negócio ficam nos consumidores.
+
+A fase 2 define esse contrato e verifica isolamento, inclusive em portais; a fase 3 testa comportamento com personalização; a fase 4 ensina a instanciar; a fase 5 comprova adoção com pilotos e retorno à versão anterior. A revisão de governança considera o impacto nesses consumidores desde o início.
+
+Hoje há evidência de dependência local/patches e adaptação de tokens no Plyngo, origem de extração no Dommus/Domuz e tokens derivados na IDE bioma. Isso não equivale a compatibilidade homologada com o novo pacote. O de–para por produto e os pilotos permanecem tarefas abertas; nenhuma aplicação é migrada por este planejamento.
+
 ## Estado inicial
 
 Baseline de código: `c3f03fd`, pacote `@refy/ui` 0.4.0. O inventário de origem tem 92 famílias e 371 stories. Esses números são referência de escopo; não representam certificação de comportamento ou acessibilidade.
