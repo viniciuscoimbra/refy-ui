@@ -104,3 +104,13 @@ test('fontes atualizam os tokens resolvidos e a agenda exige um horário', async
   await page.getByRole('button', { name: 'Registrar disponibilidade' }).click();
   await expect(page.getByRole('status')).toContainText('Disponibilidade registrada');
 });
+
+test('seletores da aplicação e barra do Storybook mostram a mesma escolha', async ({ page }) => {
+  await page.goto('/?path=/story/fundamentos-playground--aplicacao');
+  const app = page.frameLocator('#storybook-preview-iframe');
+  const controls = app.locator('header[aria-label="Personalizar aplicação"]');
+  await controls.getByLabel('Modo', { exact: true }).selectOption('dark');
+  await expect(page.getByRole('button', { name: /Refy · escuro/ })).toBeVisible();
+  await controls.getByLabel('Conjunto de fontes').selectOption('plex');
+  await expect(page.getByRole('button', { name: /IBM Plex/ })).toBeVisible();
+});

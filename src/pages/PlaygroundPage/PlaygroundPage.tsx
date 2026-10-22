@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   AppShell, Avatar, AvatarGroup, Badge, Button, Card, CardHeader, Callout,
   Checkbox, CodeBlock, Command, ContentCard, DecisionActions, Drawer,
@@ -45,9 +45,7 @@ const components = [
 ];
 
 /** Demo page composition, deliberately not exported as a design-system organism. */
-export function PlaygroundPage({ initialMode = 'light', initialFonts = 'humanist' }: { initialMode?: ThemeMode; initialFonts?: FontSet }) {
-  const [mode, setMode] = useState(initialMode);
-  const [fonts, setFonts] = useState<FontSet>(initialFonts);
+export function PlaygroundPage({ mode, fonts, onModeChange: setMode, onFontsChange: setFonts }: { mode: ThemeMode; fonts: FontSet; onModeChange: (mode: ThemeMode) => void; onFontsChange: (fonts: FontSet) => void }) {
   const [skin, setSkin] = useState<keyof typeof skins>('refy');
   const [area, setArea] = useState<Area>('overview');
   const [workView, setWorkView] = useState('list');
@@ -68,8 +66,6 @@ export function PlaygroundPage({ initialMode = 'light', initialFonts = 'humanist
   const [review, setReview] = useState('content');
   const [approved, setApproved] = useState<string[]>([]);
   const [availability, setAvailability] = useState<Record<string, string[]>>({});
-  useEffect(() => setMode(initialMode), [initialMode]);
-  useEffect(() => setFonts(initialFonts), [initialFonts]);
   const identity = { ...skins[skin].theme, name: skins[skin].theme?.name ?? 'refy', tokens: { ...skins[skin].theme?.tokens, ...fontSets[fonts].tokens } };
   const snippet = `import { ThemeProvider, fontSets } from '@refy/ui';\nimport '@refy/ui/tokens.css';\nimport '@refy/ui/styles.css';\nimport '@refy/ui/fonts.css';\n\nconst theme = ${JSON.stringify({ ...identity, tokens: skins[skin].theme?.tokens ?? {} }, null, 2)};\ntheme.tokens = { ...theme.tokens, ...fontSets.${fonts}.tokens };\n\n<ThemeProvider theme={theme} mode="${mode}">\n  <MinhaAplicacao />\n</ThemeProvider>`;
   const controls = <>

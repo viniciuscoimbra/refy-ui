@@ -28,3 +28,6 @@ Implementação e verificação local realizadas. Revisão técnica/visual do ag
 - 14 verificações adicionais do playground (contraste/rótulos/overflow e trocas) passaram localmente nos dois navegadores. Amostras dirigidas das 14 famílias afetadas: 84 verificações, sem overflow ou violação de contraste detectados.
 - Confirmada atualização do valor resolvido de font-body na página de tokens e impedida confirmação de agenda sem horário (2 testes adicionais locais aprovados).
 - Nova execução normal do CI com referências revistas: pendente.
+
+## Sincronização da experiência
+Modo e fonte do playground compartilham os globals do Storybook; a barra externa e os seletores da aplicação mostram a mesma escolha. Repetidos os 16 testes do playground localmente após a mudança, mais dois testes novos de sincronização da barra. Check/build aprovados novamente.

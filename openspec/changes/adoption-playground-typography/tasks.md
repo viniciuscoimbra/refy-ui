@@ -8,4 +8,4 @@
 
 ## 3. Verificação e entrega
 - [ ] 3.1 Verificar comportamento, fontes, contraste, responsividade e build; atualizar referências visuais apenas após inspeção. Aceite: checks/specs/build/browser pertinentes aprovados, limitações registradas.
-- [ ] 3.2 Atualizar documentação, evidência, contexto e links diretos dos componentes alterados. Aceite: entrega centrada no playground; sem alegação de certificação integral ou publicação.
+- [x] 3.2 Atualizar documentação, evidência, contexto e links diretos dos componentes alterados. Aceite: entrega centrada no playground; sem alegação de certificação integral ou publicação.
