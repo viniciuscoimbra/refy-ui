@@ -47,6 +47,7 @@ for (const [area, label] of Object.entries(componentAreas)) for (const mode of [
       }
       for (const skin of ['refy', 'outline', 'gradient']) {
         await controls.getByLabel('Aparência').selectOption(skin);
+        if (entry.id === 'Calendar') await expect(stage.getByRole('gridcell').first().locator('span')).toHaveCSS('border-top-left-radius', skin === 'outline' ? '0px' : '9999px');
         await stage.scrollIntoViewIfNeeded();
         const failures = await stage.evaluate(async el => (await (window as any).axe.run(el, { runOnly: ['color-contrast'] })).violations.map((v: any) => ({ id: v.id, nodes: v.nodes.map((n: any) => ({ target: n.target, summary: n.failureSummary })) })));
         expect.soft(failures, `${entry.id} / ${skin}`).toEqual([]);

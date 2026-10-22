@@ -23,6 +23,7 @@ Em execução. Revisão do agente não equivale a aprovação visual do mantened
 - Inspeção visual do agente: chips selecionados/semânticos em tema escuro e composição, modal desktop e drawer móvel. Capturas reduzidas, sem lotes de imagens no contexto. Popup nativo do SO não foi capturado pela API de navegador; CSS computado, semântica e teclado foram verificados, sem garantir aparência idêntica entre sistemas.
 - Checks, OpenSpec e build do Storybook aprovados. Graft reconstruído. Verificação Linux e atualização das referências específicas daquela plataforma ainda em andamento.
 - Busca por família aprovada em Chromium/WebKit: EventTimeline abre em Dados e atividades, preservando modo escuro e conjunto Studio.
+- Revisão final de geometria: dias do Calendar passaram de raio literal ao token `--radius-pill`, preservando a forma circular de Refy/Degradê e respondendo a Contorno. Quatro casos de Formulários (claro/escuro × Chromium/WebKit, três aparências) passaram com asserção específica dos raios.
 - Linux, commit `626dca0`, execução [39787758823](https://github.com/viniciuscoimbra/refy-ui/actions/runs/39787758823): 402 testes aprovados e 12 diferenças visuais esperadas em modal/drawer escuros, sem falhas funcionais. As 18 imagens correspondentes foram comparadas por dimensões/diff e inspecionadas em recorte representativo Firefox antes de atualizar as referências. Nova execução normal pendente; nenhum limiar de comparação foi alterado.
 
 ## Acesso direto
