@@ -1,0 +1,64 @@
+# Planejamento de qualidade do Refy
+
+O programa define contratos e evidências para evoluir a biblioteca Refy. Esta entrega inicializa o OpenSpec e prepara os artefatos; não implementa alterações nos componentes, nos tokens ou na distribuição.
+
+## Ordem de execução
+
+| Ordem | Mudança | Depende de | Gate de saída |
+|---|---|---|---|
+| 1 | [Governança](changes/establish-refy-governance/proposal.md) | Revisão e autorização de execução desta fase | Processo, responsabilidade, maturidade e evidência definidos e verificados |
+| 2 | [Fundação e temas](changes/standardize-refy-foundations/proposal.md) | Gate de governança aprovado | Tokens resolvidos, geração determinística, temas e critérios visuais aplicáveis verificados |
+| 3 | [Componentes essenciais](changes/certify-refy-core-components/proposal.md) | Gate de fundação aprovado | Contratos dos sete componentes e composições validados, incluindo evidência assistiva necessária |
+| 4 | [Documentação](changes/standardize-refy-documentation/proposal.md) | Gate dos componentes essenciais aprovado | Fichas, inventário real de maturidade, guias e links conferidos |
+| 5 | [Release e adoção](changes/establish-refy-release-and-adoption/proposal.md) | Gate de documentação aprovado | Pacote, suporte, segurança, migração e publicação autorizada verificados |
+
+As dependências são condições documentadas de execução, não um bloqueio automático do CLI. Ter proposal/design/specs/tasks completos não comprova execução ou autorização para implementar. Não iniciar a próxima fase apenas porque o CLI considera os artefatos completos.
+
+## Como ler e revisar
+
+Cada mudança contém:
+
+- `proposal.md`: problema, escopo, capacidades, impacto e predecessor.
+- `design.md`: decisões propostas, alternativas, riscos, migração e decisões abertas.
+- `specs/<capacidade>/spec.md`: requisitos com IDs e cenários observáveis de sucesso e falha/limite.
+- `tasks.md`: tarefas desmarcadas, IDs atendidos, critérios de aceite e evidências esperadas.
+
+A revisão deve conferir o escopo, as decisões abertas e os cenários antes de autorizar a execução. Exemplos de aceite nesta proposta incluem falha para tokens obrigatórios ausentes, dispensa de camadas em ordem, ação de aviso acessível durante modalidade e instalação real do tarball fora do workspace.
+
+Cada tarefa concluída precisará registrar a execução e o resultado. Nenhuma checkbox desta entrega afirma que o comportamento foi implementado ou certificado. Uma dúvida que determina uma solução, como o escopo de avisos acionáveis durante um modal, deve ser resolvida no design antes da tarefa correspondente.
+
+## Estado inicial
+
+Baseline de código: `c3f03fd`, pacote `@refy/ui` 0.4.0. O inventário de origem tem 92 famílias e 371 stories. Esses números são referência de escopo; não representam certificação de comportamento ou acessibilidade.
+
+As specs propostas ficam em `changes/`. `openspec/specs/` permanece sem contratos promovidos até a implementação, verificação e sincronização/arquivamento adequados. Requisitos ainda propostos não devem ser apresentados como comportamento existente.
+
+O primeiro escopo funcional é Button, Input, Menu, Modal, Drawer, Tooltip e ToastRegion. Uma família pode exportar mais de uma API: validar ToastRegion não certifica automaticamente Toast isolado ou toda composição que o use. O inventário deve registrar o escopo efetivamente verificado.
+
+As decisões de registry e acesso de publicação pertencem à quinta fase. A correspondência Figma deve indicar fonte/verificação ou limitação de acesso; o planejamento não presume essa equivalência. A identidade do GF permanece baseada no PCF em sua derivação.
+
+## Comandos
+
+Requisito de planejamento: OpenSpec CLI 1.5.0, versão usada na inicialização. O CLI não é uma dependência de execução da biblioteca.
+
+```bash
+openspec list --json
+openspec status --change establish-refy-governance
+openspec show establish-refy-governance
+openspec validate --all --strict
+```
+
+Os comandos de aplicação só entram depois de autorizar a execução da fase e verificar seu gate de entrada. Arquivamento e sincronização das specs de base ficam para a conclusão real das mudanças.
+
+## Referências do levantamento
+
+- [Material Design: tokens](https://m3.material.io/foundations/design-tokens)
+- [Fluent: tokens globais e aliases](https://fluent2.microsoft.design/design-tokens)
+- [Spectrum: tokens e composição](https://spectrum.adobe.com/foundations/design-data/design-tokens)
+- [Carbon: acessibilidade](https://www.carbondesignsystem.com/building-blocks/foundations/accessibility)
+- [Radix: teclado, foco e semântica](https://www.radix-ui.com/primitives/docs/overview/accessibility)
+- [GOV.UK: critérios de contribuição](https://design-system.service.gov.uk/community/contribution-criteria/)
+- [W3C: WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)
+- [DTCG: formato 2025.10](https://www.designtokens.org/TR/2025.10/format/)
+
+Essas referências orientam contratos e revisão; não transferem certificação ou identidade visual ao Refy.

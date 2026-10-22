@@ -99,3 +99,9 @@ Dependências e fontes externas mantêm suas próprias licenças. Consulte [os a
 ## Segurança
 
 Consulte [SECURITY.md](SECURITY.md) para relatar problemas e conferir os alertas conhecidos das ferramentas de desenvolvimento. O servidor local do Storybook não deve ser exposto à internet.
+
+## Processo de evolução
+
+A evolução da qualidade do Refy é planejada em [OpenSpec](openspec/README.md), na ordem: governança, fundação e temas, componentes essenciais, documentação e release/adoção. Cada mudança registra proposta, design, requisitos com cenários de aceite e tarefas com evidências esperadas.
+
+Esse programa está em planejamento. Artefatos validados não significam componentes certificados ou implementação concluída; a execução segue o gate de entrada de cada fase.
