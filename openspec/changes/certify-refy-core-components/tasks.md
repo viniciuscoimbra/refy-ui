@@ -8,13 +8,13 @@
 - [x] 2.1 Escrever fichas funcionais dos sete (CORE-01). Aceite/evidência: matriz identifica estados e eventos aplicáveis, padrões nativos e justificativas de não aplicável.
 - [x] 2.2 Revisar e corrigir teclado e foco em helpers e consumidores (CORE-02). Aceite/evidência: testes dos sete cobrem sucesso, bloqueios, retorno de foco e valor preservado; busca de consumidores registrada.
 - [x] 2.3 Revisar portação de correções genéricas de camadas (OVL-01, OVL-02). Aceite/evidência: comparação de API e teste de prioridade não inclui tokens PCF; nenhuma portação presumida como homologada.
-- [ ] 2.4 Executar a matriz de colisão e Escape (OVL-01, OVL-02). Aceite/evidência: 48 combinações por engine: Modal/Drawer x três temas x duas larguras x aviso antes/depois x tooltip local/portal; screenshots e hit-testing com limites da técnica registrados.
+- [x] 2.4 Executar a matriz de colisão e Escape (OVL-01, OVL-02). Aceite/evidência: 48 combinações por engine: Modal/Drawer x três temas x duas larguras x aviso antes/depois x tooltip local/portal; screenshots e hit-testing com limites da técnica registrados.
 - [x] 2.5 Resolver escopo acessível dos avisos acionáveis (OVL-03). Aceite/evidência: decisão de montagem/foco registrada antes da alteração; teste manual confirma ação e dispensa sem acesso ao fundo.
-- [ ] 2.6 Integrar testes de interação e regressão visual (CORE-01, CORE-02, CORE-04, OVL-01, OVL-02). Aceite/evidência: CI executa três engines e diferenças exigem revisão registrada.
+- [x] 2.6 Integrar testes de interação e regressão visual (CORE-01, CORE-02, CORE-04, OVL-01, OVL-02). Aceite/evidência: CI executa três engines e diferenças exigem revisão registrada.
 - [ ] 2.7 Validar NVDA/Chrome no Windows (CORE-03, OVL-03). Aceite/evidência: versões e cenários aplicáveis registrados, incluindo anúncio/ação de aviso durante modalidade; falta de acesso permanece pendente.
 - [ ] 2.8 Validar VoiceOver/Safari no macOS (CORE-03, OVL-03). Aceite/evidência: versões e cenários aplicáveis registrados, incluindo anúncio/ação de aviso durante modalidade; WebKit automatizado não substitui Safari real.
 
-- [ ] 2.9 Reexecutar contratos essenciais com personalização (BRAND-02, BRAND-03, CORE-02, OVL-01, OVL-02). Aceite/evidência: matriz registra presets e modos exercitados, tipografia/densidade distintas e camadas aninhadas; eventos, foco, quebra de texto e semântica permanecem corretos; não extrapolar aos produtos ainda não homologados.
+- [x] 2.9 Reexecutar contratos essenciais com personalização (BRAND-02, BRAND-03, CORE-02, OVL-01, OVL-02). Aceite/evidência: matriz registra presets e modos exercitados, tipografia/densidade distintas e camadas aninhadas; eventos, foco, quebra de texto e semântica permanecem corretos; não extrapolar aos produtos ainda não homologados.
 
 ## 3. Gate de saída
 

@@ -23,19 +23,19 @@ Decisão de montagem OVL-03 foi registrada no design antes da implementação.
 | 2.1 | CORE-01 | docs/CORE_CONTRACTS.md registra API, defaults, estados/eventos, controle e não aplicáveis dos sete; maturidade experimental |
 | 2.2 | CORE-02 | tests/core.spec.ts verifica bloqueios de Button; Input com IDs únicos/descrições; Menu com foco/setas/Home/End/letras/seleção; retorno de foco e gatilho removido; diálogos aninhados/inert/scroll; aviso acionável e timers |
 | 2.3 | OVL-01/02 | Helpers candidatos revistos e adaptados; top layer manual ordenada; CSS/identidade continuam Refy; nenhuma portação presumida como homologação de aplicação |
-| 2.4 | OVL-01/02 | 48 combinações por engine: 3 temas × Modal/Drawer × 375/1280 × aviso antes/depois × ajuda local/portal. Hittest confirma superfícies reais; Escape fecha 3 níveis; instância/animação do aviso preservada. Chromium/WebKit passaram; aguarda resultado Linux das 3 engines |
+| 2.4 | OVL-01/02 | 48 combinações por engine: 3 temas × Modal/Drawer × 375/1280 × aviso antes/depois × ajuda local/portal. Hittest confirma superfícies reais; Escape fecha 3 níveis; instância/animação do aviso preservada. Execução nas três engines Linux registrada abaixo |
 | 2.5 | OVL-03 | Região global mantém host/Toast estável, move ao diálogo da mesma instância e retorna à origem. Sessão manual IAB: abrir modal, 6 Tabs até Desfazer, Enter dispensa aviso, foco retorna a Ajuda dentro do modal; Escape dispensa ajuda, outro fecha diálogo; Abrir fluxo recupera foco; contador Ações do aviso=1. Fundo ausente da árvore acessível durante modalidade. Isso é teste manual de teclado/árvore, não leitura NVDA/VoiceOver |
-| 2.6 | CORE-04 | Comparação visual implementada em tests/visual.spec.ts, 18 referências por engine/OS em 375x812 e 1280x900, 3 modos, base/modal/drawer; 36 referências Mac revistas nas 6 folhas por engine/modo. Comparação sem atualizar referências passou. Referências Linux ainda precisam de captura e revisão |
+| 2.6 | CORE-04 | Comparação visual implementada em tests/visual.spec.ts, 18 referências por engine/OS em 375x812 e 1280x900, 3 modos, base/modal/drawer; 36 referências Mac e 54 Linux revistas em folhas por engine/modo. Comparação sem atualizar referências registrada abaixo |
 | 2.7 | CORE-03/OVL-03 | NVDA/Chrome Windows não executado; roteiro docs/ASSISTIVE_QA.md pronto; sem promoção |
 | 2.8 | CORE-03/OVL-03 | VoiceOver/Safari real não executado; WebKit e IAB não substituem essa sessão; sem promoção |
-| 2.9 | BRAND-02/03 | Testes de temas/presets sintéticos, escopos aninhados e portais reexecutados com os componentes alterados; parte da suíte local abaixo; aguarda CI atualizado |
+| 2.9 | BRAND-02/03 | Testes de temas/presets sintéticos, escopos aninhados e portais reexecutados com os componentes alterados; tipografia/densidade distintas, preservação de estado e isolamento; resultados locais e Linux abaixo; produtos reais continuam sem homologação |
 
 ## Verificações executadas
 
 - npm run check: tokens/30 pares de contraste/tipos/build/SSR passaram.
 - npm run build-storybook: compilou.
 - npm run check:specs e git diff --check: passaram.
-- npm run test:browser -- --project=chromium --project=webkit: **176 testes passaram**, incluindo 152 de comportamento/adaptação/axe e 24 casos visuais; comparação feita sem --update-snapshots.
+- Primeira rodada npm run test:browser -- --project=chromium --project=webkit: **176 testes passaram**; as rodadas ampliadas e a contagem atual estão registradas abaixo. Comparações feitas sem --update-snapshots.
 - O inventário agora contém 290 variáveis consumidas; novos hooks opcionais têm fallback.
 
 Falhas detectadas e corrigidas durante esta execução: item desabilitado inicial
@@ -53,7 +53,8 @@ do usuário. Referência oficial no roteiro. No CI Linux usa Tab.
 
 ## Gate
 
-**Aberto.** Falta a homologação assistiva real e a revisão/execução visual no Linux.
+**Aberto.** Falta a homologação assistiva real. A revisão e execução visual Linux
+foram realizadas, com resultados e correções registrados abaixo.
 As famílias continuam experimentais. Não sincronizar/promover specs desta mudança
 como certificadas nem liberar as fases seguintes por substituição da evidência manual.
 O mantenedor recebeu pergunta nesta conversa sobre execução do roteiro; sem resposta,
@@ -77,4 +78,21 @@ efetivo; Tooltip reutiliza esse mesmo contêiner na montagem. O novo teste verif
 ambas as formas inicialmente abertas, a camada nativa e dois Escapes sucessivos.
 Após a correção, o teste focado passou nas duas engines e a suíte local completa
 passou **192 testes** em Chromium/WebKit, sem atualizar referências visuais.
-O check de biblioteca também passou. Aguarda CI desta regressão final (288 casos).
+O check de biblioteca também passou.
+
+## Resultado automático final e limite do gate
+
+Commit de código: d1eb38dded285d36b7f9d6addd5e6f27c3807f5d.
+Execução: https://github.com/viniciuscoimbra/refy-ui/actions/runs/39720553194.
+Log do job 119632769649: **288 passed (4.7m)**, em Chromium, Firefox e WebKit
+no Linux. OpenSpec (10 itens e controles), tokens (290 variáveis), 30 pares de
+contraste, tipos/build/SSR, build Storybook e npm pack --dry-run passaram.
+Local: 192 testes Chromium/WebKit, build Storybook, check:specs, diff --check
+e graft build passaram. As 90 referências foram comparadas sem atualização.
+Tarefas 2.4, 2.6 e 2.9 concluídas com essa execução; a comparação não homologa
+aplicações consumidoras nem substitui leitores de tela reais.
+
+Restam 2.7, 2.8, 3.1 e 3.2 nesta fase. CORE-03 exige NVDA/Chrome Windows e
+VoiceOver/Safari reais; essas sessões não foram executadas. O gate permanece
+aberto e os sete continuam experimentais. Fases de documentação integral e
+release/adoção não foram iniciadas, conforme dependências aprovadas.

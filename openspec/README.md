@@ -20,7 +20,7 @@ As dependências são condições documentadas de execução, não um bloqueio a
 |---|---|---|
 | Governança | Gate técnico concluído; specs sincronizadas | [Registro](changes/establish-refy-governance/evidence.md) |
 | Fundação | Gate técnico concluído; specs sincronizadas | [Registro](changes/standardize-refy-foundations/evidence.md) |
-| Componentes essenciais | Implementação e automação em verificação; homologação assistiva pendente | [Registro e pendências](changes/certify-refy-core-components/evidence.md) |
+| Componentes essenciais | Automação passou: 288 testes Linux / 192 locais; homologação assistiva pendente | [Registro e pendências](changes/certify-refy-core-components/evidence.md) |
 | Documentação integral | Não iniciada; depende do gate dos componentes | [Tarefas](changes/standardize-refy-documentation/tasks.md) |
 | Release e adoção | Não iniciada; pacote não publicado, produtos não migrados | [Tarefas](changes/establish-refy-release-and-adoption/tasks.md) |
 

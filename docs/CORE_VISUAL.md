@@ -25,8 +25,13 @@ artefato browser-evidence da execução
 https://github.com/viniciuscoimbra/refy-ui/actions/runs/39716998021.
 Essa execução inicialmente falhou: 36 casos sem referência Linux, uma carga inicial
 lenta e uma falha de foco. Nenhuma falha foi aceita como aprovação de comportamento;
-as duas causas foram tratadas e exigem nova execução. As capturas só foram copiadas
+as duas causas foram tratadas. As capturas só foram copiadas
 para a base após revisão visual, preservando as referências existentes do Mac.
+
+A execução final do código em
+https://github.com/viniciuscoimbra/refy-ui/actions/runs/39720553194
+passou 288 testes nas três engines Linux, incluindo comparação das referências
+sem atualizá-las. A suíte local atual passou 192 testes em Chromium/WebKit.
 
 ## Processo de atualização
 
