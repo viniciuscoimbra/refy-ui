@@ -4,8 +4,9 @@ context: |
   de autoria de Vinícius Coimbra. Baseline: commit c3f03fd, versão 0.4.0,
   92 famílias e 371 stories; esses números não comprovam certificação.
   Stack: Node >=22.12, React, CSS Modules, Vite e Storybook.
-  A solicitação atual autoriza inicialização e planejamento, sem implementar
-  componentes, tokens, testes, workflows de release ou publicação de pacote.
+  O mantenedor autorizou executar as cinco fases em 21/10/2026.
+  Cumprir cada gate e registrar evidência real antes de liberar a próxima fase;
+  publicação e homologação dependem dos critérios explícitos da fase final.
   Ordem: establish-refy-governance -> standardize-refy-foundations ->
   certify-refy-core-components -> standardize-refy-documentation ->
   establish-refy-release-and-adoption.
