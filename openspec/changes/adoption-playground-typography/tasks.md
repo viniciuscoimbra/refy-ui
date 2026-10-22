@@ -7,5 +7,5 @@
 - [x] 2.2 Evidenciar papéis/fontes em personalização e tokens, conectar a visão geral; simplificar navegação preservando fixtures. Aceite: PLAY-02/04, URLs válidas e fixtures acessíveis.
 
 ## 3. Verificação e entrega
-- [ ] 3.1 Verificar comportamento, fontes, contraste, responsividade e build; atualizar referências visuais apenas após inspeção. Aceite: checks/specs/build/browser pertinentes aprovados, limitações registradas.
+- [x] 3.1 Verificar comportamento, fontes, contraste, responsividade e build; atualizar referências visuais apenas após inspeção. Aceite: checks/specs/build/browser pertinentes aprovados, limitações registradas.
 - [x] 3.2 Atualizar documentação, evidência, contexto e links diretos dos componentes alterados. Aceite: entrega centrada no playground; sem alegação de certificação integral ou publicação.
