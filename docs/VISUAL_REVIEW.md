@@ -8,6 +8,7 @@ Mudança: [restore-refy-visual-coherence](../openspec/changes/restore-refy-visua
 
 - 383 stories carregadas em 375/1280px; 92 famílias com amostras nos três modos e duas larguras.
 - 1348 casos: zero erros de renderização e zero elementos fora da página no detector.
+- 222 testes locais em Chromium/WebKit e 333 em Chromium/Firefox/WebKit no [Linux, commit f18eccc](https://github.com/viniciuscoimbra/refy-ui/actions/runs/39770384370). As 90 referências visuais Mac/Linux foram revistas antes de atualizar; a execução normal compara sem regenerá-las.
 - 291 amostras de contraste de texto por axe: zero violações detectadas após as correções. O detector não certifica gradientes, todos os estados, gestos ou conformidade global.
 - Inspeção visual das pranchas das famílias, com ampliação de telas, sobreposições e falhas. Não é comparação pixel a pixel de todas as variantes contra Figma.
 - Capturas integrais antes/depois em [public/review](../public/review), com viewport inicial 375×900 ou 1280×900, Chromium e movimento reduzido.

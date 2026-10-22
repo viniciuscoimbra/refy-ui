@@ -12,5 +12,5 @@
 
 ## 3. Evidência e saída
 - [x] 3.1 Publicar antes/depois e de–para no Storybook (VIS-03). Aceite: capturas identificadas por commit/tamanho, motivos e limitações legíveis.
-- [ ] 3.2 Executar regressões de skins, páginas, interações e checks (SKIN-01, SKIN-02, VIS-02). Aceite: execução registrada, diferenças intencionais revistas e nenhuma falha conhecida escondida por snapshots novos.
-- [ ] 3.3 Revisar requisitos e registrar gate visual (VIS-01/02/03, CAT-01/02, SKIN-01/02). Aceite: evidências correspondem ao escopo real; pendência assistiva permanece explícita; nenhuma aplicação declarada homologada.
+- [x] 3.2 Executar regressões de skins, páginas, interações e checks (SKIN-01, SKIN-02, VIS-02). Aceite: execução registrada, diferenças intencionais revistas e nenhuma falha conhecida escondida por snapshots novos.
+- [x] 3.3 Revisar requisitos e registrar gate visual (VIS-01/02/03, CAT-01/02, SKIN-01/02). Aceite: evidências correspondem ao escopo real; pendência assistiva permanece explícita; nenhuma aplicação declarada homologada.

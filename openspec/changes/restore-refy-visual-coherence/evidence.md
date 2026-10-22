@@ -25,11 +25,12 @@ Revisor: Codex (agente), sem aprovação humana ou independente. Baseline anteri
 - `npx playwright test --project=chromium --project=webkit`: 222 testes passaram no macOS. As 36 diferenças das referências visuais locais foram revistas antes de serem atualizadas; restauração das fontes e ajuste do canvas explicam as diferenças.
 - Suíte de design repetida após as correções finais: 30 testes passaram (Chromium/WebKit). Inclui scroll inicial/adição/remoção no Multiselect, sucesso independente da marca e marcação do Checkbox com o contraste do tema.
 - A varredura de 1348 casos e 291 contrastes foi repetida após os ajustes finais de seleção e sucesso, sem erros detectados; capturas e pranchas atualizadas.
-- Linux no commit 50a10eb: execução 39768802688, 297 testes passaram e 36 testes visuais falharam nas referências anteriores. As 54 imagens diferentes (18 bases e 36 sobreposições) foram comparadas ao esperado em cinco pranchas e em ampliações. Diferenças intencionais de fontes/canvas; referências atualizadas após revisão. Nova execução normal ainda pendente, sem atualização automática.
+- Linux no commit 50a10eb: execução 39768802688, 297 testes passaram e 36 testes visuais falharam nas referências anteriores. As 54 imagens diferentes (18 bases e 36 sobreposições) foram comparadas ao esperado em cinco pranchas e em ampliações. Diferenças intencionais de fontes/canvas; referências atualizadas após revisão. A execução normal posterior confirmou as referências, sem atualização automática.
+- [Execução Linux 39770384370](https://github.com/viniciuscoimbra/refy-ui/actions/runs/39770384370), código f18ecccc4880c0705aa3ef17eaf471d37b31a0e2: **333 testes passaram** em Chromium, Firefox e WebKit; checks, OpenSpec, build do Storybook e pacote também passaram. As 90 referências Mac/Linux foram revistas pelo agente.
 - `graft build`: contexto local atualizado.
 
 ## Gate
 
-Implementação e revisão local concluídas; validação Linux/Firefox e referências visuais Linux ainda em execução antes de fechar este gate. Não há publicação de pacote nem migração de consumidor nesta mudança.
+Gate de execução desta recuperação visual concluído: requisitos VIS-01/02/03, CAT-01/02 e SKIN-01/02 atendidos no escopo acima; 11/11 tarefas concluídas. A confirmação remota usa o commit de código f18eccc; a atualização posterior deste registro é documental. Não há publicação de pacote nem migração de consumidor nesta mudança.
 
 A revisão do agente não equivale à aprovação estética do mantenedor. Roteiro NVDA/VoiceOver adiado por decisão humana; homologação Dommus/Domuz, Plyngo, bioma e GF, mapa/autenticação externos e microfone real permanecem pendentes. Não se declara conformidade global ou equivalência pixel a pixel com Figma externo.
