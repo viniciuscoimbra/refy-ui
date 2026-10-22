@@ -29,6 +29,7 @@ for (const mode of ['claro', 'escuro', 'editorial']) {
       await page.goto(`/iframe.html?id=fundacao-temas-por-aplicacao--${mode}&viewMode=story`);
       const scope = page.getByTestId('default');
       await expect(scope).toBeVisible();
+      expect(await page.evaluate(() => matchMedia('(prefers-reduced-motion: reduce)').matches)).toBe(true);
       expect(await scope.evaluate(el => el.scrollWidth <= el.clientWidth)).toBe(true);
       await scope.getByLabel('Nome').fill('Nome completo com conteúdo');
       await page.addScriptTag({ path: require.resolve('axe-core/axe.min.js') });
@@ -46,6 +47,7 @@ for (const mode of ['claro', 'escuro', 'editorial']) {
       await expect(scope.getByRole('button', { name: 'Abrir modal', exact: true })).toBeVisible();
       await page.screenshot({ path: `test-results/themes-${mode}-${width}-${test.info().project.name}.png`, fullPage: true });
       await page.emulateMedia({ forcedColors: 'active' });
+      expect(await page.evaluate(() => matchMedia('(forced-colors: active)').matches)).toBe(true);
       await scope.getByRole('button', { name: 'Ações', exact: true }).focus();
       await expect(scope.getByRole('button', { name: 'Ações', exact: true })).toBeFocused();
     });

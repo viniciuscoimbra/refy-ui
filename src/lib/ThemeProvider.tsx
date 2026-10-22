@@ -31,6 +31,7 @@ export function ThemeProvider({ theme, mode, style, children, ...rest }: ThemePr
   const [portal, setPortal] = useState<HTMLDivElement | null>(null);
   const variables = { ...identity?.tokens, ...identity?.modes?.[appearance] };
   for (const [key, value] of Object.entries(variables)) {
+    if (value === undefined) continue;
     if (!/^--[\w-]+$/.test(key) || !["string", "number"].includes(typeof value)) {
       throw new Error(`Token de tema inválido: ${key}`);
     }

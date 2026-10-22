@@ -19,6 +19,7 @@ for (const mode of ['light', 'dark', 'editorial']) {
     ['--on-primary', '--primary', 'Button repouso', 4.5], ['--on-primary', '--primary-hover', 'Button hover', 4.5],
     ['--on-primary-container', '--primary-container', 'Button active', 4.5],
     ['--primary-ink', '--surface', 'foco externo na superfície', 3],
+    ['--outline', '--surface', 'borda identificadora de Input', 3],
     ['--critical', '--surface', 'erro de campo', 4.5],
   ]) {
     const a = resolveToken(fg, values), b = resolveToken(bg, values), result = ratio(a, b);

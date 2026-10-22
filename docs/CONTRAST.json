@@ -91,6 +91,17 @@
     },
     {
       "mode": "light",
+      "context": "borda identificadora de Input",
+      "fg": "--outline",
+      "bg": "--surface",
+      "foreground": "#707973",
+      "background": "#ffffff",
+      "ratio": 4.495,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "mode": "light",
       "context": "erro de campo",
       "fg": "--critical",
       "bg": "--surface",
@@ -190,6 +201,17 @@
     },
     {
       "mode": "dark",
+      "context": "borda identificadora de Input",
+      "fg": "--outline",
+      "bg": "--surface",
+      "foreground": "#86948a",
+      "background": "#101415",
+      "ratio": 5.84,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "mode": "dark",
       "context": "erro de campo",
       "fg": "--critical",
       "bg": "--surface",
@@ -284,6 +306,17 @@
       "foreground": "#064e3b",
       "background": "#fffdf8",
       "ratio": 9.561,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "mode": "editorial",
+      "context": "borda identificadora de Input",
+      "fg": "--outline",
+      "bg": "--surface",
+      "foreground": "#707973",
+      "background": "#fffdf8",
+      "ratio": 4.422,
       "minimum": 3,
       "pass": true
     },
