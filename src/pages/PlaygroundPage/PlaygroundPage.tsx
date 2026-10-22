@@ -67,7 +67,7 @@ export function PlaygroundPage({ initialMode = 'light', initialFonts = 'humanist
   const [decision, setDecision] = useState<DecisionAction>();
   const [review, setReview] = useState('content');
   const [approved, setApproved] = useState<string[]>([]);
-  const [availability, setAvailability] = useState({});
+  const [availability, setAvailability] = useState<Record<string, string[]>>({});
   useEffect(() => setMode(initialMode), [initialMode]);
   useEffect(() => setFonts(initialFonts), [initialFonts]);
   const identity = { ...skins[skin].theme, name: skins[skin].theme?.name ?? 'refy', tokens: { ...skins[skin].theme?.tokens, ...fontSets[fonts].tokens } };
@@ -125,7 +125,7 @@ export function PlaygroundPage({ initialMode = 'light', initialFonts = 'humanist
         ]} />}
         {area === 'library' && <>
           <div className={styles.twoColumns}>{['Referências visuais', 'Guia de conteúdo'].map((title, i) => <ContentCard key={title} title={title} subtitle={i ? '12 páginas · atualizado hoje' : '8 referências · equipe de criação'} media={[{ src: sampleArtwork(i ? '#c6cde3' : '#c7d9ce'), alt: `Capa abstrata de ${title}` }, { src: sampleArtwork('#e3d6c6'), alt: 'Variação da capa' }]} badges={[{ label: 'Compartilhado', tone: 'neutral' }]} summary="Material de exemplo para explorar mídia, conteúdo e ações." actions={false} detailsAction={<Button onClick={() => setNotice(`${title}: conteúdo selecionado na biblioteca.`)}>Selecionar material</Button>} />)}</div>
-          <Card><CardHeader title="Agendar revisão" /><SchedulePicker value={availability} onChange={setAvailability} defaultActiveDate={new Date(2026, 9, 24)} minDate={new Date(2026, 9, 22)} /><div className={styles.actions}><Button variant="primary" onClick={() => setNotice(Object.keys(availability).length ? 'Disponibilidade registrada nesta sessão.' : 'Selecione ao menos um dia e horário para registrar.')}>Registrar disponibilidade</Button></div></Card>
+          <Card><CardHeader title="Agendar revisão" /><SchedulePicker value={availability} onChange={setAvailability} defaultActiveDate={new Date(2026, 9, 24)} minDate={new Date(2026, 9, 22)} /><div className={styles.actions}><Button variant="primary" onClick={() => setNotice(Object.values(availability).some(times => times.length > 0) ? 'Disponibilidade registrada nesta sessão.' : 'Selecione ao menos um dia e horário para registrar.')}>Registrar disponibilidade</Button></div></Card>
           <Accordion items={[{ id: 'sharing', title: 'Quem pode acessar os materiais?', content: 'Os participantes deste workspace de demonstração. No seu produto, conecte a política de acesso da aplicação.' }, { id: 'data', title: 'Meus dados são enviados?', content: 'Não. Os exemplos permanecem na memória desta página e são restaurados ao recarregar.' }]} />
         </>}
         {area === 'settings' && <div className={styles.twoColumns}>

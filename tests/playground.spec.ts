@@ -87,3 +87,20 @@ test('menu de adoção omite laboratórios e mantém URLs técnicas', async ({ p
   await page.goto('/iframe.html?id=fundacao-temas-por-aplicacao--instancias&viewMode=story');
   await expect(page.locator('[data-refy-scope]').first()).toBeVisible();
 });
+
+
+test('fontes atualizam os tokens resolvidos e a agenda exige um horário', async ({ page }) => {
+  await page.goto('/iframe.html?id=fundamentos-tokens--explorar&viewMode=story');
+  await page.getByLabel('Conjunto tipográfico').selectOption('plex');
+  await page.getByLabel('Buscar token').fill('--font-body');
+  await expect(page.getByRole('table')).toContainText('IBM Plex Sans');
+  await expect(page.getByTestId('font-body')).toHaveCSS('font-family', /IBM Plex Sans/);
+  await page.goto(url);
+  await page.getByRole('button', { name: 'Biblioteca', exact: true }).click();
+  await page.getByRole('gridcell', { name: '24', exact: true }).click();
+  await page.getByRole('button', { name: 'Registrar disponibilidade' }).click();
+  await expect(page.getByRole('status')).toContainText('Selecione ao menos um dia e horário');
+  await page.getByRole('button', { name: '08:00', exact: true }).click();
+  await page.getByRole('button', { name: 'Registrar disponibilidade' }).click();
+  await expect(page.getByRole('status')).toContainText('Disponibilidade registrada');
+});
