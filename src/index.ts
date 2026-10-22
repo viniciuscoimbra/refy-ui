@@ -309,3 +309,5 @@ export { ScoreGauge, scoreBand } from "./components/ScoreGauge";
 export type { ScoreGaugeProps, ScoreGaugeSize, ScoreBand } from "./components/ScoreGauge";
 
 export { cn } from "./lib/cn";
+export { ThemeProvider } from "./lib/ThemeProvider";
+export type { ThemeProviderProps, RefyTheme, ThemeTokens, ThemeMode } from "./lib/ThemeProvider";

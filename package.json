@@ -14,7 +14,9 @@
     },
     "./styles.css": "./dist/style.css",
     "./tokens.css": "./src/tokens/tokens.css",
-    "./global.css": "./src/styles/global.css"
+    "./global.css": "./src/styles/global.css",
+    "./tokens.json": "./src/tokens/foundations.tokens.json",
+    "./fonts.css": "./src/styles/fonts.css"
   },
   "scripts": {
     "check:specs": "node scripts/check-specs.mjs",
@@ -22,14 +24,19 @@
     "build-storybook": "storybook build",
     "build": "vite build --config vite.lib.config.ts && tsc -p tsconfig.build.json",
     "lint": "tsc --noEmit",
-    "check": "npm run lint && npm run build && node scripts/check.mjs",
-    "prepack": "npm run build"
+    "check": "npm run tokens:check && npm run contrast:check && npm run lint && npm run build && node scripts/check.mjs",
+    "prepack": "npm run build",
+    "tokens:build": "node scripts/tokens.mjs",
+    "tokens:check": "node scripts/check-tokens.mjs",
+    "test:browser": "playwright test",
+    "contrast:check": "node scripts/check-contrast.mjs"
   },
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18"
   },
   "devDependencies": {
+    "@playwright/test": "1.64.1",
     "@storybook/addon-essentials": "^8.6.19",
     "@storybook/react-vite": "^8.6.19",
     "@types/d3-array": "^3.2.2",
@@ -37,6 +44,7 @@
     "@types/d3-shape": "^3.1.8",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "axe-core": "4.14.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "storybook": "^8.6.19",
@@ -57,7 +65,9 @@
     "src/styles/global.css",
     "LICENSE",
     "README.md",
-    "THIRD_PARTY_NOTICES.md"
+    "THIRD_PARTY_NOTICES.md",
+    "src/tokens/foundations.tokens.json",
+    "src/styles/fonts.css"
   ],
   "author": "Vinícius Coimbra",
   "repository": {

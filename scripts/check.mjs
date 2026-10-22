@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { Button, Input, BrandLogo } from '../dist/index.js';
+import { Button, Input, BrandLogo, ThemeProvider } from '../dist/index.js';
 
 const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
 assert.equal(pkg.license, 'MIT');
@@ -25,3 +25,9 @@ for (const theme of ['light', 'dark', 'editorial']) assert(css.includes(`[data-t
 assert.doesNotMatch(css, /data-theme="dommus/);
 assert(!existsSync('src/prototypes'), 'Protótipos internos não pertencem ao repositório público');
 console.log('OK: distribuição, MIT, temas e renderização de Button, Input e BrandLogo.');
+
+assert.throws(() => renderToStaticMarkup(React.createElement(ThemeProvider, { theme: { name: 'bad', tokens: { color: 'red' } } }, 'x')), /Token de tema inválido/);
+const scoped = renderToStaticMarkup(React.createElement(ThemeProvider, { theme: { name: 'synthetic', tokens: { '--radius-default': '12px' } } }, 'x'));
+assert.match(scoped, /data-refy-brand="synthetic"/);
+assert.match(scoped, /data-theme="light"/);
+assert.match(scoped, /--radius-default:12px/);

@@ -3,6 +3,7 @@ import type { ReactElement, ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { Kbd } from "../Kbd";
 import { cn } from "../../lib/cn";
+import { useThemePortal } from "../../lib/ThemeProvider";
 import styles from "./Tooltip.module.css";
 
 export interface TooltipProps {
@@ -39,6 +40,7 @@ export function Tooltip({
   className,
 }: TooltipProps) {
   const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const themePortal = useThemePortal();
   const timerRef = useRef<number | null>(null);
   const triggerRef = useRef<HTMLSpanElement>(null);
   const bubbleRef = useRef<HTMLSpanElement>(null);
@@ -86,7 +88,11 @@ export function Tooltip({
         left: { top: triggerRect.top + (triggerRect.height - bubbleRect.height) / 2, left: triggerRect.left - bubbleRect.width - gap },
         right: { top: triggerRect.top + (triggerRect.height - bubbleRect.height) / 2, left: triggerRect.right + gap },
       };
-      setPortalPosition(positions[side]);
+      const preferred = positions[side];
+      setPortalPosition({
+        top: Math.max(8, Math.min(preferred.top, window.innerHeight - bubbleRect.height - 8)),
+        left: Math.max(8, Math.min(preferred.left, window.innerWidth - bubbleRect.width - 8)),
+      });
     }
     position();
     window.addEventListener("resize", position);
@@ -112,7 +118,7 @@ export function Tooltip({
       role="tooltip"
       id={id}
       data-side={side}
-      data-theme={portalled ? portalTheme ?? undefined : undefined}
+      data-theme={portalled && !themePortal ? portalTheme ?? undefined : undefined}
       className={cn(styles.bubble, portalled && styles.portal)}
       style={portalled ? { top: portalPosition?.top ?? 0, left: portalPosition?.left ?? 0, visibility: portalPosition ? "visible" : "hidden" } : undefined}
     >
@@ -136,7 +142,7 @@ export function Tooltip({
       }}
     >
       <span ref={triggerRef} className={styles.trigger}>{trigger}</span>
-      {portalled && typeof document !== "undefined" ? createPortal(bubble, document.body) : bubble}
+      {portalled && typeof document !== "undefined" ? createPortal(bubble, themePortal ?? document.body) : bubble}
     </span>
   );
 }

@@ -46,7 +46,6 @@
   color: var(--surface);
 }
 
-:global([data-theme="dark"]) .selected,
 
 .icon {
   display: inline-flex;

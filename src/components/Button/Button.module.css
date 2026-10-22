@@ -271,6 +271,6 @@
   .loading { transform: none !important; }
 }
 
-.btn:focus-visible { outline: var(--control-focus-outline, revert); outline-offset: var(--control-focus-offset, 0); }
+.btn:focus-visible { outline: var(--control-focus-outline, 2px solid var(--primary-ink)); outline-offset: var(--control-focus-offset, 3px); }
 .btn:not(:disabled):active { transform: var(--control-pressed-transform, none); box-shadow: var(--control-pressed-shadow, var(--button-resting-shadow)); }
 .ghost:not(:disabled):active { transform: none; box-shadow: none; }
