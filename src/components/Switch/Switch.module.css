@@ -40,7 +40,7 @@
   background: var(--primary);
 }
 .input:checked + .track .thumb {
-  background: var(--switch-thumb-color, var(--legacy-white));
+  background: var(--switch-thumb-color, var(--on-primary));
   transform: translateX(var(--switch-travel, 16px));
 }
 /* microinterações: trilha escurece no hover, thumb "aperta" no press */

@@ -49,13 +49,13 @@ function Overview() {
         para criar a identidade de cada aplicação.
       </Intro>
       <nav className={styles.links} aria-label="Começar">
-        <a href="/?path=/story/fundamentos-refy--personalizar" target="_top">
+        <a href="./?path=/story/fundamentos-refy--personalizar" target="_top">
           Personalizar a interface
         </a>
-        <a href="/?path=/story/páginas-dashboard--visao-geral" target="_top">
+        <a href="./?path=/story/páginas-dashboard--visao-geral" target="_top">
           Ver uma tela completa
         </a>
-        <a href="/?path=/story/revisao-visual--antes-e-depois" target="_top">
+        <a href="./?path=/story/revisao-visual--antes-e-depois" target="_top">
           Comparar a revisão
         </a>
       </nav>
@@ -112,19 +112,19 @@ function Overview() {
         </div>
         <nav className={styles.links}>
           <a
-            href="/?path=/story/components-atoms-button--todas-variantes"
+            href="./?path=/story/components-atoms-button--todas-variantes"
             target="_top"
           >
             Átomos
           </a>
           <a
-            href="/?path=/story/components-molecules-propertyactiongroup--tres-acoes"
+            href="./?path=/story/components-molecules-propertyactiongroup--tres-acoes"
             target="_top"
           >
             Moléculas
           </a>
           <a
-            href="/?path=/story/components-organisms-propertycard--grid"
+            href="./?path=/story/components-organisms-propertycard--grid"
             target="_top"
           >
             Organismos

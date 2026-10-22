@@ -23,7 +23,9 @@ Revisor: Codex (agente), sem aprovação humana ou independente. Baseline anteri
 - `npm run build-storybook`: passou. Aviso de tamanho do bundle do catálogo continua; não é erro de renderização.
 - `npm pack --dry-run`: passou, fontes e licenças incluídas.
 - `npx playwright test --project=chromium --project=webkit`: 222 testes passaram no macOS. As 36 diferenças das referências visuais locais foram revistas antes de serem atualizadas; restauração das fontes e ajuste do canvas explicam as diferenças.
-- Correção adicional do scroll inicial de Multiselect tem teste de início, adição e remoção por teclado. A suíte de design é repetida após esse ajuste.
+- Suíte de design repetida após as correções finais: 30 testes passaram (Chromium/WebKit). Inclui scroll inicial/adição/remoção no Multiselect, sucesso independente da marca e marcação do Checkbox com o contraste do tema.
+- A varredura de 1348 casos e 291 contrastes foi repetida após os ajustes finais de seleção e sucesso, sem erros detectados; capturas e pranchas atualizadas.
+- Linux no commit 50a10eb: execução 39768802688, 297 testes passaram e 36 testes visuais falharam nas referências anteriores. As 54 imagens diferentes (18 bases e 36 sobreposições) foram comparadas ao esperado em cinco pranchas e em ampliações. Diferenças intencionais de fontes/canvas; referências atualizadas após revisão. Nova execução normal ainda pendente, sem atualização automática.
 - `graft build`: contexto local atualizado.
 
 ## Gate

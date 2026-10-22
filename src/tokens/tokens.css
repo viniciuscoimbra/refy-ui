@@ -493,7 +493,7 @@
   --font-weight-medium: var(--weight-medium);
   --font-weight-regular: var(--weight-regular);
   --font-weight-semibold: var(--weight-semi);
-  --good: var(--primary-container);
+  --good: #10b981;
   --good-ink: #6ffbbe;
   --good-soft: #123c2d;
   --info: var(--secondary);

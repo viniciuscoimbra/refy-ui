@@ -90,6 +90,8 @@ mudar automaticamente todas as bordas de calendário, gráfico ou tabela.
 Valores opcionais com fallback continuam documentados no inventário e no CSS
 consumidor; o explorador mostra os valores definidos na fonte do tema.
 
+O papel `--good` de sucesso permanece independente de `--primary-container` também no modo escuro; trocar a marca não recolore o feedback de conclusão.
+
 O tema resolve a aparência; o projeto escolhe conteúdo, dados, rotas e regras.
 Ao criar uma identidade, confira seus pares de contraste e todos os estados.
 Trocar apenas a cor padrão não define automaticamente hover, foco ou erro.

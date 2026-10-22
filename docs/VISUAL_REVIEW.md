@@ -11,6 +11,7 @@ Mudança: [restore-refy-visual-coherence](../openspec/changes/restore-refy-visua
 - 291 amostras de contraste de texto por axe: zero violações detectadas após as correções. O detector não certifica gradientes, todos os estados, gestos ou conformidade global.
 - Inspeção visual das pranchas das famílias, com ampliação de telas, sobreposições e falhas. Não é comparação pixel a pixel de todas as variantes contra Figma.
 - Capturas integrais antes/depois em [public/review](../public/review), com viewport inicial 375×900 ou 1280×900, Chromium e movimento reduzido.
+- [Comparação das aparências nos três modos](../public/review/skins.png).
 - [Relatório de casos](../public/review/catalog.json). Capturas individuais da varredura local: /tmp/refy-catalog-review; pranchas preservadas neste repositório.
 
 ## Correções verificadas
@@ -26,6 +27,8 @@ Mudança: [restore-refy-visual-coherence](../openspec/changes/restore-refy-visua
 | Seleção múltipla começava com o primeiro chip cortado | Rolagem inicial no começo; deslocamento ao acrescentar seleção | Preservar a leitura inicial e a visibilidade da mudança |
 | CTA da Sidebar redefinia Button | Reuso dos estilos de Button | Mesmos tokens e estados em toda composição |
 | Links, estados e textos secundários com baixo contraste | Papéis de texto existentes; removida opacidade adicional; ajuste de on-good editorial | Legibilidade sem trocar a identidade de marca |
+| Sucesso escuro herdava a cor da marca | Separado o papel good da cor primária, preservando seu verde original | Trocar a marca não deve tornar o sucesso roxo ou amarelo |
+| Marcação e indicador ativo brancos em cores de marca claras | Checkbox e Switch usam on-primary como fallback, mantendo overrides próprios | O contraste acompanha a cor escolhida pela aplicação |
 | Nomes e exemplos de negócio | Aliases genéricos e conteúdo de colaboração | Reutilização sem impor domínio imobiliário/SEO |
 | Personalização só por cor | Hooks de borda, geometria, superfícies e estados | Contorno quadrado e degradê arredondado com a mesma implementação |
 

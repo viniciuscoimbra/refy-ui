@@ -57,6 +57,21 @@ const changes = [
     "Tokens comuns para controles, campos, cards e diálogos; tokens específicos para as superfícies e estados de Button.",
   ],
   [
+    "Imagens",
+    "Imagens locais ou em cache podiam continuar encobertas pelo carregamento.",
+    "A galeria associa o resultado à imagem atual e preserva o carregamento já concluído, inclusive ao voltar para uma imagem anterior.",
+  ],
+  [
+    "Estados e contraste",
+    "Acordeão e código tinham superfícies incoerentes no escuro; sucesso herdava a cor da marca; alguns textos perdiam contraste.",
+    "Superfícies e papéis de texto corrigidos. Sucesso mantém seu verde original, independente da marca. Hover e pressionamento preservam o feedback.",
+  ],
+  [
+    "Seleção múltipla",
+    "O campo já abria deslocado, cortando o primeiro item selecionado.",
+    "Começa pelo primeiro item; ao adicionar uma seleção, desloca a lista para mostrar a alteração. Remoção por teclado preservada.",
+  ],
+  [
     "Vocabulário",
     "PropertyCard, PropertyMedia, PropertyActionGroup, SwipeDeck e VisitSchedulePicker.",
     "ContentCard, MediaGallery, DecisionActions, DecisionDeck e SchedulePicker. Aliases anteriores preservados, sem duplicar implementações.",
@@ -113,12 +128,12 @@ function Review() {
             · {width}px · claro
           </figcaption>
           <a
-            href={`/review/before/${selected}-${width}.png`}
+            href={`./review/before/${selected}-${width}.png`}
             target="_blank"
             rel="noreferrer"
           >
             <img
-              src={`/review/before/${selected}-${width}.png`}
+              src={`./review/before/${selected}-${width}.png`}
               alt={`Antes: ${current.label}, captura integral em ${width} pixels`}
             />
           </a>
@@ -132,26 +147,29 @@ function Review() {
             · {width}px · claro
           </figcaption>
           <a
-            href={`/review/after/${selected}-${width}.png`}
+            href={`./review/after/${selected}-${width}.png`}
             target="_blank"
             rel="noreferrer"
           >
             <img
-              src={`/review/after/${selected}-${width}.png`}
+              src={`./review/after/${selected}-${width}.png`}
               alt={`Depois: ${current.label}, captura integral em ${width} pixels`}
             />
           </a>
         </figure>
       </div>
       <nav className={styles.links}>
-        <a href={`/?path=/story/${current.story}`} target="_top">
+        <a href={`./?path=/story/${current.story}`} target="_top">
           Abrir o exemplo funcionando
         </a>
-        <a href="/?path=/story/fundamentos-tokens--explorar" target="_top">
+        <a href="./?path=/story/fundamentos-tokens--explorar" target="_top">
           Consultar os tokens
         </a>
-        <a href="/?path=/story/exemplos-configuracoes--perfil" target="_top">
+        <a href="./?path=/story/exemplos-configuracoes--perfil" target="_top">
           Testar configurações
+        </a>
+        <a href="./review/skins.png" target="_blank" rel="noreferrer">
+          Ver as aparências nos três modos
         </a>
       </nav>
       <section className={styles.section} style={{ marginTop: 32 }}>

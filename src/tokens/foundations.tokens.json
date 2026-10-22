@@ -3072,8 +3072,8 @@
           "deprecated": false
         },
         "--good": {
-          "value": "var(--primary-container)",
-          "description": "Papel CSS --good; origem Refy 0.4.0; escopo dark; ativo, sem remoção prevista.",
+          "value": "#10b981",
+          "description": "Sucesso no tema escuro; preserva o valor visual original Refy 0.4.0, independente da cor primária da aplicação. Corrigido na recuperação visual de 22/10/2026.",
           "deprecated": false
         },
         "--info": {

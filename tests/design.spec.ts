@@ -8,11 +8,14 @@ for (const mode of ['light', 'dark', 'editorial']) {
     const scope = page.getByTestId('skin-preview');
     const name = scope.getByLabel('Nome do projeto');
     const save = scope.getByRole('button', { name: 'Salvar alterações' });
+    const success = page.getByTestId('skin-states').getByRole('button', { name: 'Salvo', exact: true });
+    const originalSuccess = await success.evaluate(el => getComputedStyle(el).backgroundColor);
     await name.fill('Projeto com identidade própria');
     await page.getByRole('radio', { name: 'Contorno', exact: true }).check();
     await expect(save).toHaveCSS('border-top-left-radius', '0px');
     await expect(save).toHaveCSS('border-top-width', '3px');
     expect(await name.evaluate(el => getComputedStyle(el.parentElement!).borderTopWidth)).toBe('3px');
+    await expect(scope.getByRole('checkbox').locator('..').locator('svg')).toHaveCSS('color', 'rgb(39, 37, 28)');
     await expect(name).toHaveValue('Projeto com identidade própria');
     await page.getByRole('radio', { name: 'Degradê', exact: true }).check();
     await expect(save).toHaveCSS('border-top-left-radius', '20px');
@@ -30,8 +33,8 @@ for (const mode of ['light', 'dark', 'editorial']) {
     await expect(states.getByRole('button', { name: 'Salvando' })).toBeDisabled();
     await expect(states.getByRole('button', { name: 'Salvando' })).toHaveAttribute('aria-busy', 'true');
     await expect(states.getByRole('button', { name: 'Continuar', exact: true }).last()).toBeDisabled();
-    const success = states.getByRole('button', { name: 'Salvo', exact: true });
     const feedback = await success.evaluate(el => getComputedStyle(el).backgroundColor);
+    expect(feedback).toBe(originalSuccess);
     await success.hover();
     await expect(success).toHaveCSS('background-color', feedback);
     await scope.getByRole('button', { name: 'Mais opções' }).click();

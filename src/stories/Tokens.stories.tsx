@@ -136,7 +136,7 @@ function TokenBrowser({ mode }: { mode: string }) {
           quando essas superfícies pedirem outro formato.
         </p>
         <nav className={styles.links}>
-          <a href="/?path=/story/fundamentos-refy--personalizar" target="_top">
+          <a href="./?path=/story/fundamentos-refy--personalizar" target="_top">
             Testar personalização com os componentes
           </a>
         </nav>
