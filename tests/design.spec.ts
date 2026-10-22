@@ -48,8 +48,8 @@ for (const mode of ['light', 'dark', 'editorial']) {
     await expect(name).toHaveValue('Projeto com identidade própria');
     await expect(save).toHaveCSS('background-image', 'none');
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(375);
-    const fonts = await page.evaluate(async () => { await document.fonts.ready; return [...document.fonts].filter(font => font.status === 'loaded').map(font => font.family); });
-    expect(fonts).toEqual(expect.arrayContaining(['Inter', 'Space Grotesk', 'JetBrains Mono']));
+    const fonts = await page.evaluate(async () => { await document.fonts.ready; return [...document.fonts].filter(font => font.status === 'loaded').map(font => font.family.replaceAll('"', '')); });
+    expect(fonts).toEqual(expect.arrayContaining(['Manrope', 'Source Sans 3', 'Source Code Pro']));
   });
 }
 

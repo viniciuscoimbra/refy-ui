@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { Button, Input, BrandLogo, ThemeProvider, ContentCard, PropertyCard, MediaGallery, PropertyMedia, SchedulePicker, VisitSchedulePicker, DecisionActions, DecisionDeck } from '../dist/index.js';
+import { Button, Input, BrandLogo, ThemeProvider, ContentCard, PropertyCard, MediaGallery, PropertyMedia, SchedulePicker, VisitSchedulePicker, DecisionActions, DecisionDeck, Select, fontSets } from '../dist/index.js';
 
 const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
 assert.equal(pkg.license, 'MIT');
@@ -49,3 +49,13 @@ for (const file of ['inter', 'space-grotesk', 'jetbrains-mono']) {
   assert(existsSync(`src/assets/fonts/${file}-OFL.txt`));
 }
 console.log('OK: nomes canônicos, compatibilidade de eventos e fontes locais licenciadas.');
+
+const selects = renderToStaticMarkup(React.createElement('div', {}, React.createElement(Select, { label: 'Modo' }, React.createElement('option', {}, 'Claro')), React.createElement(Select, { label: 'Modo' }, React.createElement('option', {}, 'Escuro'))));
+const selectIds = [...selects.matchAll(/<select[^>]*id="([^"]+)"/g)].map(match => match[1]);
+assert.equal(new Set(selectIds).size, 2, 'Rótulos repetidos precisam de IDs distintos');
+for (const set of Object.values(fontSets)) {
+  for (const token of ['--font-brand', '--font-heading', '--font-headline', '--font-body', '--font-mono']) assert(set.tokens[token]);
+}
+for (const match of readFileSync('src/styles/fonts.css', 'utf8').matchAll(/url\(\.\.\/assets\/fonts\/([^)]*)\)/g)) assert(existsSync(`src/assets/fonts/${match[1]}`));
+for (const family of ['manrope', 'sourcesans3', 'sourcecodepro', 'ibmplexsans', 'ibmplexmono', 'dmsans', 'geistmono']) assert.match(readFileSync(`src/assets/fonts/${family}-OFL.txt`, 'utf8'), /SIL OPEN FONT LICENSE/);
+console.log('OK: presets públicos, arquivos/licenças de fontes e rótulos únicos de Select.');

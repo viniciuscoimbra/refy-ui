@@ -321,3 +321,6 @@ export { MediaGallery } from "./components/PropertyMedia";
 export type { MediaGalleryProps } from "./components/PropertyMedia";
 export { SchedulePicker } from "./components/VisitSchedulePicker";
 export type { SchedulePickerProps } from "./components/VisitSchedulePicker";
+
+export { fontSets } from './lib/fontSets';
+export type { FontSet } from './lib/fontSets';

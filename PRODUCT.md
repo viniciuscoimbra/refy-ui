@@ -10,7 +10,7 @@ Designers e desenvolvedores compondo produtos com React. Equipes de Dommus/Domuz
 Refy UI é uma biblioteca pública MIT de autoria de Vinícius Coimbra. Deve permitir montar interfaces consistentes e visualmente precisas e alterar a aparência amplamente por tokens, sem reimplementar comportamentos. O catálogo é a referência de design e uso, não só uma coleção de testes.
 
 ## Brand Personality
-Precisa, clara e consistente. Direção confirmada pelo mantenedor em 22/10/2026: recuperar o Refy original e atingir alto acabamento visual. A referência concreta é a biblioteca c3f03fd e sua tipografia/assinatura Refy.
+Precisa, clara e consistente. Direção confirmada pelo mantenedor em 22/10/2026: recuperar o Refy original e atingir alto acabamento visual. A referência de origem é a biblioteca c3f03fd. Em 22/10/2026 o mantenedor pediu evolução tipográfica: três conjuntos alternativos, playground de aplicação e ações verdes com texto branco. Comparações técnicas saem da navegação de adoção; a entrega usa links diretos aos elementos.
 
 ## Anti-references
 Catálogo com linguagem imobiliária herdada do Dommus/Domuz; telas de laboratório apresentadas como produto; skins arbitrárias sem hierarquia; relatório de testes usado como prova de qualidade visual.

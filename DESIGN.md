@@ -7,7 +7,9 @@ Referência: tokens, componentes e composição do commit c3f03fd. Recuperação
 Acento verde Refy, superfícies neutras e estados semânticos da fonte versionada em src/tokens/foundations.tokens.json. Não criar paleta paralela. Cores de texto/estado continuam cores; degradês pertencem a tokens de superfície de componente. Presets demonstrativos têm nomes descritivos e não representam clientes.
 
 ## Typography
-Inter para corpo e controles; Space Grotesk para títulos e assinatura; JetBrains Mono para metadados e valores quando a função pedir. Fontes reais carregadas localmente no catálogo. Não transformar todos os textos em caixa alta ou monoespaçados. Preservar escalas da referência e permitir substituição por identidade.
+Referência atual autorizada em 22/10/2026: Manrope em títulos e assinatura, Source Sans 3 em corpo/controles, Source Code Pro em código e valores. Alternativas selecionáveis: IBM Plex Sans/Mono e DM Sans/Geist Mono. O conjunto anterior Space Grotesk/Inter/JetBrains Mono permanece como legado para comparação, não como preferência atual. Fontes locais opcionais e papéis de tokens preservados. O playground demonstra a mudança na aplicação inteira, inclusive overlays.
+
+A ação verde usa texto branco: --primary #087f5b, hover #066649, active #054f39. Acentos luminosos da marca e texto de ênfase no escuro mantêm papéis próprios. As identidades customizadas continuam podendo definir seus próprios pares.
 
 ## Elevation
 Superfícies, bordas e sombras usam tokens. Estados precisam ser legíveis em todos os modos. Overlays preservam prioridade, foco e herança visual; efeito decorativo não corrige camada ou contraste.

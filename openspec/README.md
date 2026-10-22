@@ -2,6 +2,10 @@
 
 O programa define contratos e evidências para evoluir a biblioteca Refy. O mantenedor autorizou a execução das cinco fases em 21/10/2026. Governança e fundação já foram implementadas e verificadas; as etapas restantes seguem seus gates e não são consideradas concluídas por terem artefatos prontos.
 
+## Prioridade de adoção
+
+Em 22/10/2026, após a recuperação visual, o mantenedor autorizou [playground e tipografia](changes/adoption-playground-typography/proposal.md): três conjuntos de fontes, página inteira personalizável, botões verdes com texto claro e navegação simplificada. Essa experiência substitui a revisão visual como entrada de adoção.
+
 ## Ordem de execução
 
 **Prioridade atual, autorizada em 22/10/2026:** [recuperação visual](changes/restore-refy-visual-coherence/proposal.md), revisão do catálogo e customização ampla. Essa mudança e sua documentação avançam agora; o roteiro de leitor de tela foi adiado pelo mantenedor. A certificação assistiva continua pendente e não é usada para impedir correções visuais. A ordem abaixo permanece como programa de certificação/release, com essa recuperação inserida antes de sua conclusão.

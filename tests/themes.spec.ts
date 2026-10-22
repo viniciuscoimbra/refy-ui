@@ -59,7 +59,7 @@ test('tooltip em portal mantém a identidade do escopo aninhado', async ({ page 
   const nested = page.getByTestId('nested');
   await nested.getByRole('button', { name: 'Ajuda', exact: true }).focus();
   await expect(nested.getByRole('tooltip')).toBeVisible();
-  expect(await nested.getByRole('tooltip').evaluate(el => getComputedStyle(el).fontFamily)).toContain('JetBrains');
+  expect(await nested.getByRole('tooltip').evaluate(el => getComputedStyle(el).fontFamily)).toContain('Source Code Pro');
   expect(await nested.getByRole('tooltip').evaluate(el => getComputedStyle(el).getPropertyValue('--primary'))).toBe('#7550a0');
 });
 

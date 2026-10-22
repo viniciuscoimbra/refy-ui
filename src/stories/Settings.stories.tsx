@@ -14,16 +14,17 @@ import {
   ThemeProvider,
 } from "../index";
 import { skins } from "./skins";
+import { fontSets, type FontSet } from "../lib/fontSets";
 import type { ThemeMode } from "../index";
 import styles from "./VisualSystem.module.css";
-function Settings({ mode }: { mode: ThemeMode }) {
+function Settings({ mode, fonts }: { mode: ThemeMode; fonts: FontSet }) {
   const [name, setName] = useState("Ana Silva");
   const [email, setEmail] = useState("ana@example.com");
   const [notifications, setNotifications] = useState(true);
   const [skin, setSkin] = useState<keyof typeof skins>("refy");
   const [notice, setNotice] = useState(false);
   return (
-    <ThemeProvider mode={mode} theme={skins[skin].theme}>
+    <ThemeProvider mode={mode} theme={{ ...skins[skin].theme, name: skins[skin].theme?.name ?? "refy", tokens: { ...skins[skin].theme?.tokens, ...fontSets[fonts].tokens } }}>
       <main className={styles.page}>
         <PageHeader
           eyebrow="Conta"
@@ -140,6 +141,6 @@ const meta = {
 export default meta;
 export const Perfil: StoryObj = {
   render: (_args, context) => (
-    <Settings mode={context.globals.theme ?? "light"} />
+    <Settings mode={context.globals.theme ?? "light"} fonts={context.globals.fonts ?? "humanist"} />
   ),
 };

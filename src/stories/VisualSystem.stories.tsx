@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useGlobals } from "@storybook/preview-api";
 import type { Meta, StoryObj } from "@storybook/react";
 import {
   BrandLogo,
@@ -16,6 +17,8 @@ import {
   Menu,
   ToastRegion,
 } from "../index";
+import { fontSets, type FontSet } from "../lib/fontSets";
+import { TypographySample } from "./TypographySample";
 import type { ThemeMode } from "../index";
 import { skins } from "./skins";
 import styles from "./VisualSystem.module.css";
@@ -41,7 +44,7 @@ function Intro({
     </>
   );
 }
-function Overview() {
+function Overview({ fonts, onFontsChange }: { fonts: FontSet; onFontsChange: (value: FontSet) => void }) {
   return (
     <main className={styles.page}>
       <Intro title="Refy Design System">
@@ -52,29 +55,14 @@ function Overview() {
         <a href="./?path=/story/fundamentos-refy--personalizar" target="_top">
           Personalizar a interface
         </a>
-        <a href="./?path=/story/páginas-dashboard--visao-geral" target="_top">
-          Ver uma tela completa
+        <a href="./?path=/story/fundamentos-playground--aplicacao" target="_top">
+          Abrir playground completo
         </a>
-        <a href="./?path=/story/revisao-visual--antes-e-depois" target="_top">
-          Comparar a revisão
+        <a href="./?path=/story/fundamentos-tokens--explorar" target="_top">
+          Explorar os tokens
         </a>
       </nav>
-      <section className={styles.section} style={{ marginTop: 32 }}>
-        <h2>Uma tipografia com função</h2>
-        <p>Hierarquia clara para títulos, leitura e informação de apoio.</p>
-        <div className={styles.grid}>
-          {[
-            ["Space Grotesk", "Títulos e assinatura", "var(--font-headline)"],
-            ["Inter", "Leitura e controles", "var(--font-body)"],
-            ["JetBrains Mono", "Metadados e valores", "var(--font-mono)"],
-          ].map(([name, role, font]) => (
-            <div className={styles.specimen} key={name}>
-              <strong style={{ fontFamily: font }}>{name}</strong>
-              <span className={styles.caption}>{role}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+      <TypographySample value={fonts} onChange={onFontsChange} />
       <section className={styles.section}>
         <h2>Cores por responsabilidade</h2>
         <p>O tema muda os valores. O papel de cada cor permanece claro.</p>
@@ -134,7 +122,7 @@ function Overview() {
     </main>
   );
 }
-function Personalize({ mode }: { mode: ThemeMode }) {
+function Personalize({ mode, fonts, onFontsChange }: { mode: ThemeMode; fonts: FontSet; onFontsChange: (value: FontSet) => void }) {
   const [skin, setSkin] = useState<keyof typeof skins>("refy");
   const [name, setName] = useState("Projeto Aurora");
   const [category, setCategory] = useState("design");
@@ -143,13 +131,16 @@ function Personalize({ mode }: { mode: ThemeMode }) {
   const [notice, setNotice] = useState(false);
   const [menu, setMenu] = useState(false);
   const selected = skins[skin];
-  const snippet = `import { ThemeProvider, Button } from '@refy/ui';\n\nconst identity = ${JSON.stringify(selected.theme ?? { name: "refy" }, null, 2)};\n\n<ThemeProvider theme={identity} mode="${mode}">\n  <Button variant="primary">Salvar alterações</Button>\n</ThemeProvider>`;
+  const identity = { ...selected.theme, name: selected.theme?.name ?? "refy", tokens: { ...selected.theme?.tokens, ...fontSets[fonts].tokens } };
+  const snippet = `import { ThemeProvider, Button } from '@refy/ui';\n\nconst identity = ${JSON.stringify(identity, null, 2)};\n\n<ThemeProvider theme={identity} mode="${mode}">\n  <Button variant="primary">Salvar alterações</Button>\n</ThemeProvider>`;
   return (
     <main className={styles.page}>
       <Intro title="A mesma interface. A sua identidade.">
         Mude formato, borda, superfície e estados por tokens. O formulário e seu
         comportamento continuam os mesmos.
       </Intro>
+      <nav className={styles.links}><a href="./?path=/story/fundamentos-playground--aplicacao" target="_top">Personalizar uma aplicação completa →</a></nav>
+      <TypographySample value={fonts} onChange={onFontsChange} />
       <Segmented
         label="Identidade visual"
         value={skin}
@@ -170,7 +161,7 @@ function Personalize({ mode }: { mode: ThemeMode }) {
       </p>
       <div className={styles.preview}>
         <ThemeProvider
-          theme={selected.theme}
+          theme={identity}
           mode={mode}
           className={styles.previewScope}
           data-testid="skin-preview"
@@ -271,7 +262,7 @@ function Personalize({ mode }: { mode: ThemeMode }) {
           />
         </ThemeProvider>
         <ThemeProvider
-          theme={selected.theme}
+          theme={identity}
           mode={mode}
           className={styles.controls}
           data-testid="skin-states"
@@ -347,9 +338,11 @@ const meta = {
 } satisfies Meta;
 export default meta;
 type Story = StoryObj;
-export const VisaoGeral: Story = { render: () => <Overview /> };
-export const Personalizar: Story = {
-  render: (_args, context) => (
-    <Personalize mode={context.globals.theme ?? "light"} />
-  ),
-};
+export const VisaoGeral: Story = { render: function Render() {
+  const [globals, updateGlobals] = useGlobals();
+  return <Overview fonts={globals.fonts ?? "humanist"} onFontsChange={fonts => updateGlobals({ fonts })} />;
+} };
+export const Personalizar: Story = { render: function Render() {
+  const [globals, updateGlobals] = useGlobals();
+  return <Personalize mode={globals.theme ?? "light"} fonts={globals.fonts ?? "humanist"} onFontsChange={fonts => updateGlobals({ fonts })} />;
+} };

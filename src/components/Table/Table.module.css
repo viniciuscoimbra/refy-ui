@@ -200,7 +200,7 @@
 }
 .sorted .sortIcon {
   opacity: 1;
-  color: var(--primary);
+  color: var(--primary-ink);
 }
 .sortDesc {
   transform: rotate(180deg);

@@ -90,7 +90,7 @@
 .day:focus-visible .dayNum { outline: 2px solid var(--brand-primary-container); outline-offset: 1px; }
 
 .outside .dayNum { color: var(--ink-4); }
-.today .dayNum { box-shadow: inset 0 0 0 1px var(--primary); color: var(--primary); font-weight: 600; }
+.today .dayNum { box-shadow: inset 0 0 0 1px var(--primary); color: var(--primary-ink); font-weight: 600; }
 .selected .dayNum { background: var(--primary); color: var(--on-primary); font-weight: 600; }
 .selected:hover .dayNum { background: var(--primary-hover, var(--primary)); }
 

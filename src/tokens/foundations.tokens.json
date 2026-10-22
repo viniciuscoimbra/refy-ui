@@ -545,45 +545,38 @@
     "font-brand": {
       "$type": "fontFamily",
       "$value": [
-        "Space Grotesk",
-        "Inter",
+        "Manrope",
         "system-ui",
-        "-apple-system",
         "sans-serif"
       ],
-      "$description": "Papel CSS --font-brand; origem Refy 0.4.0; escopo base; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --font-brand; origem Refy 0.4.0; escopo base; ativo, sem remoção prevista. Nova referência tipográfica autorizada em 22/10/2026; legado disponível em fontSets.legacy.",
       "$deprecated": false
     },
     "font-heading": {
       "$type": "fontFamily",
       "$value": [
-        "Space Grotesk",
-        "Inter",
+        "Manrope",
         "system-ui",
-        "-apple-system",
         "sans-serif"
       ],
-      "$description": "Papel CSS --font-heading; origem Refy 0.4.0; escopo base; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --font-heading; origem Refy 0.4.0; escopo base; ativo, sem remoção prevista. Nova referência tipográfica autorizada em 22/10/2026; legado disponível em fontSets.legacy.",
       "$deprecated": false
     },
     "font-headline": {
       "$type": "fontFamily",
       "$value": [
-        "Space Grotesk",
-        "Inter",
+        "Manrope",
         "system-ui",
-        "-apple-system",
         "sans-serif"
       ],
-      "$description": "Papel CSS --font-headline; origem Refy 0.4.0; escopo base; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --font-headline; origem Refy 0.4.0; escopo base; ativo, sem remoção prevista. Nova referência tipográfica autorizada em 22/10/2026; legado disponível em fontSets.legacy.",
       "$deprecated": false
     },
     "font-body": {
       "$type": "fontFamily",
       "$value": [
-        "Inter",
+        "Source Sans 3",
         "system-ui",
-        "-apple-system",
         "sans-serif"
       ],
       "$description": "Papel CSS --font-body; origem Refy 0.4.0; escopo base; ativo, sem remoção prevista.",
@@ -592,7 +585,7 @@
     "font-mono": {
       "$type": "fontFamily",
       "$value": [
-        "JetBrains Mono",
+        "Source Code Pro",
         "ui-monospace",
         "monospace"
       ],
@@ -2327,13 +2320,14 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.06274509803921569,
-          0.7254901960784313,
-          0.5058823529411764
+          0.03137254901960784,
+          0.4980392156862745,
+          0.3568627450980392
         ],
-        "alpha": 1
+        "alpha": 1,
+        "hex": "#087f5b"
       },
-      "$description": "Papel CSS --primary; origem Refy 0.4.0; escopo light; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --primary; escopo light; ação sólida com texto branco, ajustada em 22/10/2026. Acentos e texto sem superfície usam primary-ink/good-ink. Overrides de identidade preservados.",
       "$deprecated": false
     },
     "primary-container": {
@@ -2341,13 +2335,14 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.0392156862745098,
-          0.5019607843137255,
-          0.34901960784313724
+          0.0196078431372549,
+          0.30980392156862746,
+          0.2235294117647059
         ],
-        "alpha": 1
+        "alpha": 1,
+        "hex": "#054f39"
       },
-      "$description": "Papel CSS --primary-container; origem Refy 0.4.0; escopo light; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --primary-container; escopo light; ação sólida com texto branco, ajustada em 22/10/2026. Acentos e texto sem superfície usam primary-ink/good-ink. Overrides de identidade preservados.",
       "$deprecated": false
     },
     "primary-fixed": {
@@ -2383,13 +2378,14 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0,
-          0.13725490196078433,
-          0.09411764705882353
+          1.0,
+          1.0,
+          1.0
         ],
-        "alpha": 1
+        "alpha": 1,
+        "hex": "#ffffff"
       },
-      "$description": "Papel CSS --on-primary; origem Refy 0.4.0; escopo light; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --on-primary; escopo light; ação sólida com texto branco, ajustada em 22/10/2026. Acentos e texto sem superfície usam primary-ink/good-ink. Overrides de identidade preservados.",
       "$deprecated": false
     },
     "on-primary-container": {
@@ -2397,13 +2393,14 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          1,
-          1,
-          1
+          1.0,
+          1.0,
+          1.0
         ],
-        "alpha": 1
+        "alpha": 1,
+        "hex": "#ffffff"
       },
-      "$description": "Papel CSS --on-primary-container; origem Refy 0.4.0; escopo light; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --on-primary-container; escopo light; ação sólida com texto branco, ajustada em 22/10/2026. Acentos e texto sem superfície usam primary-ink/good-ink. Overrides de identidade preservados.",
       "$deprecated": false
     },
     "inverse-primary": {
@@ -2733,13 +2730,14 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.06274509803921569,
-          0.7254901960784313,
-          0.5058823529411764
+          0.03137254901960784,
+          0.4980392156862745,
+          0.3568627450980392
         ],
-        "alpha": 1
+        "alpha": 1,
+        "hex": "#087f5b"
       },
-      "$description": "Papel CSS --good; origem Refy 0.4.0; escopo light; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --good; escopo light; ação sólida com texto branco, ajustada em 22/10/2026. Acentos e texto sem superfície usam primary-ink/good-ink. Overrides de identidade preservados.",
       "$deprecated": false
     },
     "info": {
@@ -2770,13 +2768,14 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.054901960784313725,
-          0.6392156862745098,
-          0.44313725490196076
+          0.023529411764705882,
+          0.4,
+          0.28627450980392155
         ],
-        "alpha": 1
+        "alpha": 1,
+        "hex": "#066649"
       },
-      "$description": "Papel CSS --primary-hover; origem Refy 0.4.0; escopo light; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --primary-hover; escopo light; ação sólida com texto branco, ajustada em 22/10/2026. Acentos e texto sem superfície usam primary-ink/good-ink. Overrides de identidade preservados.",
       "$deprecated": false
     },
     "primary-soft": {
@@ -2966,13 +2965,14 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0,
-          0.2196078431372549,
-          0.1411764705882353
+          1.0,
+          1.0,
+          1.0
         ],
-        "alpha": 1
+        "alpha": 1,
+        "hex": "#ffffff"
       },
-      "$description": "Papel CSS --on-good; origem Refy 0.4.0; escopo light; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --on-good; escopo light; ação sólida com texto branco, ajustada em 22/10/2026. Acentos e texto sem superfície usam primary-ink/good-ink. Overrides de identidade preservados.",
       "$deprecated": false
     },
     "good-ink": {
@@ -3072,8 +3072,8 @@
           "deprecated": false
         },
         "--good": {
-          "value": "#10b981",
-          "description": "Sucesso no tema escuro; preserva o valor visual original Refy 0.4.0, independente da cor primária da aplicação. Corrigido na recuperação visual de 22/10/2026.",
+          "value": "#087f5b",
+          "description": "Papel CSS --good; escopo dark; ação sólida com texto branco, ajustada em 22/10/2026.",
           "deprecated": false
         },
         "--info": {
@@ -3420,13 +3420,14 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.3058823529411765,
-          0.8705882352941177,
-          0.6392156862745098
+          0.03137254901960784,
+          0.4980392156862745,
+          0.3568627450980392
         ],
-        "alpha": 1
+        "alpha": 1,
+        "hex": "#087f5b"
       },
-      "$description": "Papel CSS --primary; origem Refy 0.4.0; escopo dark; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --primary; escopo dark; ação sólida com texto branco, ajustada em 22/10/2026. Acentos e texto sem superfície usam primary-ink/good-ink. Overrides de identidade preservados.",
       "$deprecated": false
     },
     "primary-container": {
@@ -3434,13 +3435,14 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.06274509803921569,
-          0.7254901960784313,
-          0.5058823529411764
+          0.0196078431372549,
+          0.30980392156862746,
+          0.2235294117647059
         ],
-        "alpha": 1
+        "alpha": 1,
+        "hex": "#054f39"
       },
-      "$description": "Papel CSS --primary-container; origem Refy 0.4.0; escopo dark; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --primary-container; escopo dark; ação sólida com texto branco, ajustada em 22/10/2026. Acentos e texto sem superfície usam primary-ink/good-ink. Overrides de identidade preservados.",
       "$deprecated": false
     },
     "primary-fixed": {
@@ -3476,13 +3478,14 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0,
-          0.2196078431372549,
-          0.1411764705882353
+          1.0,
+          1.0,
+          1.0
         ],
-        "alpha": 1
+        "alpha": 1,
+        "hex": "#ffffff"
       },
-      "$description": "Papel CSS --on-primary; origem Refy 0.4.0; escopo dark; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --on-primary; escopo dark; ação sólida com texto branco, ajustada em 22/10/2026. Acentos e texto sem superfície usam primary-ink/good-ink. Overrides de identidade preservados.",
       "$deprecated": false
     },
     "on-primary-container": {
@@ -3490,13 +3493,14 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0,
-          0.2196078431372549,
-          0.1411764705882353
+          1.0,
+          1.0,
+          1.0
         ],
-        "alpha": 1
+        "alpha": 1,
+        "hex": "#ffffff"
       },
-      "$description": "Papel CSS --on-primary-container; origem Refy 0.4.0; escopo dark; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --on-primary-container; escopo dark; ação sólida com texto branco, ajustada em 22/10/2026. Acentos e texto sem superfície usam primary-ink/good-ink. Overrides de identidade preservados.",
       "$deprecated": false
     },
     "inverse-primary": {
@@ -3770,13 +3774,14 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.43529411764705883,
-          0.984313725490196,
-          0.7450980392156863
+          0.023529411764705882,
+          0.4,
+          0.28627450980392155
         ],
-        "alpha": 1
+        "alpha": 1,
+        "hex": "#066649"
       },
-      "$description": "Papel CSS --primary-hover; origem Refy 0.4.0; escopo dark; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --primary-hover; escopo dark; ação sólida com texto branco, ajustada em 22/10/2026. Acentos e texto sem superfície usam primary-ink/good-ink. Overrides de identidade preservados.",
       "$deprecated": false
     },
     "primary-soft": {
@@ -3966,13 +3971,14 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0,
-          0.2196078431372549,
-          0.1411764705882353
+          1.0,
+          1.0,
+          1.0
         ],
-        "alpha": 1
+        "alpha": 1,
+        "hex": "#ffffff"
       },
-      "$description": "Papel CSS --on-good; origem Refy 0.4.0; escopo dark; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --on-good; escopo dark; ação sólida com texto branco, ajustada em 22/10/2026. Acentos e texto sem superfície usam primary-ink/good-ink. Overrides de identidade preservados.",
       "$deprecated": false
     },
     "good-ink": {
@@ -4261,13 +4267,14 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.058823529411764705,
-          0.6588235294117647,
-          0.4588235294117647
+          0.03137254901960784,
+          0.4980392156862745,
+          0.3568627450980392
         ],
-        "alpha": 1
+        "alpha": 1,
+        "hex": "#087f5b"
       },
-      "$description": "Papel CSS --primary; origem Refy 0.4.0; escopo editorial; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --primary; escopo editorial; ação sólida com texto branco, ajustada em 22/10/2026. Acentos e texto sem superfície usam primary-ink/good-ink. Overrides de identidade preservados.",
       "$deprecated": false
     },
     "primary-container": {
@@ -4275,13 +4282,14 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.03137254901960784,
-          0.4745098039215686,
-          0.3176470588235294
+          0.0196078431372549,
+          0.30980392156862746,
+          0.2235294117647059
         ],
-        "alpha": 1
+        "alpha": 1,
+        "hex": "#054f39"
       },
-      "$description": "Papel CSS --primary-container; origem Refy 0.4.0; escopo editorial; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --primary-container; escopo editorial; ação sólida com texto branco, ajustada em 22/10/2026. Acentos e texto sem superfície usam primary-ink/good-ink. Overrides de identidade preservados.",
       "$deprecated": false
     },
     "primary-fixed": {
@@ -4317,13 +4325,14 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0,
-          0.08627450980392157,
-          0.054901960784313725
+          1.0,
+          1.0,
+          1.0
         ],
-        "alpha": 1
+        "alpha": 1,
+        "hex": "#ffffff"
       },
-      "$description": "Papel CSS --on-primary; origem Refy 0.4.0; escopo editorial; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --on-primary; escopo editorial; ação sólida com texto branco, ajustada em 22/10/2026. Acentos e texto sem superfície usam primary-ink/good-ink. Overrides de identidade preservados.",
       "$deprecated": false
     },
     "on-primary-container": {
@@ -4331,13 +4340,14 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          1,
-          1,
-          1
+          1.0,
+          1.0,
+          1.0
         ],
-        "alpha": 1
+        "alpha": 1,
+        "hex": "#ffffff"
       },
-      "$description": "Papel CSS --on-primary-container; origem Refy 0.4.0; escopo editorial; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --on-primary-container; escopo editorial; ação sólida com texto branco, ajustada em 22/10/2026. Acentos e texto sem superfície usam primary-ink/good-ink. Overrides de identidade preservados.",
       "$deprecated": false
     },
     "inverse-primary": {
@@ -4667,13 +4677,14 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.058823529411764705,
-          0.6588235294117647,
-          0.4588235294117647
+          0.03137254901960784,
+          0.4980392156862745,
+          0.3568627450980392
         ],
-        "alpha": 1
+        "alpha": 1,
+        "hex": "#087f5b"
       },
-      "$description": "Papel CSS --good; origem Refy 0.4.0; escopo editorial; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --good; escopo editorial; ação sólida com texto branco, ajustada em 22/10/2026. Acentos e texto sem superfície usam primary-ink/good-ink. Overrides de identidade preservados.",
       "$deprecated": false
     },
     "info": {
@@ -4704,13 +4715,14 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.043137254901960784,
-          0.5607843137254902,
-          0.38823529411764707
+          0.023529411764705882,
+          0.4,
+          0.28627450980392155
         ],
-        "alpha": 1
+        "alpha": 1,
+        "hex": "#066649"
       },
-      "$description": "Papel CSS --primary-hover; origem Refy 0.4.0; escopo editorial; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --primary-hover; escopo editorial; ação sólida com texto branco, ajustada em 22/10/2026. Acentos e texto sem superfície usam primary-ink/good-ink. Overrides de identidade preservados.",
       "$deprecated": false
     },
     "primary-soft": {
@@ -4900,13 +4912,14 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0,
-          0.08627450980392157,
-          0.054901960784313725
+          1.0,
+          1.0,
+          1.0
         ],
-        "alpha": 1
+        "alpha": 1,
+        "hex": "#ffffff"
       },
-      "$description": "Papel CSS --on-good; origem Refy 0.4.0; escopo editorial; ativo, sem remoção prevista. Ajuste de contraste em 22/10/2026: texto sobre --good usa a tinta escura já definida para --on-primary.",
+      "$description": "Papel CSS --on-good; escopo editorial; ação sólida com texto branco, ajustada em 22/10/2026. Acentos e texto sem superfície usam primary-ink/good-ink. Overrides de identidade preservados.",
       "$deprecated": false
     },
     "good-ink": {

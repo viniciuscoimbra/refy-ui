@@ -36,7 +36,7 @@
   height: 28px;
   margin: 8px 0 6px;
   padding: 0 11px; /* alinha com o raio do thumb */
-  color: var(--primary);
+  color: var(--primary-ink);
 }
 .hist span {
   flex: 1;

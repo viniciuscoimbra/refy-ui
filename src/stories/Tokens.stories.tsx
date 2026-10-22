@@ -1,6 +1,9 @@
 import { useLayoutEffect, useRef, useState } from "react";
+import { useGlobals } from "@storybook/preview-api";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button, Input, CodeBlock } from "../index";
+import { TypographySample } from "./TypographySample";
+import type { FontSet } from "../lib/fontSets";
 import source from "../tokens/foundations.tokens.json";
 import styles from "./VisualSystem.module.css";
 
@@ -15,7 +18,7 @@ const names = [
     ]),
   ),
 ].sort();
-function TokenBrowser({ mode }: { mode: string }) {
+function TokenBrowser({ mode, fonts, onFontsChange }: { mode: string; fonts: FontSet; onFontsChange: (value: FontSet) => void }) {
   const scope = useRef<HTMLDivElement>(null);
   const [values, setValues] = useState<Record<string, string>>({});
   const [query, setQuery] = useState("");
@@ -30,7 +33,7 @@ function TokenBrowser({ mode }: { mode: string }) {
         ),
       );
     }
-  }, [mode]);
+  }, [mode, fonts]);
   const filtered = names.filter((name) =>
     (name + " " + values[name]).toLowerCase().includes(query.toLowerCase()),
   );
@@ -48,6 +51,8 @@ function TokenBrowser({ mode }: { mode: string }) {
             : "claro"}
         . Troque o modo na barra do Storybook para comparar.
       </p>
+      <TypographySample value={fonts} onChange={onFontsChange} />
+      <nav className={styles.links}><a href="./?path=/story/fundamentos-playground--aplicacao" target="_top">Trocar fontes e temas em uma tela completa →</a></nav>
       <div className={styles.row} style={{ margin: "28px 0" }}>
         <Input
           label="Buscar token"
@@ -149,8 +154,7 @@ const meta = {
   parameters: { refyFullPage: true },
 } satisfies Meta;
 export default meta;
-export const Explorar: StoryObj = {
-  render: (_args, context) => (
-    <TokenBrowser mode={context.globals.theme ?? "light"} />
-  ),
-};
+export const Explorar: StoryObj = { render: function Render() {
+  const [globals, updateGlobals] = useGlobals();
+  return <TokenBrowser mode={globals.theme ?? "light"} fonts={globals.fonts ?? "humanist"} onFontsChange={fonts => updateGlobals({ fonts })} />;
+} };
