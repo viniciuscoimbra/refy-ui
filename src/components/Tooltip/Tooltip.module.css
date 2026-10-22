@@ -23,7 +23,7 @@
   line-height: 1.4;
   letter-spacing: var(--interface-label-tracking, 0.02em);
   text-align: left;
-  pointer-events: none;
+  pointer-events: auto;
   box-shadow: var(--elev-3);
   animation: tooltip-in var(--duration-fast) var(--ease-out);
 }

@@ -4,6 +4,7 @@ import { createPortal } from "react-dom";
 import { Kbd } from "../Kbd";
 import { cn } from "../../lib/cn";
 import { useThemePortal } from "../../lib/ThemeProvider";
+import { useTopLayer } from "../../lib/useTopLayer";
 import styles from "./Tooltip.module.css";
 
 export interface TooltipProps {
@@ -73,9 +74,10 @@ export function Tooltip({
   }
 
   useEffect(() => () => clearTimer(), []);
+  useTopLayer(bubbleRef, "tooltip", isOpen, close, triggerRef);
 
   useLayoutEffect(() => {
-    if (!isOpen || !portalled) return;
+    if (!isOpen) return;
     function position() {
       setPortalTheme(triggerRef.current?.closest("[data-theme]")?.getAttribute("data-theme") ?? null);
       const triggerRect = triggerRef.current?.getBoundingClientRect();
@@ -101,7 +103,7 @@ export function Tooltip({
       window.removeEventListener("resize", position);
       window.removeEventListener("scroll", position, true);
     };
-  }, [isOpen, portalled, side, label, description, shortcut]);
+  }, [isOpen, portalled, side, label, description, shortcut, themePortal]);
 
   const trigger = isValidElement(children)
     ? cloneElement(children as ReactElement<{ "aria-describedby"?: string }>, {
@@ -116,11 +118,14 @@ export function Tooltip({
     <span
       ref={bubbleRef}
       role="tooltip"
+      popover="manual"
       id={id}
       data-side={side}
       data-theme={portalled && !themePortal ? portalTheme ?? undefined : undefined}
       className={cn(styles.bubble, portalled && styles.portal)}
-      style={portalled ? { top: portalPosition?.top ?? 0, left: portalPosition?.left ?? 0, visibility: portalPosition ? "visible" : "hidden" } : undefined}
+      onMouseEnter={clearTimer}
+      onMouseLeave={close}
+      style={{ position: "fixed", inset: "auto", margin: 0, border: 0, translate: "none", top: portalPosition?.top ?? 0, left: portalPosition?.left ?? 0, visibility: portalPosition ? "visible" : "hidden" }}
     >
       <span className={styles.content}>
         <span className={styles.label}>{label}</span>
@@ -134,7 +139,7 @@ export function Tooltip({
     <span
       className={cn(styles.wrap, className)}
       onMouseEnter={scheduleOpen}
-      onMouseLeave={close}
+      onMouseLeave={() => { clearTimer(); timerRef.current = window.setTimeout(() => setOpen(false), 150); }}
       onFocusCapture={scheduleOpen}
       onBlurCapture={close}
       onKeyDown={(event) => {
@@ -142,7 +147,7 @@ export function Tooltip({
       }}
     >
       <span ref={triggerRef} className={styles.trigger}>{trigger}</span>
-      {portalled && typeof document !== "undefined" ? createPortal(bubble, themePortal ?? document.body) : bubble}
+      {portalled && typeof document !== "undefined" ? createPortal(bubble, triggerRef.current?.closest('[aria-modal="true"]') ?? themePortal ?? document.body) : bubble}
     </span>
   );
 }

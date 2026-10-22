@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useId } from "react";
 import type { InputHTMLAttributes, ReactNode } from "react";
 import { cn } from "../../lib/cn";
 import styles from "./Input.module.css";
@@ -39,7 +39,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   },
   ref
 ) {
-  const fieldId = id || (label ? `in-${label.replace(/\s+/g, "-").toLowerCase()}` : undefined);
+  const generatedId = useId();
+  const fieldId = id ?? generatedId;
   const helpId = fieldId && (error || hint) ? `${fieldId}-help` : undefined;
   return (
     <div className={cn(styles.field, block && styles.block, className)}>
@@ -57,7 +58,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
           id={fieldId}
           className={styles.input}
           disabled={disabled}
-          aria-describedby={describedBy ?? helpId}
+          aria-describedby={[describedBy, helpId].filter(Boolean).join(" ") || undefined}
           aria-invalid={error ? true : invalid}
           {...rest}
         />

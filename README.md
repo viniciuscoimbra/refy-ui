@@ -109,3 +109,5 @@ Esse programa está em planejamento. Artefatos validados não significam compone
 ## Temas por aplicação
 
 Use a mesma implementação com identidade e modos independentes via ThemeProvider. Veja [instalação e customização](docs/THEMING.md), [de–para dos consumidores](docs/CONSUMERS.md) e [inventário de tokens](docs/TOKEN_INVENTORY.md). Os exemplos são sintéticos; os produtos existentes ainda não estão homologados na nova distribuição.
+
+A execução atual e os limites estão nos [contratos essenciais](docs/CORE_CONTRACTS.md) e no [roteiro assistivo pendente](docs/ASSISTIVE_QA.md). O CI mantém regressão por navegador/tema/viewport; referências visuais exigem revisão antes de atualização.

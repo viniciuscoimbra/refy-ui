@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef } from "react";
+import { useId, useRef } from "react";
 import type { ReactNode } from "react";
 import { cn } from "../../lib/cn";
 import { useDialogFocusTrap } from "../../lib/useDialogFocusTrap";
@@ -31,15 +31,6 @@ export function Modal({ open, onClose, title, ariaLabel = "Janela modal", footer
   const modalRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
   useDialogFocusTrap(open, modalRef, onClose);
-
-  useEffect(() => {
-    if (!open) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = prev;
-    };
-  }, [open]);
 
   if (!open) return null;
 

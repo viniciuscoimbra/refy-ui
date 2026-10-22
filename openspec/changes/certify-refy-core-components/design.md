@@ -30,6 +30,12 @@ Preservar callbacks e modo controlado/não controlado onde suportados. Toda muda
 
 Validação: cumprir cenários positivos e negativos das specs e guardar resultados por requisito. Se houver falha, manter tarefa e gate abertos; reverter alteração isolada quando necessário, preservando a evidência da falha.
 
+## Decisão de montagem para OVL-03
+
+A região de avisos manterá um host de portal estável e acompanhará o diálogo ativo da mesma instância ThemeProvider. Mover o host não remonta os toasts, preservando timer/animação. A região passa a ser descendente DOM do diálogo; foco e leitura não dependem de aria-owns. Ao fechar, retorna ao escopo original. Uma instância não captura avisos de outra. A pilha de diálogos gerencia inert e bloqueio de scroll com restauração dos valores anteriores. Tooltips portalled dentro de diálogo mantêm o mesmo escopo acessível.
+
+Superfícies usam a Popover API manual/top layer para escapar de recortes, com ordenação explícita por prioridade. Helpers genéricos do GF serão reutilizados com revisão e testes; nenhum token/asset PCF será portado. Os navegadores atuais da matriz suportam a API; suporte legado sem top layer não será anunciado como homologado.
+
 ## Open Questions
 
-Escolher no design de implementação como associar avisos acionáveis ao diálogo ativo (escopo/montagem) sem expor conteúdo de fundo. Essa decisão deve ser resolvida antes do trabalho OVL-03.
+Homologação manual NVDA/Chrome e VoiceOver/Safari requer execução real com versões; falta de acesso permanece pendente. Não promover as famílias pela automação.

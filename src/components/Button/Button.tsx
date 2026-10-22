@@ -14,7 +14,7 @@ export type ButtonProgressEffect =
 
 /** Props for the base Refy button. */
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Hierarquia visual. Primário = cor sólida da marca + texto branco. */
+  /** Hierarquia visual. Primário usa texto definido pelo token on-primary. */
   variant?: ButtonVariant;
   size?: ButtonSize;
   /** Ícone à esquerda do label (16px recomendado). */
@@ -35,7 +35,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 /**
  * Botão base do Refy. Texto de ação curto, em português, sem hype.
- * O primário usa a cor sólida da marca com texto branco, preservando contraste em todos os temas.
+ * O contraste depende dos tokens e estados da identidade aplicada.
  */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   {
@@ -49,6 +49,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     loadingLabel,
     block = false,
     disabled,
+    type,
     className,
     children,
     ...rest
@@ -62,6 +63,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   return (
     <button
       ref={ref}
+      type={type}
       className={cn(
         styles.btn,
         styles[variant],
@@ -72,9 +74,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
         className
       )}
       disabled={disabled || isLoading}
-      aria-busy={isLoading || undefined}
       data-status={currentStatus}
       {...rest}
+      aria-busy={isLoading || rest["aria-busy"] || undefined}
     >
       {isLoading && progressEffect !== "spinner" && <><span className={styles.progress} aria-hidden="true" /><span className={styles.progressAlt} aria-hidden="true" /></>}
       {isLoading && progressEffect === "spinner" && <span className={styles.spinner} aria-hidden="true" />}
