@@ -1,6 +1,6 @@
-# Planejamento de qualidade do Refy
+# Qualidade do Refy — planejamento e execução
 
-O programa define contratos e evidências para evoluir a biblioteca Refy. Esta entrega inicializa o OpenSpec e prepara os artefatos; não implementa alterações nos componentes, nos tokens ou na distribuição.
+O programa define contratos e evidências para evoluir a biblioteca Refy. O mantenedor autorizou a execução das cinco fases em 21/10/2026. Governança e fundação já foram implementadas e verificadas; as etapas restantes seguem seus gates e não são consideradas concluídas por terem artefatos prontos.
 
 ## Ordem de execução
 
@@ -14,6 +14,18 @@ O programa define contratos e evidências para evoluir a biblioteca Refy. Esta e
 
 As dependências são condições documentadas de execução, não um bloqueio automático do CLI. Ter proposal/design/specs/tasks completos não comprova execução ou autorização para implementar. Não iniciar a próxima fase apenas porque o CLI considera os artefatos completos.
 
+## Estado da execução
+
+| Fase | Situação | Evidência |
+|---|---|---|
+| Governança | Gate técnico concluído; specs sincronizadas | [Registro](changes/establish-refy-governance/evidence.md) |
+| Fundação | Gate técnico concluído; specs sincronizadas | [Registro](changes/standardize-refy-foundations/evidence.md) |
+| Componentes essenciais | Implementação e automação em verificação; homologação assistiva pendente | [Registro e pendências](changes/certify-refy-core-components/evidence.md) |
+| Documentação integral | Não iniciada; depende do gate dos componentes | [Tarefas](changes/standardize-refy-documentation/tasks.md) |
+| Release e adoção | Não iniciada; pacote não publicado, produtos não migrados | [Tarefas](changes/establish-refy-release-and-adoption/tasks.md) |
+
+A revisão técnica registrada é do agente. Não se confunde com revisão independente nem com a sessão real de NVDA/Chrome e VoiceOver/Safari exigida por CORE-03. [Roteiro assistivo](../docs/ASSISTIVE_QA.md).
+
 ## Como ler e revisar
 
 Cada mudança contém:
@@ -21,11 +33,11 @@ Cada mudança contém:
 - `proposal.md`: problema, escopo, capacidades, impacto e predecessor.
 - `design.md`: decisões propostas, alternativas, riscos, migração e decisões abertas.
 - `specs/<capacidade>/spec.md`: requisitos com IDs e cenários observáveis de sucesso e falha/limite.
-- `tasks.md`: tarefas desmarcadas, IDs atendidos, critérios de aceite e evidências esperadas.
+- `tasks.md`: tarefas com estado de execução, IDs atendidos, critérios de aceite e referências de evidência.
 
 A revisão deve conferir o escopo, as decisões abertas e os cenários antes de autorizar a execução. Exemplos de aceite nesta proposta incluem falha para tokens obrigatórios ausentes, dispensa de camadas em ordem, ação de aviso acessível durante modalidade e instalação real do tarball fora do workspace.
 
-Cada tarefa concluída precisará registrar a execução e o resultado. Nenhuma checkbox desta entrega afirma que o comportamento foi implementado ou certificado. Uma dúvida que determina uma solução, como o escopo de avisos acionáveis durante um modal, deve ser resolvida no design antes da tarefa correspondente.
+Cada tarefa concluída registra a execução e o resultado no evidence.md da mudança. Checkboxes não substituem o gate: uma fase pode ter implementação parcial e ainda depender de validação obrigatória. Decisões que determinam a solução são registradas no design antes da tarefa correspondente.
 
 ## Uma base para vários produtos
 
@@ -39,7 +51,7 @@ Hoje há evidência de dependência local/patches e adaptação de tokens no Ply
 
 Baseline de código: `c3f03fd`, pacote `@refy/ui` 0.4.0. O inventário de origem tem 92 famílias e 371 stories. Esses números são referência de escopo; não representam certificação de comportamento ou acessibilidade.
 
-As specs propostas ficam em `changes/`. `openspec/specs/` permanece sem contratos promovidos até a implementação, verificação e sincronização/arquivamento adequados. Requisitos ainda propostos não devem ser apresentados como comportamento existente.
+As specs propostas ficam em `changes/`. `openspec/specs/` contém os contratos de governança e fundação já verificados; as demais capacidades só são promovidas após sua implementação e validação adequadas. Requisitos ainda propostos não devem ser apresentados como comportamento existente.
 
 O primeiro escopo funcional é Button, Input, Menu, Modal, Drawer, Tooltip e ToastRegion. Uma família pode exportar mais de uma API: validar ToastRegion não certifica automaticamente Toast isolado ou toda composição que o use. O inventário deve registrar o escopo efetivamente verificado.
 

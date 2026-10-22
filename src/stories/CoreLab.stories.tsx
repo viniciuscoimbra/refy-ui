@@ -54,3 +54,11 @@ function TimerLab() {
   </ThemeProvider>;
 }
 export const Temporizador: Story = { render: () => <TimerLab/> };
+function InitialHelp() {
+  const [open, setOpen] = useState(true);
+  return <ThemeProvider mode="dark">
+    <Tooltip label="Ajuda controlada inicial" open={open} onOpenChange={setOpen} portalled><Button>Ajuda controlada</Button></Tooltip>
+    <Tooltip label="Ajuda padrão inicial" defaultOpen portalled><Button>Ajuda padrão</Button></Tooltip>
+  </ThemeProvider>;
+}
+export const AjudaInicial: Story = { render: () => <InitialHelp/> };

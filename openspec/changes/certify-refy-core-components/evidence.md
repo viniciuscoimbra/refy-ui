@@ -65,4 +65,16 @@ Revisão adicional dos callers de Menu: Breadcrumb, FabMenu, HelpMenu, UserMenu 
 
 A execução 39716998021 concluiu 226 testes e falhou em 36 casos sem referência Linux, primeira carga Chromium e foco do Menu WebKit. Falhas preservadas, sem declarar gate aprovado. O foco obrigatório deixou de depender de requestAnimationFrame; CI agora usa o Storybook compilado. Suite local atual: 190 testes passaram; mais 28 testes focados no build estático passaram com a configuração CI, sem atualizar imagens.
 
-54 referências Linux foram revisadas nas nove folhas de engine/tema e incorporadas sem sobrescrever as 36 referências Mac. Procedimento/versões em docs/CORE_VISUAL.md. Aguarda CI final comparando as referências e exercitando os novos callers.
+54 referências Linux foram revisadas nas nove folhas de engine/tema e incorporadas sem sobrescrever as 36 referências Mac. Procedimento/versões em docs/CORE_VISUAL.md. O commit 8257a1ec38b5ba0435d37febb0cb95b87d4557b3 passou 285 testes nas três engines no Linux: https://github.com/viniciuscoimbra/refy-ui/actions/runs/39718949302.
+
+## Regressão do tooltip inicialmente aberto — 22/10/2026
+
+Os modos controlado e defaultOpen foram exercitados durante a criação do host de
+portal da identidade. A verificação de visibilidade passava, mas a asserção nativa
+:popover-open falhou nas duas engines locais: a mudança do contêiner remontava o
+nó sem registrar novamente sua camada. useTopLayer agora acompanha o contêiner
+efetivo; Tooltip reutiliza esse mesmo contêiner na montagem. O novo teste verifica
+ambas as formas inicialmente abertas, a camada nativa e dois Escapes sucessivos.
+Após a correção, o teste focado passou nas duas engines e a suíte local completa
+passou **192 testes** em Chromium/WebKit, sem atualizar referências visuais.
+O check de biblioteca também passou. Aguarda CI desta regressão final (288 casos).

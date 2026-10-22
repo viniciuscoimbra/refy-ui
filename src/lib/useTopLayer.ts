@@ -57,9 +57,10 @@ export function registerTopLayer(entry: Entry) {
   };
 }
 
-export function useTopLayer<T extends HTMLElement>(ref: RefObject<T | null>, layer: Layer, enabled = true, onEscape?: () => void, scope?: RefObject<HTMLElement | null>) {
+export function useTopLayer<T extends HTMLElement>(ref: RefObject<T | null>, layer: Layer, enabled = true, onEscape?: () => void, scope?: RefObject<HTMLElement | null>, portalContainer?: Element | null) {
   const closeRef = useRef(onEscape);
   closeRef.current = onEscape;
+  // A new portal container remounts the node even when the ref object stays the same.
   useLayoutEffect(() => {
     const element = ref.current;
     if (!enabled || !element) return;
@@ -72,5 +73,5 @@ export function useTopLayer<T extends HTMLElement>(ref: RefObject<T | null>, lay
         target?.focus({ preventScroll: true });
       }
     } : undefined });
-  }, [ref, layer, enabled, scope, !!onEscape]);
+  }, [ref, layer, enabled, scope, !!onEscape, portalContainer]);
 }

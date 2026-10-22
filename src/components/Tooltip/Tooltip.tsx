@@ -50,6 +50,7 @@ export function Tooltip({
   const id = useId();
   const isControlled = open !== undefined;
   const isOpen = isControlled ? open : internalOpen;
+  const portalContainer = portalled && typeof document !== "undefined" ? triggerRef.current?.closest('[aria-modal="true"]') ?? themePortal ?? document.body : null;
 
   function setOpen(next: boolean) {
     if (!isControlled) setInternalOpen(next);
@@ -74,7 +75,7 @@ export function Tooltip({
   }
 
   useEffect(() => () => clearTimer(), []);
-  useTopLayer(bubbleRef, "tooltip", isOpen, close, triggerRef);
+  useTopLayer(bubbleRef, "tooltip", isOpen, close, triggerRef, portalContainer);
 
   useLayoutEffect(() => {
     if (!isOpen) return;
@@ -147,7 +148,7 @@ export function Tooltip({
       }}
     >
       <span ref={triggerRef} className={styles.trigger}>{trigger}</span>
-      {portalled && typeof document !== "undefined" ? createPortal(bubble, triggerRef.current?.closest('[aria-modal="true"]') ?? themePortal ?? document.body) : bubble}
+      {portalContainer ? createPortal(bubble, portalContainer) : bubble}
     </span>
   );
 }

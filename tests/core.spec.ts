@@ -134,3 +134,13 @@ test('Toast pausa durante hover e foco, retomando o prazo restante', async ({ pa
   await page.getByRole('button', { name: 'Atualizar contador' }).focus();
   await page.clock.runFor(1100); await expect(notice).toHaveCount(0);
 });
+
+test('Tooltip controlado e defaultOpen montam no portal da identidade', async ({ page }) => {
+  await page.goto('/iframe.html?id=verificacao-contratos-essenciais--ajuda-inicial&viewMode=story');
+  await expect(page.getByRole('tooltip')).toHaveCount(2);
+  await expect(page.getByRole('tooltip').nth(0)).toBeVisible();
+  await expect(page.getByRole('tooltip').nth(1)).toBeVisible();
+  expect(await page.getByRole('tooltip').evaluateAll(elements => elements.every(el => el.matches(':popover-open')))).toBe(true);
+  await page.keyboard.press('Escape'); await expect(page.getByRole('tooltip')).toHaveCount(1);
+  await page.keyboard.press('Escape'); await expect(page.getByRole('tooltip')).toHaveCount(0);
+});
