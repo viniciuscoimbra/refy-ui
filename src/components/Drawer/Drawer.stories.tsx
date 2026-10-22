@@ -7,7 +7,8 @@ import { Drawer } from "./Drawer";
  * `Drawer` — painel lateral deslizante; `side="bottom"` usa a variação inferior com alça.
  */
 const meta = {
-  title: "Components/Organisms/Drawer",
+  id: "components-organisms-drawer",
+  title: "Componentes/Organismos/Drawer",
   component: Drawer,
   tags: ["autodocs"],
   parameters: {

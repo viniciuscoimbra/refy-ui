@@ -67,7 +67,7 @@ const chevron = (
  *
  *   <SettingRow leading={<GoogleIcon />} leadingFrame
  *     title={<>Google <Badge tone="success" dot>Conectado</Badge></>}
- *     meta="joao@globoeditorial.com · conectado em 12 jan. 2026"
+ *     meta="joao@example.com · conectado em 12 jan. 2026"
  *     actions={<Button size="sm" variant="ghost">Desconectar</Button>} />
  */
 export const SettingRow = forwardRef<HTMLElement, SettingRowProps>(

@@ -5,13 +5,14 @@ import { FabMenu, type FabMenuAction } from "./FabMenu";
 
 const actions: FabMenuAction[] = [
   { id: "cliente", label: "Novo cliente", icon: Icons.plus },
-  { id: "buscar", label: "Buscar imóvel", icon: Icons.search },
+  { id: "buscar", label: "Buscar conteúdo", icon: Icons.search },
   { id: "importar", label: "Importar contato", icon: Icons.download },
   { id: "ajuda", label: "Pedir ajuda", icon: Icons.help },
 ];
 
 const meta = {
-  title: "Components/Molecules/FabMenu",
+  id: "components-molecules-fabmenu",
+  title: "Componentes/Moléculas/FabMenu",
   component: FabMenu,
   tags: ["autodocs"],
   parameters: {

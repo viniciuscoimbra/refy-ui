@@ -55,7 +55,7 @@ export function Drawer({
 
   return (
     <>
-      <div className={styles.scrim} aria-hidden="true" onClick={() => onOpenChange(false)} />
+      <div data-refy-scrim="" className={styles.scrim} aria-hidden="true" onClick={() => onOpenChange(false)} />
       <div
         ref={panelRef}
         role="dialog"

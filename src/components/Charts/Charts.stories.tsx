@@ -5,7 +5,8 @@ import { BarChart, DonutChart, LineChart, Sparkline } from "./Charts";
  * `Charts` — line/bar/donut/sparkline em SVG puro, sem dependências.
  */
 const meta = {
-  title: "Components/Organisms/Charts",
+  id: "components-organisms-charts",
+  title: "Componentes/Organismos/Charts",
   component: LineChart,
   tags: ["autodocs"],
   parameters: {
@@ -41,7 +42,7 @@ export const Line: Story = {
     xLabels: ["Ago", "Set", "Out", "Hoje"],
     pointLabels: ["Sem 1", "Sem 2", "Sem 3", "Sem 4", "Sem 5", "Sem 6", "Sem 7", "Sem 8", "Sem 9", "Sem 10", "Sem 11", "Sem 12"],
     formatY: (v: number) => `${(v / 1000).toFixed(1)}k`,
-    yTitle: "Visitas/mês",
+    yTitle: "Acessos/mês",
     xTitle: "Últimos 90 dias",
     label: "Tráfego orgânico (90 dias)",
   },
@@ -52,22 +53,22 @@ export const Line: Story = {
   ),
 };
 
-/** Duas séries com legenda — você × concorrente. */
+/** Duas séries com legenda — você × projeto. */
 export const MultiSerie: Story = {
   name: "LineChart · 2 séries",
-  args: { data: trafego, label: "Você × concorrente" },
+  args: { data: trafego, label: "Você × projeto" },
   render: () => (
     <div style={{ maxWidth: 680 }}>
       <LineChart
         title="Tráfego comparado"
-        label="Tráfego: você × concorrente"
+        label="Tráfego: você × projeto"
         series={[
           { name: "refy.com.br", data: trafego, tone: "primary" },
-          { name: "rdstation.com", data: [5200, 5400, 5600, 5300, 5800, 6200, 6100, 6600, 7000, 6800, 7400, 7800], tone: "info" },
+          { name: "aurora.example.com", data: [5200, 5400, 5600, 5300, 5800, 6200, 6100, 6600, 7000, 6800, 7400, 7800], tone: "info" },
         ]}
         xLabels={["Ago", "Set", "Out", "Hoje"]}
         formatY={(v: number) => `${(v / 1000).toFixed(1)}k`}
-        yTitle="Visitas/mês"
+        yTitle="Acessos/mês"
       />
     </div>
   ),
@@ -98,8 +99,8 @@ export const Bar: Story = {
 /** Anel de progresso com valor central. */
 export const Donut: Story = {
   name: "DonutChart · progresso",
-  args: { data: [], label: "Score de SEO" },
-  render: () => <DonutChart value={74} caption="Score de SEO" label="Score de SEO" />,
+  args: { data: [], label: "Índice de conclusão" },
+  render: () => <DonutChart value={74} caption="Índice de conclusão" label="Índice de conclusão" />,
 };
 
 /** Distribuição em segmentos com tons semânticos. */

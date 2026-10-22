@@ -27,7 +27,7 @@ export interface HoverCardProps {
  * teclado. Card de 280px, elevação 3. Não é interativo-modal: para conteúdo
  * clicável complexo, use `Popover`.
  *
- *   <HoverCard content={<PerfilDominio />}> <a href="…">rdstation.com</a> </HoverCard>
+ *   <HoverCard content={<PerfilDominio />}> <a href="…">example.com</a> </HoverCard>
  */
 export function HoverCard({
   content,

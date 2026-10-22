@@ -83,10 +83,10 @@ export function UserMenu({
       entries={entries}
       onSelect={onSelect}
       align={align ?? (compact ? "end" : "start")}
+      side={side}
+      matchWidth={!compact}
       className={cn(
         styles.wrap,
-        side === "top" && styles.sideTop,
-        !compact && styles.fullWidthMenu,
         className
       )}
     >

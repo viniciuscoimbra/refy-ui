@@ -7,7 +7,8 @@ import { HoverCard } from "./HoverCard";
  * `HoverCard` — preview rico ao pairar sobre uma referência (link, mention, avatar).
  */
 const meta = {
-  title: "Components/Molecules/HoverCard",
+  id: "components-molecules-hovercard",
+  title: "Componentes/Moléculas/HoverCard",
   component: HoverCard,
   tags: ["autodocs"],
   parameters: {
@@ -44,14 +45,14 @@ function PerfilDominio() {
       <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
         <Avatar initials="RD" />
         <div>
-          <div style={{ fontWeight: 600, fontSize: "var(--text-sm)" }}>rdstation.com</div>
+          <div style={{ fontWeight: 600, fontSize: "var(--text-sm)" }}>aurora.example.com</div>
           <div style={{ fontSize: "var(--text-2xs)", color: "var(--ink-3)" }}>
-            Concorrente · monitorado há 12 dias
+            Projeto · acompanhado há 12 dias
           </div>
         </div>
       </div>
       <div style={{ marginTop: 12, color: "var(--ink-2)", lineHeight: "var(--leading-normal)" }}>
-        DA 78 · 142 keywords no top 10 · 23k backlinks
+        12 tarefas · 142 keywords no top 10 · 23k backlinks
       </div>
       <div style={{ display: "flex", gap: 6, marginTop: 12 }}>
         <Badge tone="success">Saudável</Badge>
@@ -67,7 +68,7 @@ export const Playground: Story = {
   render: (args) => (
     <HoverCard {...args} content={<PerfilDominio />}>
       <a href="#exemplo" style={{ color: "var(--primary-ink, var(--primary))", fontWeight: 600, fontSize: 14 }}>
-        rdstation.com
+        aurora.example.com
       </a>
     </HoverCard>
   ),
@@ -80,7 +81,7 @@ export const SemDelay: Story = {
   render: (args) => (
     <HoverCard {...args} content={<PerfilDominio />}>
       <a href="#exemplo" style={{ color: "var(--primary-ink, var(--primary))", fontWeight: 600, fontSize: 14 }}>
-        rdstation.com
+        aurora.example.com
       </a>
     </HoverCard>
   ),

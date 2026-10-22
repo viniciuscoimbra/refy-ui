@@ -4,7 +4,8 @@ import { Badge } from "../Badge";
 import { Button } from "../Button";
 
 const meta = {
-  title: "Components/Molecules/BillingCard",
+  id: "components-molecules-billingcard",
+  title: "Componentes/Moléculas/BillingCard",
   component: BillingCard,
   tags: ["autodocs"],
   parameters: {
@@ -64,7 +65,7 @@ export const SoMetodo: Story = {
   name: "Só método (secundário)",
   args: {
     methodLabel: "Pix",
-    methodMeta: "joao@globoeditorial.com · AbacatePay",
+    methodMeta: "joao@example.com · AbacatePay",
     status: <Badge tone="neutral">Secundário</Badge>,
     actions: (
       <Button variant="ghost" size="sm">

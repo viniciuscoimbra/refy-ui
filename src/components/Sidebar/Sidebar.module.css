@@ -115,27 +115,7 @@
   padding: 14px 12px 4px;
   flex-shrink: 0;
 }
-.cta {
-  width: 100%;
-  height: var(--button-height-md, 36px);
-  border: none;
-  border-radius: var(--radius-default);
-  background: var(--primary);
-  color: var(--selection-on-primary, var(--legacy-white));
-  font-family: var(--font-body);
-  font-weight: var(--control-font-weight, var(--weight-semi));
-  font-size: var(--text-sm);
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  white-space: nowrap;
-  text-decoration: none;
-}
-.cta:hover {
-  background: var(--brand-inverse-primary);
-}
+.cta { width: 100%; text-decoration: none; }
 .cta svg {
   width: 14px;
   height: 14px;
@@ -197,7 +177,7 @@
 }
 .itemActive {
   background: var(--primary-soft);
-  color: var(--brand-inverse-primary);
+  color: var(--primary-ink);
   font-weight: var(--weight-semi);
 }
 .itemActive::before {
@@ -248,7 +228,7 @@
   gap: 4px;
   margin-inline: auto;
   padding: 6px 2px;
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
 }
 .rail .itemIcon :global(svg) { width: 20px; height: 20px; }
 .rail .itemLabel {
@@ -267,7 +247,7 @@
   height: 40px;
   margin-inline: auto;
   padding: 0;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
 }
 .collapsed .badge {
   position: absolute;

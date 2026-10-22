@@ -4,7 +4,8 @@ import { ProgressBar } from "./ProgressBar";
 import { Button } from "../Button";
 
 const meta = {
-  title: "Components/Atoms/ProgressBar",
+  id: "components-atoms-progressbar",
+  title: "Componentes/Átomos/ProgressBar",
   component: ProgressBar,
   tags: ["autodocs"],
   parameters: {

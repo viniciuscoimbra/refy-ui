@@ -3,7 +3,8 @@ import { Checkbox } from "./Checkbox";
 import { Badge } from "../Badge";
 
 const meta = {
-  title: "Components/Atoms/Checkbox",
+  id: "components-atoms-checkbox",
+  title: "Componentes/Átomos/Checkbox",
   component: Checkbox,
   tags: ["autodocs"],
   parameters: {
@@ -11,7 +12,7 @@ const meta = {
     docs: {
       description: {
         component: [
-          "Caixa de seleção com check customizado sobre input nativo. Cobre também o padrão \"campo de checkbox\": `description` (texto de apoio), `tag` (etiqueta inline, ex.: `Badge` \"destrutivo\" em permissão perigosa), `meta` (mono à direita) e `boxed` (linha com borda selecionável — propriedades GSC, escolhas em modal).",
+          "Caixa de seleção com check customizado sobre input nativo. Cobre também o padrão \"campo de checkbox\": `description` (texto de apoio), `tag` (etiqueta inline, ex.: `Badge` \"destrutivo\" em permissão perigosa), `meta` (mono à direita) e `boxed` (linha com borda selecionável — itens disponíveis, escolhas em modal).",
           "",
           "**Onde usar:** múltipla escolha em formulários, listas de permissões, seleção de propriedades/itens em modais (`boxed`).",
           "",
@@ -60,9 +61,9 @@ export const CheckboxBoxed: Story = {
   name: "Boxed (linha selecionável)",
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: 8, maxWidth: 440 }}>
-      <Checkbox boxed label="sc-domain:globo.com" meta="42 mil cliques / 28d" defaultChecked />
-      <Checkbox boxed label="sc-domain:vogue.com.br" meta="8 mil cliques / 28d" defaultChecked />
-      <Checkbox boxed label="sc-domain:casavogue.globo.com" meta="3 mil cliques / 28d" />
+      <Checkbox boxed label="sc-domain:example.com" meta="42 mil cliques / 28d" defaultChecked />
+      <Checkbox boxed label="sc-domain:design.example.com" meta="8 mil cliques / 28d" defaultChecked />
+      <Checkbox boxed label="sc-domain:colecao.example.com" meta="3 mil cliques / 28d" />
     </div>
   ),
 };

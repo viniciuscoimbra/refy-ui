@@ -3,7 +3,8 @@ import { Divider } from "./Divider";
 import { Button } from "../Button";
 
 const meta = {
-  title: "Components/Atoms/Divider",
+  id: "components-atoms-divider",
+  title: "Componentes/Átomos/Divider",
   component: Divider,
   tags: ["autodocs"],
   parameters: {

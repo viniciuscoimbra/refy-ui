@@ -5,7 +5,8 @@ import { UserMenu } from "./UserMenu";
  * `UserMenu` — bloco de usuário que abre o menu de conta (compõe Avatar + Menu).
  */
 const meta = {
-  title: "Components/Molecules/UserMenu",
+  id: "components-molecules-usermenu",
+  title: "Componentes/Moléculas/UserMenu",
   component: UserMenu,
   tags: ["autodocs"],
   parameters: {
@@ -37,7 +38,7 @@ export default meta;
 
 type Story = StoryObj<typeof UserMenu>;
 
-const user = { name: "João Mendes", email: "joao@globoeditorial.com", initials: "JM" };
+const user = { name: "João Mendes", email: "joao@example.com", initials: "JM" };
 
 /** Bloco completo (sidebar) — clique para abrir. */
 export const Playground: Story = {

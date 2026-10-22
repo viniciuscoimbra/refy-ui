@@ -7,3 +7,5 @@ storybook-static/
 !.env.example
 .DS_Store
 graft/
+test-results/
+playwright-report/

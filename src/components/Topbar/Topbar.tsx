@@ -41,7 +41,7 @@ export function Topbar({
   brand = "refy",
   showBrand = true,
   composition = "search",
-  searchPlaceholder = "Buscar clientes, imóveis, visitas…",
+  searchPlaceholder = "Buscar projetos, pessoas, arquivos…",
   onSearchClick,
   tabs = [],
   tabValue,

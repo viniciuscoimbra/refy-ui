@@ -2,11 +2,12 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Input } from "./Input";
 
 const meta = {
-  title: "Components/Atoms/Input",
+  id: "components-atoms-input",
+  title: "Componentes/Átomos/Input",
   component: Input,
   tags: ["autodocs"],
   parameters: { layout: "padded" },
-  args: { label: "Nome do ambiente", placeholder: "Globo Editorial", block: true },
+  args: { label: "Nome do ambiente", placeholder: "Equipe Exemplo", block: true },
   argTypes: {
     label: { control: "text" },
     hint: { control: "text" },
@@ -28,6 +29,6 @@ export const InputComErro: Story = {
   args: { label: "URL", error: "Informe uma URL válida.", defaultValue: "globo" },
 };
 export const InputComPrefixo: Story = {
-  render: (args) => <Input {...args} label="URL do ambiente" prefix="refy.app/" defaultValue="globo-editorial" />,
+  render: (args) => <Input {...args} label="URL do ambiente" prefix="example.com/" defaultValue="globo-editorial" />,
 };
 export const InputDesabilitado: Story = { args: { label: "Plano", defaultValue: "Pro Anual", disabled: true } };

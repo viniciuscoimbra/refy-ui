@@ -2,7 +2,7 @@
   position: fixed;
   inset: 0;
   z-index: var(--z-overlay);
-  background: color-mix(in srgb, var(--ink-1, var(--legacy-black)) 50%, transparent);
+  background: var(--legacy-modal-scrim);
   animation: scrim-in var(--duration-mid) var(--ease-out);
 }
 @keyframes scrim-in {
@@ -28,16 +28,18 @@
 .right {
   top: 0;
   bottom: 0;
-  width: 320px;
+  width: var(--drawer-width, 320px);
   max-width: 90vw;
 }
 .left {
   left: 0;
+  border-radius: 0 var(--drawer-radius, 0px) var(--drawer-radius, 0px) 0;
   border-right: 1px solid var(--line, var(--surface-container-high));
   animation: slide-left var(--duration-slow) var(--ease-emph);
 }
 .right {
   right: 0;
+  border-radius: var(--drawer-radius, 0px) 0 0 var(--drawer-radius, 0px);
   border-left: 1px solid var(--line, var(--surface-container-high));
   animation: slide-right var(--duration-slow) var(--ease-emph);
 }
@@ -47,8 +49,8 @@
   bottom: 0;
   max-height: 85vh;
   border-top: 1px solid var(--line, var(--surface-container-high));
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: var(--drawer-radius, 20px);
+  border-top-right-radius: var(--drawer-radius, 20px);
   box-shadow: var(--elev-5);
   animation: slide-up var(--duration-slow) var(--ease-emph);
 }

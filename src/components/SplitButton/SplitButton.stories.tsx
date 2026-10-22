@@ -21,7 +21,8 @@ const exportOptions = [
  * `SplitButton` — ação principal + caret que abre um menu de variações.
  */
 const meta = {
-  title: "Components/Molecules/SplitButton",
+  id: "components-molecules-splitbutton",
+  title: "Componentes/Moléculas/SplitButton",
   component: SplitButton,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

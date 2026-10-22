@@ -5,7 +5,8 @@ import { AvatarGroup, type AvatarGroupItem } from "./AvatarGroup";
  * `AvatarGroup` — avatares empilhados com sobreposição e overflow "+N".
  */
 const meta = {
-  title: "Components/Molecules/AvatarGroup",
+  id: "components-molecules-avatargroup",
+  title: "Componentes/Moléculas/AvatarGroup",
   component: AvatarGroup,
   tags: ["autodocs"],
   parameters: {
@@ -16,7 +17,7 @@ const meta = {
           "Composição sobre o átomo `Avatar`: cada pessoa é um Avatar com anel da superfície; o excedente (`items.length - max`) vira um chip \"+N\" cujo tooltip lista os nomes restantes. Ordem estável (primeira pessoa por cima). Com `onItemClick`/`onOverflowClick` os itens viram botões reais (Tab, Enter/Espaço, foco visível).",
           "",
           "### Onde usar",
-          "- Resumo compacto de quem participa de algo: membros do time (ref. `settings_team`), corretores de uma carteira, responsáveis por um imóvel/projeto.",
+          "- Resumo compacto de quem participa de algo: membros do time (ref. `settings_team`), integrantes de uma equipe, responsáveis por um conteúdo/projeto.",
           "- Célula de tabela ou header de card onde a lista completa não cabe.",
           "- Com `onOverflowClick` levando à lista completa (página ou Drawer do app).",
           "",
@@ -45,7 +46,7 @@ const team: AvatarGroupItem[] = [
   { name: "Joana Martins" },
   { name: "Marcos Silva", color: "var(--legacy-ink-2)" },
   { name: "Renata Costa" },
-  { name: "Paulo Braga", color: "var(--legacy-ink-3)" },
+  { name: "Paulo Braga", color: "var(--legacy-ink-2)" },
   { name: "Ana Lúcia Prado" },
   { name: "Caio Fernandes" },
   { name: "Duda Rocha" },

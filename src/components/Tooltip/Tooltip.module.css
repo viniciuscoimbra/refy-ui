@@ -12,7 +12,7 @@
   align-items: center;
   gap: var(--space-2);
   width: max-content;
-  max-width: 280px;
+  max-width: min(280px, calc(100vw - 16px));
   padding: 7px 10px;
   border-radius: var(--radius-md);
   background: var(--ink-1);
@@ -23,7 +23,7 @@
   line-height: 1.4;
   letter-spacing: var(--interface-label-tracking, 0.02em);
   text-align: left;
-  pointer-events: none;
+  pointer-events: auto;
   box-shadow: var(--elev-3);
   animation: tooltip-in var(--duration-fast) var(--ease-out);
 }
@@ -47,7 +47,7 @@
   min-width: 0;
   flex-direction: column;
 }
-.label { white-space: nowrap; }
+.label { white-space: normal; overflow-wrap: anywhere; }
 .description {
   max-width: 230px;
   color: color-mix(in srgb, var(--surface) 72%, transparent);

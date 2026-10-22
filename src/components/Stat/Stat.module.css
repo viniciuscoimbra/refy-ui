@@ -52,7 +52,7 @@
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
-.delta-positive { color: var(--good); }
+.delta-positive { color: var(--good-ink); }
 
 
 .delta-negative { color: var(--critical); }

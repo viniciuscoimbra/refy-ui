@@ -6,7 +6,8 @@ import { StickyFooter } from "./StickyFooter";
  * `StickyFooter` — barra de ações de formulário fixa ao fundo.
  */
 const meta = {
-  title: "Components/Molecules/StickyFooter",
+  id: "components-molecules-stickyfooter",
+  title: "Componentes/Moléculas/StickyFooter",
   component: StickyFooter,
   tags: ["autodocs"],
   parameters: {

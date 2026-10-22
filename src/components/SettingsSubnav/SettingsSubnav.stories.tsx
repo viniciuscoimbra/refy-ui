@@ -46,7 +46,8 @@ const userIcon = (
  * `SettingsSubnav` — menu secundário vertical de subpáginas do mesmo assunto.
  */
 const meta = {
-  title: "Components/Molecules/SettingsSubnav",
+  id: "components-molecules-settingssubnav",
+  title: "Componentes/Moléculas/SettingsSubnav",
   component: SettingsSubnav,
   tags: ["autodocs"],
   parameters: {

@@ -1,4 +1,8 @@
-import { useEffect } from "react";
+import { createPortal } from "react-dom";
+import { activeDialog, dialogEvent } from "../../lib/dialogs";
+import { focusFirst } from "../../lib/useDialogFocusTrap";
+import { useTopLayer } from "../../lib/useTopLayer";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { cn } from "../../lib/cn";
 import styles from "./Toast.module.css";
@@ -40,14 +44,37 @@ export interface ToastProps extends ToastData {
 
 /** Um toast individual — pílula escura com ícone por tom, título e descrição. */
 export function Toast({ id, title, description, tone = "default", action, duration = 5000, onDismiss }: ToastProps) {
+  const nodeRef = useRef<HTMLDivElement>(null);
+  const previousFocus = useRef<HTMLElement | null>(null);
+  useLayoutEffect(() => {
+    const node = nodeRef.current;
+    return () => {
+      if (!node?.contains(node.ownerDocument.activeElement)) return;
+      const owner = node.closest<HTMLElement>("[data-refy-scope]") ?? node;
+      queueMicrotask(() => {
+        const doc = node.ownerDocument;
+        if (doc.activeElement !== doc.body && doc.activeElement?.isConnected) return;
+        const dialog = activeDialog(doc, owner);
+        if (previousFocus.current?.isConnected && (!dialog || dialog.contains(previousFocus.current))) previousFocus.current.focus();
+        else if (dialog) focusFirst(dialog);
+      });
+    };
+  }, []);
+  const [paused, setPaused] = useState(false);
+  const remaining = useRef(duration);
+  const dismiss = useRef(onDismiss);
+  dismiss.current = onDismiss;
+  useEffect(() => { remaining.current = duration; }, [id, duration]);
   useEffect(() => {
-    if (duration === null || !onDismiss) return;
-    const t = setTimeout(() => onDismiss(id), duration);
-    return () => clearTimeout(t);
-  }, [id, duration, onDismiss]);
+    if (duration === null || !onDismiss || paused) return;
+    const started = Date.now();
+    const t = setTimeout(() => dismiss.current?.(id), remaining.current ?? duration);
+    return () => { clearTimeout(t); remaining.current = Math.max(0, (remaining.current ?? duration) - (Date.now() - started)); };
+  }, [id, duration, paused, !!onDismiss]);
 
   return (
-    <div className={styles.toast} role="status">
+    <div ref={nodeRef} className={styles.toast} role="status" onMouseEnter={() => setPaused(true)} onMouseLeave={event => setPaused(event.currentTarget.contains(event.currentTarget.ownerDocument.activeElement))}
+      onFocusCapture={event => { if (!event.currentTarget.contains(event.relatedTarget as Node)) previousFocus.current = event.relatedTarget as HTMLElement | null; setPaused(true); }} onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setPaused(event.currentTarget.matches(":hover")); }}>
       {tone !== "default" && <span className={cn(styles.icon, styles[tone])}>{ICONS[tone]}</span>}
       <div className={styles.textBlock}>
         <div className={styles.title}>{title}</div>
@@ -99,11 +126,26 @@ export interface ToastRegionProps {
  *   <ToastRegion toasts={toasts} onDismiss={(id) => setToasts(t => t.filter(x => x.id !== id))} />
  */
 export function ToastRegion({ toasts, onDismiss, position = "bottom-right", className }: ToastRegionProps) {
-  return (
-    <div aria-live="polite" className={cn(styles.region, styles[position.replace("-", "_") as keyof typeof styles], className)}>
-      {toasts.map((toast) => (
-        <Toast key={toast.id} {...toast} onDismiss={onDismiss} />
-      ))}
-    </div>
-  );
+  const anchor = useRef<HTMLSpanElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
+  const [host, setHost] = useState<HTMLDivElement | null>(null);
+  useLayoutEffect(() => {
+    const owner = anchor.current;
+    if (!owner) return;
+    const doc = owner.ownerDocument;
+    const node = doc.createElement("div");
+    node.style.display = "contents";
+    const update = () => (activeDialog(doc, owner) ?? owner).appendChild(node);
+    update();
+    setHost(node);
+    doc.addEventListener(dialogEvent, update);
+    return () => { doc.removeEventListener(dialogEvent, update); node.remove(); };
+  }, []);
+  useTopLayer(ref, "toast", toasts.length > 0 && host !== null);
+  return <span ref={anchor} style={{ display: "contents" }}>
+    {host && createPortal(
+      <div ref={ref} popover="manual" aria-live="polite" aria-relevant="additions text" className={cn(styles.region, styles[position.replace("-", "_") as keyof typeof styles], className)}>
+        {toasts.map(toast => <Toast key={toast.id} {...toast} onDismiss={onDismiss}/>)}
+      </div>, host)}
+  </span>;
 }

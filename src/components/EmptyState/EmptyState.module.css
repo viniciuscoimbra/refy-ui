@@ -20,7 +20,7 @@
   place-items: center;
   background: var(--surface-2, var(--surface-container-low));
   border: 1px solid var(--line, var(--surface-container-high));
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
   color: var(--ink-3, var(--on-surface-variant));
 }
 .icon svg {

@@ -112,7 +112,8 @@ function GoogleMap({ selectedIds }: { selectedIds: string[] }) {
 }
 
 const meta = {
-  title: "Components/Organisms/GeoAreaPicker",
+  id: "components-organisms-geoareapicker",
+  title: "Componentes/Organismos/GeoAreaPicker",
   component: GeoAreaPicker,
   tags: ["autodocs"],
   parameters: {

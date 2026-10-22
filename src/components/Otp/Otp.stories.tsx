@@ -6,7 +6,8 @@ import { Otp } from "./Otp";
  * `Otp` — código de verificação, um dígito por campo (48×56, mono 22px).
  */
 const meta = {
-  title: "Components/Atoms/Otp",
+  id: "components-atoms-otp",
+  title: "Componentes/Átomos/Otp",
   component: Otp,
   tags: ["autodocs"],
   parameters: {

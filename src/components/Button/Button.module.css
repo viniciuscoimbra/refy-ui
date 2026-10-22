@@ -9,8 +9,8 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  border: 1px solid transparent;
-  border-radius: var(--radius-default);
+  border: var(--button-border-width, 1px) var(--control-border-style, solid) transparent;
+  border-radius: var(--button-radius, var(--radius-default));
   font-family: var(--font-body);
   font-weight: var(--control-font-weight, var(--weight-semi));
   line-height: var(--control-line-height, normal);
@@ -47,57 +47,58 @@
 
 /* Variants */
 .primary {
-  --button-resting-shadow: var(--legacy-button-shadow);
-  background: var(--primary);
-  color: var(--on-primary);
-  box-shadow: var(--legacy-button-shadow);
+  --button-resting-shadow: var(--button-primary-shadow, var(--legacy-button-shadow));
+  background: var(--button-primary-background, var(--primary));
+  border-color: var(--button-primary-border, transparent);
+  color: var(--button-primary-foreground, var(--on-primary));
+  box-shadow: var(--button-primary-shadow, var(--legacy-button-shadow));
 }
 .primary:not(:disabled):hover {
-  background: var(--primary-hover, var(--primary));
-  color: var(--on-primary);
+  background: var(--button-primary-background-hover, var(--primary-hover, var(--primary)));
+  color: var(--button-primary-foreground-hover, var(--on-primary));
 }
 .primary:not(:disabled):active {
-  background: var(--primary-container);
-  color: var(--on-primary-container);
+  background: var(--button-primary-background-active, var(--primary-container));
+  color: var(--button-primary-foreground-active, var(--on-primary-container));
 }
 
 .secondary {
-  background: var(--surface);
-  color: var(--ink-1);
-  border-color: var(--legacy-line);
+  background: var(--button-secondary-background, var(--surface));
+  color: var(--button-secondary-foreground, var(--ink-1));
+  border-color: var(--button-secondary-border, var(--legacy-line));
 }
 .secondary:not(:disabled):hover {
-  background: var(--surface-2);
-  border-color: var(--legacy-line-strong);
+  background: var(--button-secondary-background-hover, var(--surface-2));
+  border-color: var(--button-secondary-border-hover, var(--legacy-line-strong));
 }
 .secondary:not(:disabled):active {
-  background: color-mix(in srgb, var(--ink-1) 8%, var(--surface));
+  background: var(--button-secondary-background-active, color-mix(in srgb, var(--ink-1) 8%, var(--surface)));
 }
 
 .ghost {
   box-shadow: none;
-  background: transparent;
-  color: var(--ink-2);
+  background: var(--button-ghost-background, transparent);
+  color: var(--button-ghost-foreground, var(--ink-2));
 }
 .ghost:not(:disabled):hover {
-  background: var(--surface-2);
-  color: var(--ink-1);
+  background: var(--button-ghost-background-hover, var(--surface-2));
+  color: var(--button-ghost-foreground-hover, var(--ink-1));
 }
 .ghost:not(:disabled):active {
-  background: color-mix(in srgb, var(--ink-1) 10%, transparent);
+  background: var(--button-ghost-background-active, color-mix(in srgb, var(--ink-1) 10%, transparent));
 }
 
 .danger {
-  background: var(--surface);
-  color: var(--critical);
-  border-color: var(--legacy-danger-line);
+  background: var(--button-danger-background, var(--surface));
+  color: var(--button-danger-foreground, var(--critical));
+  border-color: var(--button-danger-border, var(--legacy-danger-line));
 }
 .danger:not(:disabled):hover {
-  background: var(--critical-soft);
-  border-color: var(--legacy-danger-line-hover);
+  background: var(--button-danger-background-hover, var(--critical-soft));
+  border-color: var(--button-danger-border-hover, var(--legacy-danger-line-hover));
 }
 .danger:not(:disabled):active {
-  background: color-mix(in srgb, var(--critical) 16%, var(--surface));
+  background: var(--button-danger-background-active, color-mix(in srgb, var(--critical) 16%, var(--surface)));
 }
 
 /* Icons */
@@ -124,8 +125,8 @@
 .loading:disabled {
   opacity: 1;
 }
-.success { background: var(--good); color: var(--on-good); }
-.error { background: var(--critical); color: var(--on-critical); }
+.success, .success:not(:disabled):hover, .success:not(:disabled):active { background: var(--good); color: var(--on-good); }
+.error, .error:not(:disabled):hover, .error:not(:disabled):active { background: var(--critical); color: var(--on-critical); }
 .feedbackIcon { position: relative; z-index: 2; font-size: 16px; line-height: 1; }
 .progress,
 .progressAlt { position: absolute; z-index: 1; pointer-events: none; }
@@ -256,7 +257,8 @@
 
 /* 16–18 · linhas */
 .effect-move-up { overflow: visible; animation: btn-move-up 320ms var(--ease-out) forwards; }
-.effect-move-up .progress { left: 0; right: 0; bottom: -10px; height: 4px; background: var(--primary); animation: btn-line-x var(--button-progress-duration) linear forwards; }
+.effect-move-up .progress { left: 0; right: 0; bottom: -10px; height: 4px; background: var(--button-primary-background, var(--primary));
+  border-color: var(--button-primary-border, transparent); animation: btn-line-x var(--button-progress-duration) linear forwards; }
 @keyframes btn-move-up { to { transform: translateY(-7px); } }
 .effect-top-line { background: var(--brand-inverse-primary); }
 .effect-top-line .progress { left: 0; right: 0; top: 0; height: 3px; background: var(--primary-fixed); animation: btn-line-x var(--button-progress-duration) linear forwards; }
@@ -271,6 +273,6 @@
   .loading { transform: none !important; }
 }
 
-.btn:focus-visible { outline: var(--control-focus-outline, revert); outline-offset: var(--control-focus-offset, 0); }
+.btn:focus-visible { outline: var(--control-focus-outline, 2px solid var(--primary-ink)); outline-offset: var(--control-focus-offset, 3px); }
 .btn:not(:disabled):active { transform: var(--control-pressed-transform, none); box-shadow: var(--control-pressed-shadow, var(--button-resting-shadow)); }
 .ghost:not(:disabled):active { transform: none; box-shadow: none; }

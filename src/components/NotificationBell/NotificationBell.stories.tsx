@@ -4,7 +4,7 @@ import { NotificationBell, type NotificationItem } from "./NotificationBell";
 
 const items: NotificationItem[] = [
   { id: "n1", title: "Análise concluída", description: "refy.com.br: 84 páginas, 12 críticos.", time: "há 5min", unread: true },
-  { id: "n2", title: "Concorrente subiu 4 posições", description: "rdstation.com para 'seo técnico'.", time: "há 2h", unread: true },
+  { id: "n2", title: "Projeto avançou 4 etapas", description: "Projeto Aurora no ciclo atual.", time: "há 2h", unread: true },
   { id: "n3", title: "Créditos acabando", description: "Restam 300 créditos no ciclo.", time: "há 1d", unread: true },
   { id: "n4", title: "Convite aceito", description: "Ana Costa entrou no ambiente.", time: "há 3d" },
   { id: "n5", title: "Relatório semanal disponível", description: "Resumo de 12 a 18 de junho.", time: "há 5d" },
@@ -14,7 +14,8 @@ const items: NotificationItem[] = [
  * `NotificationBell` — sino com contador de não lidas + painel de notificações.
  */
 const meta = {
-  title: "Components/Molecules/NotificationBell",
+  id: "components-molecules-notificationbell",
+  title: "Componentes/Moléculas/NotificationBell",
   component: NotificationBell,
   tags: ["autodocs"],
   parameters: {
@@ -28,7 +29,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div style={{ minHeight: 440, paddingRight: 320, paddingTop: 8 }}>
+      <div style={{ width: "100%", maxWidth: 400, minHeight: 440, display: "flex", justifyContent: "flex-end", paddingTop: 8 }}>
         <Story />
       </div>
     ),

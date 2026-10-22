@@ -5,7 +5,8 @@ import { Skeleton } from "./Skeleton";
  * `Skeleton` — placeholder com shimmer enquanto o conteúdo carrega.
  */
 const meta = {
-  title: "Components/Atoms/Skeleton",
+  id: "components-atoms-skeleton",
+  title: "Componentes/Átomos/Skeleton",
   component: Skeleton,
   tags: ["autodocs"],
   parameters: {
@@ -75,7 +76,7 @@ export const CatalogoDeComponentes: Story = {
         ["Stat", <div style={{ display: "grid", gap: 8 }}><Skeleton width={80} height={10} /><Skeleton width={140} height={34} /><Skeleton width={110} height={10} /></div>],
         ["Linha de tabela", <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: 16 }}><Skeleton /><Skeleton /><Skeleton /></div>],
         ["Item de timeline", <div style={{ display: "flex", gap: 12 }}><Skeleton circle width={32} /><div style={{ flex: 1, display: "grid", gap: 8 }}><Skeleton width="62%" /><Skeleton /><Skeleton width="78%" /></div></div>],
-        ["Card de imóvel", <div style={{ display: "grid", gap: 12 }}><Skeleton height={160} /><Skeleton width="72%" height={20} /><Skeleton width="42%" /><div style={{ display: "flex", gap: 8 }}><Skeleton width={84} height={28} /><Skeleton width={84} height={28} /></div></div>],
+        ["Card de conteúdo", <div style={{ display: "grid", gap: 12 }}><Skeleton height={160} /><Skeleton width="72%" height={20} /><Skeleton width="42%" /><div style={{ display: "flex", gap: 8 }}><Skeleton width={84} height={28} /><Skeleton width={84} height={28} /></div></div>],
         ["Agenda", <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 8 }}>{Array.from({ length: 12 }, (_, index) => <Skeleton key={index} height={36} />)}</div>],
       ].map(([label, preview]) => (
         <section key={label as string} style={{ minWidth: 0, padding: 16, border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", background: "var(--surface)" }}>

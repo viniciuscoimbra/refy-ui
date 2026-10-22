@@ -142,7 +142,7 @@
 .current .marker {
   border-color: var(--primary);
   background: var(--surface);
-  color: var(--primary);
+  color: var(--primary-ink);
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 12%, transparent);
 }
 .disabled {

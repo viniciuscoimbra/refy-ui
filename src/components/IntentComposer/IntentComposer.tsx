@@ -79,7 +79,7 @@ export function IntentComposer({
   defaultValue = "",
   onChange,
   label = "Conte o que você procura",
-  placeholder = "Ex.: quero um apartamento com três quartos, boa luz e espaço para meus cachorros…",
+  placeholder = "Ex.: organize uma coleção de referências e documentos para compartilhar com minha equipe…",
   examples = [],
   submitLabel = "Continuar",
   understoodSummary,

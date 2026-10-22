@@ -2,7 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Switch } from "./Switch";
 
 const meta = {
-  title: "Components/Atoms/Switch",
+  id: "components-atoms-switch",
+  title: "Componentes/Átomos/Switch",
   component: Switch,
   tags: ["autodocs"],
   args: { "aria-label": "Ativar recarga automática", defaultChecked: false },

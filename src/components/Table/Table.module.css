@@ -1,4 +1,6 @@
 .wrap {
+  min-width: 0;
+  max-width: 100%;
   position: relative;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
@@ -112,6 +114,7 @@
   align-items: center;
 }
 .paginationMeta {
+  flex-wrap: wrap;
   gap: var(--space-4);
 }
 .pageSizeControl {
@@ -197,7 +200,7 @@
 }
 .sorted .sortIcon {
   opacity: 1;
-  color: var(--primary);
+  color: var(--primary-ink);
 }
 .sortDesc {
   transform: rotate(180deg);

@@ -14,21 +14,22 @@ export interface PropertyActionGroupProps extends Omit<HTMLAttributes<HTMLDivEle
   orientation?: "auto" | "horizontal" | "vertical";
   disabledActions?: PropertyAction[];
   statusMessage?: ReactNode;
+  labels?: Partial<Record<PropertyAction, string>>;
 }
 
 const icons: Record<PropertyAction, ReactNode> = {
   reject: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12" /></svg>,
   save: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z" /></svg>,
-  visit: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M16 3v4M8 3v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01" /></svg>,
+  visit: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6" /></svg>,
 };
 
-const labels: Record<PropertyAction, string> = {
-  reject: "Não quero",
-  save: "Guardar",
-  visit: "Quero visitar",
+const defaultLabels: Record<PropertyAction, string> = {
+  reject: "Descartar",
+  save: "Salvar",
+  visit: "Selecionar",
 };
 
-/** Ações principais do imóvel. Cada ação inicia um fluxo próprio no consumidor. */
+/** Decisões sobre um item. Cada ação inicia um fluxo próprio no consumidor. */
 export function PropertyActionGroup({
   state = "idle",
   activeAction,
@@ -36,9 +37,11 @@ export function PropertyActionGroup({
   orientation = "auto",
   disabledActions = [],
   statusMessage,
+  labels: labelOverrides,
   className,
   ...rest
 }: PropertyActionGroupProps) {
+  const labels = { ...defaultLabels, ...Object.fromEntries(Object.entries(labelOverrides ?? {}).filter(([, value]) => value !== undefined)) };
   const actions: PropertyAction[] = ["reject", "save", "visit"];
   const unavailable = state === "unavailable";
 
@@ -52,13 +55,13 @@ export function PropertyActionGroup({
   const message = statusMessage ?? (
     state === "processing" && activeAction ? `${labels[activeAction]}: processando…` :
     state === "completed" && activeAction ? `${labels[activeAction]}: concluído.` :
-    unavailable ? "As ações deste imóvel estão indisponíveis." :
-    "Escolha o que deseja fazer com este imóvel."
+    unavailable ? "As ações deste item estão indisponíveis." :
+    "Escolha o que deseja fazer com este item."
   );
 
   return (
     <div className={cn(styles.root, styles[orientation], className)} {...rest}>
-      <div className={styles.actions} role="group" aria-label="Classificar imóvel">
+      <div className={styles.actions} role="group" aria-label="Decisões sobre o item">
         {actions.map((action) => {
           const isActive = action === activeAction;
           return (
@@ -81,4 +84,20 @@ export function PropertyActionGroup({
       <span className={styles.status} role="status" aria-live="polite">{message}</span>
     </div>
   );
+}
+
+export type DecisionAction = "reject" | "save" | "select";
+export interface DecisionActionsProps extends Omit<PropertyActionGroupProps, "activeAction" | "onAction" | "disabledActions" | "labels"> {
+  activeAction?: DecisionAction;
+  onAction?: (action: DecisionAction) => void;
+  disabledActions?: DecisionAction[];
+  labels?: Partial<Record<DecisionAction, string>>;
+}
+/** Maps the legacy event name without changing existing consumers. */
+export function DecisionActions({ activeAction, onAction, disabledActions, labels, ...rest }: DecisionActionsProps) {
+  return <PropertyActionGroup {...rest}
+    activeAction={activeAction === "select" ? "visit" : activeAction}
+    disabledActions={disabledActions?.map(action => action === "select" ? "visit" : action)}
+    labels={labels ? { reject: labels.reject, save: labels.save, visit: labels.select } : undefined}
+    onAction={action => onAction?.(action === "visit" ? "select" : action)} />;
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import type { ReactNode } from "react";
 import { cn } from "../../lib/cn";
 import { Button } from "../Button";
@@ -84,9 +84,11 @@ export function SplitButton({
     danger: option.danger,
     onSelect: option.onSelect,
   }));
+  const menuId = useId();
 
   return (
     <Menu
+      id={menuId}
       open={isOpen}
       onOpenChange={setOpen}
       onSelect={(id) => {
@@ -120,6 +122,7 @@ export function SplitButton({
           className={styles.caret}
           aria-label="Mais opções"
           aria-haspopup="menu"
+          aria-controls={isOpen ? menuId : undefined}
           aria-expanded={isOpen}
           onClick={() => setOpen(!isOpen)}
         >

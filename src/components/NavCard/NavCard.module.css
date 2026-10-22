@@ -107,7 +107,7 @@
   transition: color var(--duration-fast) var(--ease-out);
 }
 .card:hover .chevron {
-  color: var(--primary);
+  color: var(--primary-ink);
 }
 .disabled:hover .chevron,
 .card:disabled:hover .chevron {

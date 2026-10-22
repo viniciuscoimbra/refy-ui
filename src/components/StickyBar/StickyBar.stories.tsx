@@ -4,7 +4,8 @@ import { Button } from "../Button";
 import { StickyBar } from "./StickyBar";
 
 const meta = {
-  title: "Components/Molecules/StickyBar",
+  id: "components-molecules-stickybar",
+  title: "Componentes/Moléculas/StickyBar",
   component: StickyBar,
   tags: ["autodocs"],
   parameters: { layout: "fullscreen" },
@@ -12,7 +13,7 @@ const meta = {
     title: "Horizonte Negócios",
     meta: "TNT-002",
     status: <Badge tone="warn" dot>Em análise</Badge>,
-    actions: <Button variant="primary" size="sm">Aprovar imobiliária</Button>,
+    actions: <Button variant="primary" size="sm">Aprovar organização</Button>,
   },
 } satisfies Meta<typeof StickyBar>;
 

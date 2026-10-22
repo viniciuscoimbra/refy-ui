@@ -5,7 +5,8 @@ import { Badge } from "../Badge";
 
 /** `PersonCell` — célula padrão de pessoa/entidade em tabelas e listas. */
 const meta = {
-  title: "Components/Molecules/PersonCell",
+  id: "components-molecules-personcell",
+  title: "Componentes/Moléculas/PersonCell",
   component: PersonCell,
   tags: ["autodocs"],
   parameters: {
@@ -13,9 +14,9 @@ const meta = {
     docs: {
       description: {
         component: [
-          "Célula de exibição: `Avatar` (slot) + nome + linha secundária. `tag` adiciona sufixo inline (\"você\", papel). Variante entidade = mesmo componente com `Avatar shape=\"square\"` (projeto, workspace, imobiliária).",
+          "Célula de exibição: `Avatar` (slot) + nome + linha secundária. `tag` adiciona sufixo inline (\"você\", papel). Variante entidade = mesmo componente com `Avatar shape=\"square\"` (projeto, workspace, organização).",
           "",
-          "**Onde usar:** colunas de membro/dono em `Table` (time, projetos), listas de pessoas, cabeçalho de menus de conta. Todo corretor/imobiliária aparece com avatar — este é o padrão.",
+          "**Onde usar:** colunas de membro/dono em `Table` (time, projetos), listas de pessoas, cabeçalho de menus de conta. Toda pessoa/equipe aparece com avatar — este é o padrão.",
           "",
           "**Onde NÃO usar:** item inteiro clicável que navega (use `NavCard` com `leading`); grupo de vários avatares (use `AvatarGroup`); célula só de texto (use texto direto na `Table`).",
         ].join("\n"),
@@ -24,7 +25,7 @@ const meta = {
   },
   args: {
     name: "Marina Salgado",
-    secondary: "marina@globoeditorial.com",
+    secondary: "marina@example.com",
     size: "md",
   },
   argTypes: {
@@ -52,7 +53,7 @@ export const VoceComTag: Story = {
       avatar={<Avatar size="md" initials="JM" seed="João Mendes" />}
       name="João Mendes"
       tag="você"
-      secondary="joao@globoeditorial.com"
+      secondary="joao@example.com"
     />
   ),
 };
@@ -63,7 +64,7 @@ export const ComBadgeDePapel: Story = {
       avatar={<Avatar size="md" initials="RC" seed="Rafael Costa" />}
       name="Rafael Costa"
       tag={<Badge tone="neutral">Membro</Badge>}
-      secondary="rafael@globoeditorial.com"
+      secondary="rafael@example.com"
     />
   ),
 };
@@ -72,8 +73,8 @@ export const Entidade: Story = {
   name: "Entidade (Avatar square)",
   render: () => (
     <PersonCell
-      avatar={<Avatar shape="square" size="md" initials="CV" seed="Casa Vogue" />}
-      name="Casa Vogue"
+      avatar={<Avatar shape="square" size="md" initials="CV" seed="Equipe Origem" />}
+      name="Equipe Origem"
       secondary="cobertura editorial · 128 páginas"
     />
   ),

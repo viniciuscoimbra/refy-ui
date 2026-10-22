@@ -19,7 +19,8 @@ const points: MatrixPoint[] = [
  * `Matrix2x2` — matriz impacto × esforço com pontos numerados por prioridade.
  */
 const meta = {
-  title: "Components/Organisms/Matrix2x2",
+  id: "components-organisms-matrix2x2",
+  title: "Componentes/Organismos/Matrix2x2",
   component: Matrix2x2,
   tags: ["autodocs"],
   parameters: {

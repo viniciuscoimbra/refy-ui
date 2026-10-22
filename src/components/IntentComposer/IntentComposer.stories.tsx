@@ -9,34 +9,35 @@ const filters: IntentFilterGroup[] = [
     id: "operacao",
     label: "Operação",
     mode: "single",
-    options: [{ value: "comprar", label: "Comprar" }, { value: "alugar", label: "Alugar" }],
+    options: [{ value: "criar", label: "Criar" }, { value: "organizar", label: "Organizar" }],
   },
   {
     id: "tipos",
-    label: "Tipo de imóvel",
+    label: "Formato",
     mode: "multiple",
     options: [
-      { value: "apartamento", label: "Apartamento" },
-      { value: "casa", label: "Casa" },
-      { value: "cobertura", label: "Cobertura" },
+      { value: "documento", label: "Documento" },
+      { value: "imagem", label: "Imagem" },
+      { value: "video", label: "Vídeo" },
     ],
   },
   {
-    id: "bairros",
-    label: "Bairros iniciais",
+    id: "equipes",
+    label: "Equipes",
     mode: "multiple",
     options: [
-      { value: "planalto", label: "Planalto" },
-      { value: "itapoa", label: "Itapoã" },
-      { value: "sion", label: "Sion" },
+      { value: "design", label: "Design" },
+      { value: "produto", label: "Produto" },
+      { value: "operacoes", label: "Operações" },
     ],
   },
 ];
 
-const initialText = "Quero um apartamento ou casa no Planalto e perto dali, com três quartos, boa luz e espaço para meus dois cachorros.";
+const initialText = "Quero organizar documentos e imagens de referência para um projeto colaborativo, com versões e responsáveis.";
 
 const meta = {
-  title: "Components/Organisms/IntentComposer",
+  id: "components-organisms-intentcomposer",
+  title: "Componentes/Organismos/IntentComposer",
   component: IntentComposer,
   tags: ["autodocs"],
   parameters: {
@@ -44,7 +45,7 @@ const meta = {
     docs: {
       description: {
         component:
-          "Composer do pedido: operação acima em `Segmented`; tipo de imóvel e bairros em `Multiselect`; `Textarea` ao centro e exemplos/voz/envio no rodapé interno. Não contém anexo no v1.",
+          "Composer do pedido: operação acima em `Segmented`; formato e equipes em `Multiselect`; `Textarea` ao centro e exemplos/voz/envio no rodapé interno. Não contém anexo no v1.",
       },
     },
   },
@@ -65,7 +66,7 @@ function ComposerDemo({ initialState }: { initialState: IntentComposerState }) {
   const [voiceState, setVoiceState] = useState<VoiceRecorderState>("listening");
   const [text, setText] = useState(initialText);
   const [filterValues, setFilterValues] = useState<Record<string, string[]>>({
-    operacao: ["comprar"], tipos: ["apartamento", "casa"], bairros: ["planalto"],
+    operacao: ["criar"], tipos: ["documento", "imagem"], equipes: ["design"],
   });
   const [message, setMessage] = useState(`Estado atual: ${initialState}.`);
   const timer = useRef<number | undefined>(undefined);
@@ -91,10 +92,10 @@ function ComposerDemo({ initialState }: { initialState: IntentComposerState }) {
         value={text}
         onChange={setText}
         examples={[
-          "3 quartos perto da escola dos meus filhos",
-          "Meu apartamento funcional de 1 quarto",
+          "Organizar referências para um novo projeto",
+          "Preparar uma coleção para compartilhar",
         ]}
-        understoodSummary="Você quer comprar apartamento ou casa no Planalto e arredores, com três quartos, boa luz e espaço para dois cachorros."
+        understoodSummary="Você quer uma coleção compartilhada com documentos, imagens, versões e responsáveis definidos."
         onSubmit={process}
         onVoiceStart={() => { setVoiceState("listening"); setState("listening"); setMessage("Captura de voz aberta."); }}
         onEditRequest={() => { window.clearTimeout(timer.current); setState("idle"); setMessage("Pedido liberado para edição."); }}

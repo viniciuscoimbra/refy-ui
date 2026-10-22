@@ -4,7 +4,8 @@ import { Modal } from "./Modal";
 import { Button } from "../Button";
 
 const meta = {
-  title: "Components/Organisms/Modal",
+  id: "components-organisms-modal",
+  title: "Componentes/Organismos/Modal",
   component: Modal,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

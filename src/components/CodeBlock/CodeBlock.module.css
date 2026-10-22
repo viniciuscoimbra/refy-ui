@@ -1,5 +1,5 @@
 .block {
-  background: var(--code-surface, var(--ink-1));
+  background: var(--code-surface, var(--legacy-ink-1));
   border: var(--code-border-width, 0px) solid var(--code-border, transparent);
   border-radius: var(--radius-lg-token);
   overflow: hidden;
@@ -24,7 +24,7 @@
   font-family: var(--font-body);
   font-size: var(--text-xs);
   font-weight: var(--weight-semi);
-  color: var(--code-text, var(--legacy-line-subtle));
+  color: var(--code-text, var(--legacy-white));
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -55,7 +55,7 @@
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   line-height: 1.7;
-  color: var(--code-text, var(--legacy-line-subtle));
+  color: var(--code-text, var(--legacy-white));
   white-space: pre;
 }
 

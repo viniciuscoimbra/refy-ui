@@ -138,7 +138,7 @@ export function GeoAreaPicker({
           <div className={styles.listHeader}>
             <div>
               <h3 id="geo-included-title">Na sua busca</h3>
-              <p>Somente estes bairros podem trazer imóveis.</p>
+              <p>A busca considera somente as regiões selecionadas.</p>
             </div>
             <span>{included.length}</span>
           </div>

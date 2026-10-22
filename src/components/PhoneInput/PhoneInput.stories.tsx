@@ -3,7 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { PhoneInput, phoneCountries } from "./PhoneInput";
 
 const meta = {
-  title: "Components/Molecules/PhoneInput",
+  id: "components-molecules-phoneinput",
+  title: "Componentes/Moléculas/PhoneInput",
   component: PhoneInput,
   tags: ["autodocs"],
   args: { label: "Telefone", value: "(31) 9 8123-4567", country: "BR" },

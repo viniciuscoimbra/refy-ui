@@ -4,7 +4,8 @@ import { Button } from "../Button";
 import { Badge } from "../Badge";
 
 const meta = {
-  title: "Components/Molecules/Card",
+  id: "components-molecules-card",
+  title: "Componentes/Moléculas/Card",
   component: Card,
   tags: ["autodocs"],
   parameters: {

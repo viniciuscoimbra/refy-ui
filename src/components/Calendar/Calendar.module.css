@@ -1,6 +1,6 @@
 .wrap {
-  max-width: var(--calendar-max-width, none);
-  flex-wrap: var(--calendar-wrap, nowrap);
+  max-width: var(--calendar-max-width, 100%);
+  flex-wrap: var(--calendar-wrap, wrap);
   display: inline-flex;
   gap: 20px;
   background: var(--surface);
@@ -13,6 +13,7 @@
 }
 .month {
   width: 252px;
+  max-width: 100%;
 }
 .head {
   display: flex;
@@ -81,7 +82,7 @@
   z-index: 1;
   width: 30px; height: 30px;
   display: inline-flex; align-items: center; justify-content: center;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   transition: background 0.12s, color 0.12s;
 }
 .day:hover .dayNum { background: var(--legacy-neutral-soft); }
@@ -89,7 +90,7 @@
 .day:focus-visible .dayNum { outline: 2px solid var(--brand-primary-container); outline-offset: 1px; }
 
 .outside .dayNum { color: var(--ink-4); }
-.today .dayNum { box-shadow: inset 0 0 0 1px var(--primary); color: var(--primary); font-weight: 600; }
+.today .dayNum { box-shadow: inset 0 0 0 1px var(--primary); color: var(--primary-ink); font-weight: 600; }
 .selected .dayNum { background: var(--primary); color: var(--on-primary); font-weight: 600; }
 .selected:hover .dayNum { background: var(--primary-hover, var(--primary)); }
 

@@ -4,7 +4,8 @@ import { Card, CardHeader } from "../Card";
 import { Button } from "../Button";
 
 const meta = {
-  title: "Components/Molecules/UsageMeter",
+  id: "components-molecules-usagemeter",
+  title: "Componentes/Moléculas/UsageMeter",
   component: UsageMeter,
   tags: ["autodocs"],
   parameters: {
@@ -78,15 +79,15 @@ export const ListaPorProjeto: Story = {
       />
       <UsageMeterGroup>
         <UsageMeter
-          label="Globo · Editoria de Economia"
+          label="Globo · Editoria de Projeto Aurora"
           used={600}
           limit={700}
           size="sm"
           meta="3 análises · 1 síntese profunda"
         />
-        <UsageMeter label="Quem · Famosos & Realeza" used={200} limit={700} size="sm" meta="2 análises" />
+        <UsageMeter label="Quem · Famosos & Projeto Origem" used={200} limit={700} size="sm" meta="2 análises" />
         <UsageMeter
-          label="Casa Vogue · Decoração"
+          label="Equipe Origem · Decoração"
           used={0}
           limit={700}
           size="sm"

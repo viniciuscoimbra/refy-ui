@@ -1,0 +1,29 @@
+:where([data-refy-scope]) {
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: var(--text-base, 14px);
+  line-height: var(--leading-normal, 1.55);
+  color: var(--ink-2);
+  background: var(--bg);
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+:where([data-refy-scope], [data-refy-scope] *, [data-refy-scope] *::before, [data-refy-scope] *::after) {
+  box-sizing: border-box;
+}
+:where([data-refy-scope]) :focus-visible {
+  outline: 2px solid var(--primary-ink);
+  outline-offset: 3px;
+}
+:where([data-refy-scope]) :is(option, optgroup) {
+  color: var(--ink-1);
+  background: var(--field-background, var(--surface));
+}
+@media (prefers-reduced-motion: reduce) {
+  :where([data-refy-scope]) *, :where([data-refy-scope]) *::before, :where([data-refy-scope]) *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+@media (forced-colors: active) {
+  :where([data-refy-scope]) :focus-visible { outline-color: Highlight; }
+}

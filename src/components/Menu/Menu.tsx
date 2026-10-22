@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import type { ReactNode } from "react";
+import { AnchoredSurface } from "../../lib/AnchoredSurface";
+import { cloneElement, isValidElement, useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from "react";
+import type { ReactNode, HTMLAttributes } from "react";
 import { Kbd } from "../Kbd";
 import { cn } from "../../lib/cn";
 import styles from "./Menu.module.css";
@@ -25,6 +26,9 @@ export type MenuEntry =
 
 /** Props for the Menu popover. */
 export interface MenuProps {
+  id?: string;
+  /** Acompanha a largura do grupo âncora, inclusive em composições. */
+  matchWidth?: boolean;
   /** Menu visível (controlado). */
   open: boolean;
   /** Pedido de fechamento: Esc, clique fora ou seleção. */
@@ -39,6 +43,7 @@ export interface MenuProps {
   /** Lado de abertura em relação ao trigger. Padrão `bottom`. */
   side?: "top" | "bottom";
   className?: string;
+  ariaLabel?: string;
 }
 
 /**
@@ -62,7 +67,13 @@ export function Menu({
   align = "start",
   side = "bottom",
   className,
+  ariaLabel = "Ações",
+  id,
+  matchWidth = false,
 }: MenuProps) {
+  const generatedId = useId();
+  const menuId = id ?? generatedId;
+  const initial = useRef("first");
   const wrapRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -71,8 +82,12 @@ export function Menu({
     [entries]
   );
 
-  useEffect(() => {
-    if (open) setActiveIndex(0);
+  useLayoutEffect(() => {
+    if (!open) return;
+    const enabled = items.map((item, index) => item.disabled ? -1 : index).filter(index => index >= 0);
+    setActiveIndex(initial.current === "last" ? enabled[enabled.length - 1] ?? -1 : enabled[0] ?? -1);
+    initial.current = "first";
+    wrapRef.current?.querySelector<HTMLElement>('[role="menu"]')?.focus();
   }, [open]);
 
   useEffect(() => {
@@ -84,44 +99,67 @@ export function Menu({
     return () => document.removeEventListener("pointerdown", onPointerDown);
   }, [open, onOpenChange]);
 
+  function restoreTrigger() {
+    const trigger = wrapRef.current?.querySelector<HTMLElement>('[aria-haspopup="menu"]');
+    if (trigger?.isConnected) trigger.focus();
+  }
+
   function choose(item: Extract<MenuEntry, { id: string }>) {
     if (item.disabled) return;
     item.onSelect?.();
     onSelect?.(item.id);
     onOpenChange(false);
+    restoreTrigger();
   }
 
   function onKeyDown(e: React.KeyboardEvent) {
-    if (!open) return;
+    if (!open) {
+      if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+        e.preventDefault(); initial.current = e.key === "ArrowUp" ? "last" : "first"; onOpenChange(true);
+      }
+      return;
+    }
+    const enabled = items.map((item, index) => item.disabled ? -1 : index).filter(index => index >= 0);
+    const cursor = enabled.indexOf(activeIndex);
     switch (e.key) {
       case "ArrowDown":
-        e.preventDefault();
-        setActiveIndex((i) => Math.min(i + 1, items.length - 1));
+      case "ArrowUp": {
+        e.preventDefault(); e.stopPropagation();
+        const offset = e.key === "ArrowDown" ? 1 : -1;
+        setActiveIndex(enabled.length ? enabled[(cursor + offset + enabled.length) % enabled.length] : -1);
         break;
-      case "ArrowUp":
-        e.preventDefault();
-        setActiveIndex((i) => Math.max(i - 1, 0));
-        break;
+      }
+      case "Home": e.preventDefault(); e.stopPropagation(); setActiveIndex(enabled[0] ?? -1); break;
+      case "End": e.preventDefault(); e.stopPropagation(); setActiveIndex(enabled[enabled.length - 1] ?? -1); break;
       case "Enter":
       case " ":
-        if (items[activeIndex]) { e.preventDefault(); choose(items[activeIndex]); }
+        e.preventDefault(); e.stopPropagation();
+        if (items[activeIndex]) choose(items[activeIndex]);
         break;
-      case "Escape":
-        e.preventDefault();
-        onOpenChange(false);
-        break;
+      case "Tab": onOpenChange(false); restoreTrigger(); break;
+      case "Escape": e.preventDefault(); e.stopPropagation(); onOpenChange(false); restoreTrigger(); break;
+      default:
+        if (e.key.length === 1 && !e.ctrlKey && !e.altKey && !e.metaKey) {
+          const search = [...enabled.slice(cursor + 1), ...enabled.slice(0, cursor + 1)];
+          const match = search.find(index => typeof items[index].label === "string" && (items[index].label as string).toLocaleLowerCase().startsWith(e.key.toLocaleLowerCase()));
+          if (match !== undefined) { e.preventDefault(); setActiveIndex(match); }
+        }
     }
   }
 
   let itemIndex = -1;
+  const trigger = isValidElement<HTMLAttributes<HTMLElement>>(children) &&
+    (typeof children.type === "string" ? ["button", "a", "input"].includes(children.type) || children.props.role === "button" : typeof children.type !== "symbol")
+    ? cloneElement(children, { "aria-haspopup": "menu", "aria-expanded": open, "aria-controls": open ? menuId : undefined }) : children;
 
   return (
     <div ref={wrapRef} className={cn(styles.wrap, className)} onKeyDown={onKeyDown}>
-      {children}
+      {trigger}
       {open && (
-        <div
+        <AnchoredSurface onClose={() => onOpenChange(false)} side={side} align={align} matchWidth={matchWidth}
+          id={menuId} tabIndex={0} aria-label={ariaLabel}
           role="menu"
-          aria-activedescendant={items[activeIndex] ? `menu-item-${items[activeIndex].id}` : undefined}
+          aria-activedescendant={items[activeIndex] ? `${menuId}-${items[activeIndex].id}` : undefined}
           className={cn(styles.menu, align === "end" && styles.menuEnd, side === "top" && styles.menuTop)}
         >
           {entries.map((entry, i) => {
@@ -138,7 +176,7 @@ export function Menu({
             return (
               <div
                 key={entry.id}
-                id={`menu-item-${entry.id}`}
+                id={`${menuId}-${entry.id}`}
                 role="menuitem"
                 aria-disabled={entry.disabled || undefined}
                 className={cn(
@@ -157,7 +195,7 @@ export function Menu({
               </div>
             );
           })}
-        </div>
+        </AnchoredSurface>
       )}
     </div>
   );

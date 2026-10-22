@@ -3,7 +3,8 @@ import { Button } from "../Button";
 import { ButtonGroup } from "./ButtonGroup";
 
 const meta = {
-  title: "Components/Molecules/ButtonGroup",
+  id: "components-molecules-buttongroup",
+  title: "Componentes/Moléculas/ButtonGroup",
   component: ButtonGroup,
   tags: ["autodocs"],
   args: { orientation: "horizontal", label: "Ações do arquivo" },

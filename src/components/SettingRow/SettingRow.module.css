@@ -108,7 +108,7 @@
   transition: color var(--duration-fast) var(--ease-out);
 }
 .clickable:hover .chevron {
-  color: var(--primary);
+  color: var(--primary-ink);
 }
 .disabled:hover .chevron,
 .clickable:disabled:hover .chevron {

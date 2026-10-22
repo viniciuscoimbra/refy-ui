@@ -80,7 +80,7 @@
   color: var(--ink-2);
 }
 .selected .icon {
-  color: var(--primary);
+  color: var(--primary-ink);
 }
 
 .description {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { VisitSchedulePicker } from "./VisitSchedulePicker";
+import { SchedulePicker } from "./VisitSchedulePicker";
 
 const july23 = new Date(2026, 6, 23);
 const selected = {
@@ -8,14 +8,15 @@ const selected = {
 };
 
 const meta = {
-  title: "Components/Organisms/VisitSchedulePicker",
-  component: VisitSchedulePicker,
+  id: "components-organisms-visitschedulepicker",
+  title: "Componentes/Organismos/SchedulePicker",
+  component: SchedulePicker,
   tags: ["autodocs"],
   parameters: { layout: "padded" },
   args: { defaultActiveDate: july23, minDate: new Date(2026, 6, 21), maxDate: new Date(2026, 7, 31) },
-} satisfies Meta<typeof VisitSchedulePicker>;
+} satisfies Meta<typeof SchedulePicker>;
 export default meta;
-type Story = StoryObj<typeof VisitSchedulePicker>;
+type Story = StoryObj<typeof SchedulePicker>;
 
 export const MultiDia: Story = { args: { defaultValue: selected } };
 export const Horario08As19: Story = { args: { defaultValue: { "2026-07-23": [] } } };

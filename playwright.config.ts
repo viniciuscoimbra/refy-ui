@@ -1,0 +1,15 @@
+import { defineConfig, devices } from "@playwright/test";
+export default defineConfig({
+  testDir: "./tests",
+  outputDir: "./test-results",
+  fullyParallel: true,
+  workers: process.env.CI ? 2 : 4,
+  reporter: [["list"], ["html", { open: "never" }]],
+  use: { baseURL: "http://127.0.0.1:6006", trace: "retain-on-failure", screenshot: "only-on-failure" },
+  projects: [
+    { name: "chromium", use: { ...devices["Desktop Chrome"] } },
+    { name: "firefox", use: { ...devices["Desktop Firefox"] } },
+    { name: "webkit", use: { ...devices["Desktop Safari"] } },
+  ],
+  webServer: { command: process.env.CI ? "vite preview --outDir storybook-static --host 127.0.0.1 --port 6006 --strictPort" : "npm run storybook -- --ci", url: "http://127.0.0.1:6006", reuseExistingServer: !process.env.CI, timeout: 120000 },
+});

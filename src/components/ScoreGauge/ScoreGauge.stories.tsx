@@ -4,7 +4,8 @@ import { ScoreGauge } from "./ScoreGauge";
 import { Button } from "../Button";
 
 const meta = {
-  title: "Components/Molecules/ScoreGauge",
+  id: "components-molecules-scoregauge",
+  title: "Componentes/Moléculas/ScoreGauge",
   component: ScoreGauge,
   tags: ["autodocs"],
   parameters: {

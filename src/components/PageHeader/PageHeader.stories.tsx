@@ -9,7 +9,8 @@ import { PageHeader } from "./PageHeader";
  * ações à direita, com slot de `Breadcrumb` em cima.
  */
 const meta = {
-  title: "Components/Molecules/PageHeader",
+  id: "components-molecules-pageheader",
+  title: "Componentes/Moléculas/PageHeader",
   component: PageHeader,
   tags: ["autodocs"],
   parameters: {
@@ -41,13 +42,13 @@ type Story = StoryObj<typeof PageHeader>;
 /** Playground — eyebrow + título + lead + ações (padrão do dashboard). */
 export const Playground: Story = {
   args: {
-    eyebrow: "Ambiente · última análise há 14min",
+    eyebrow: "Ambiente · última atualização há 14min",
     title: "Visão geral",
-    lead: "3 projetos · 12 análises este mês · 8 tarefas no backlog",
+    lead: "3 projetos · 12 análises este mês · 8 tarefas pendentes",
     actions: (
       <>
         <Button variant="secondary">Exportar</Button>
-        <Button variant="primary">Nova análise</Button>
+        <Button variant="primary">Novo projeto</Button>
       </>
     ),
   },
@@ -82,7 +83,7 @@ export const SoTitulo: Story = {
 export const ComSplitButton: Story = {
   name: "Com SplitButton",
   args: {
-    eyebrow: "Projeto · globoeditorial.com",
+    eyebrow: "Projeto · example.com",
     title: "Relatórios",
     lead: "Análises consolidadas do projeto, prontas para exportar.",
     actions: (

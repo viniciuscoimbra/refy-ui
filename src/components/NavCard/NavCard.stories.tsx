@@ -7,7 +7,8 @@ import { NavCard } from "./NavCard";
  * workspace picker). O card inteiro é o alvo de clique/teclado.
  */
 const meta = {
-  title: "Components/Molecules/NavCard",
+  id: "components-molecules-navcard",
+  title: "Componentes/Moléculas/NavCard",
   component: NavCard,
   tags: ["autodocs"],
   parameters: {
@@ -44,8 +45,8 @@ type Story = StoryObj<typeof NavCard>;
 /** Playground — botão (sem href), com avatar e meta. */
 export const Playground: Story = {
   args: {
-    title: "Globo Editorial",
-    description: "globoeditorial.com · Refy Pro · 4 membros",
+    title: "Equipe Exemplo",
+    description: "example.com · Refy Pro · 4 membros",
     leading: <Avatar initials="GE" size="lg" />,
     meta: <span>Admin</span>,
   },
@@ -65,7 +66,7 @@ export const ComoLink: Story = {
 /** Destino atual — `current` liga borda/fundo primários + `aria-current`. */
 export const Atual: Story = {
   args: {
-    title: "Globo Editorial",
+    title: "Equipe Exemplo",
     description: "Ambiente em que você está agora",
     leading: <Avatar initials="GE" size="lg" />,
     current: true,
@@ -103,10 +104,10 @@ export const ListaDeWorkspaces: Story = {
   name: "Lista de ambientes",
   args: { title: "" },
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: 10, width: 560 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 10, width: "100%", maxWidth: 560 }}>
       <NavCard
-        title="Globo Editorial"
-        description="globoeditorial.com · Refy Pro · 4 membros · 3 projetos"
+        title="Equipe Exemplo"
+        description="example.com · Refy Pro · 4 membros · 3 projetos"
         leading={<Avatar initials="GE" size="lg" />}
         meta={<span>Admin · proprietário</span>}
         current

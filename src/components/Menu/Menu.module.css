@@ -59,7 +59,7 @@
   padding: var(--space-2) 10px;
   font-size: var(--text-sm);
   color: var(--ink-1, var(--on-surface));
-  border-radius: 5px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   transition: background-color var(--duration-instant) var(--ease-out);
 }

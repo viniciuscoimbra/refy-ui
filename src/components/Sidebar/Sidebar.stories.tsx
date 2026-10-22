@@ -3,7 +3,8 @@ import { Sidebar } from "./Sidebar";
 import { Icons } from "../../_demo/icons";
 
 const meta = {
-  title: "Components/Organisms/Sidebar",
+  id: "components-organisms-sidebar",
+  title: "Componentes/Organismos/Sidebar",
   component: Sidebar,
   tags: ["autodocs"],
   parameters: {
@@ -28,21 +29,21 @@ const meta = {
     brand: "refy",
     defaultActiveId: "dashboard",
     workspaces: [
-      { id: "horizonte", name: "Horizonte Imóveis", role: "Imobiliária · Pro", initials: "HI" },
-      { id: "coimbra", name: "Vinícius Coimbra", role: "Corretor autônomo", initials: "VC" },
-      { id: "pampulha", name: "Pampulha Lar", role: "Imobiliária · Starter", initials: "PL" },
+      { id: "horizonte", name: "Equipe Horizonte", role: "Equipe · Pro", initials: "HI" },
+      { id: "coimbra", name: "Ana Silva", role: "Profissional", initials: "VC" },
+      { id: "pampulha", name: "Equipe Sul", role: "Equipe · Inicial", initials: "PL" },
     ],
-    account: { name: "João Mendes", email: "joao@globoeditorial.com", initials: "JM" },
+    account: { name: "João Mendes", email: "joao@example.com", initials: "JM" },
     cta: { label: "Novo cliente", icon: Icons.plus },
     groups: [
       {
         section: "Trabalho",
         items: [
           { id: "dashboard", label: "Visão geral", icon: Icons.dashboard },
-          { id: "projects", label: "Imóveis", icon: Icons.projects },
+          { id: "projects", label: "Conteúdos", icon: Icons.projects },
           { id: "backlog", label: "Clientes", icon: Icons.backlog, badge: 12 },
-          { id: "monitor", label: "Visitas", icon: Icons.monitor },
-          { id: "competitors", label: "Leads", icon: Icons.competitors },
+          { id: "monitor", label: "Atividades", icon: Icons.monitor },
+          { id: "competitors", label: "Pessoas", icon: Icons.competitors },
         ],
       },
       {

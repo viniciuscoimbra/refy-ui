@@ -5,7 +5,8 @@ import { Snackbar } from "./Snackbar";
  * `Snackbar` — toast minimalista de uma linha com ação inline.
  */
 const meta = {
-  title: "Components/Molecules/Snackbar",
+  id: "components-molecules-snackbar",
+  title: "Componentes/Moléculas/Snackbar",
   component: Snackbar,
   tags: ["autodocs"],
   parameters: {
@@ -28,7 +29,7 @@ type Story = StoryObj<typeof Snackbar>;
 
 /** Com ação de desfazer. */
 export const Desfazer: Story = {
-  args: { children: "Issue movida para Backlog", action: { label: "Desfazer", onClick: () => {} } },
+  args: { children: "Item movido para Tarefas", action: { label: "Desfazer", onClick: () => {} } },
 };
 
 /** Com ação de navegar. */

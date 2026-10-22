@@ -2,7 +2,7 @@
   border: 1px solid var(--line);
   border-radius: var(--radius-md, 10px);
   overflow: hidden;
-  background: var(--accordion-surface, var(--legacy-white));
+  background: var(--accordion-surface, var(--surface));
   font-family: var(--font-body, "Switzer", sans-serif);
 }
 .item + .item { border-top: 1px solid var(--line); }

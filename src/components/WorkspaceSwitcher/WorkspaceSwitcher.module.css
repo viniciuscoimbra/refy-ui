@@ -158,7 +158,7 @@
   width: 14px;
   height: 14px;
   flex: none;
-  color: var(--primary);
+  color: var(--primary-ink);
 }
 
 .empty {

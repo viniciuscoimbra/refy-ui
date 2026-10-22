@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { CSSProperties, HTMLAttributes } from "react";
 import { Button } from "../Button";
 import { Callout } from "../Callout";
@@ -36,7 +36,7 @@ const nextIcon = (
   </svg>
 );
 
-/** Galeria de imóvel responsiva. Navegação e feedback não dependem da proporção da foto. */
+/** Galeria de mídia responsiva. Navegação e feedback não dependem da proporção da foto. */
 export function PropertyMedia({
   items,
   index,
@@ -52,12 +52,13 @@ export function PropertyMedia({
   ...rest
 }: PropertyMediaProps) {
   const [internalIndex, setInternalIndex] = useState(defaultIndex);
-  const [imageState, setImageState] = useState<"loading" | "ready" | "error">("loading");
+  const [imageResult, setImageResult] = useState<{ src?: string; status: "ready" | "error" }>();
   const maxIndex = Math.max(0, items.length - 1);
   const currentIndex = Math.min(Math.max(index ?? internalIndex, 0), maxIndex);
   const current = items[currentIndex];
 
-  useEffect(() => setImageState("loading"), [current?.src]);
+  // Tie completion to its source; an effect can erase onLoad for cached images.
+  const imageState = imageResult?.src === current?.src ? imageResult?.status ?? "loading" : "loading";
 
   function select(next: number) {
     if (items.length === 0) return;
@@ -87,7 +88,7 @@ export function PropertyMedia({
       className={cn(styles.root, styles[fit], className)}
       style={{ aspectRatio }}
       role="region"
-      aria-label="Fotos do imóvel"
+      aria-label="Galeria de mídia"
       aria-roledescription="carrossel"
       aria-busy={busy || undefined}
       tabIndex={items.length > 1 && !failed ? 0 : undefined}
@@ -100,8 +101,8 @@ export function PropertyMedia({
           className={styles.image}
           src={current.src}
           alt={current.alt}
-          onLoad={() => setImageState("ready")}
-          onError={() => setImageState("error")}
+          onLoad={() => setImageResult({ src: current.src, status: "ready" })}
+          onError={() => setImageResult({ src: current.src, status: "error" })}
         />
       )}
 
@@ -149,3 +150,6 @@ export function PropertyMedia({
     </div>
   );
 }
+
+export const MediaGallery = PropertyMedia;
+export type MediaGalleryProps = PropertyMediaProps;

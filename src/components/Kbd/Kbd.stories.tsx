@@ -5,7 +5,8 @@ import { Kbd } from "./Kbd";
  * `Kbd` — tecla/atalho de teclado. Átomo usado por Command, Menu e Topbar.
  */
 const meta = {
-  title: "Components/Atoms/Kbd",
+  id: "components-atoms-kbd",
+  title: "Componentes/Átomos/Kbd",
   component: Kbd,
   tags: ["autodocs"],
   parameters: { layout: "centered" },

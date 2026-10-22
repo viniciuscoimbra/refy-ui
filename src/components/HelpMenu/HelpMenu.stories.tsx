@@ -5,7 +5,8 @@ import { HelpMenu } from "./HelpMenu";
  * `HelpMenu` — botão "?" que abre o menu de ajuda (compõe Menu).
  */
 const meta = {
-  title: "Components/Molecules/HelpMenu",
+  id: "components-molecules-helpmenu",
+  title: "Componentes/Moléculas/HelpMenu",
   component: HelpMenu,
   tags: ["autodocs"],
   parameters: {

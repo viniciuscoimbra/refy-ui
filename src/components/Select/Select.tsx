@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useId } from "react";
 import type { SelectHTMLAttributes, ReactNode } from "react";
 import { cn } from "../../lib/cn";
 import styles from "./Select.module.css";
@@ -17,7 +17,8 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
   { label, hint, error, block = true, className, id, disabled, children, ...rest },
   ref
 ) {
-  const fieldId = id || (label ? `sel-${label.replace(/\s+/g, "-").toLowerCase()}` : undefined);
+  const generatedId = useId();
+  const fieldId = id ?? generatedId;
   return (
     <div className={cn(styles.field, block && styles.block, className)}>
       {label && (

@@ -3,7 +3,8 @@ import { StatusDot } from "./StatusDot";
 
 /** `StatusDot` — dot de estado com halo + rótulo mono uppercase opcional. */
 const meta = {
-  title: "Components/Atoms/StatusDot",
+  id: "components-atoms-statusdot",
+  title: "Componentes/Átomos/StatusDot",
   component: StatusDot,
   tags: ["autodocs"],
   parameters: {
@@ -38,7 +39,7 @@ export const Padrao: Story = {};
 
 export const AoVivo: Story = {
   name: "Ao vivo (pulse)",
-  args: { pulse: true, children: "Monitorando" },
+  args: { pulse: true, children: "Atividadesando" },
 };
 
 export const SemRotulo: Story = {
