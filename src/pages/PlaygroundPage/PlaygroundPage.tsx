@@ -101,7 +101,7 @@ export function PlaygroundPage({ mode, fonts, onModeChange: setMode, onFontsChan
       onNavigate: item => setArea(item.id as Area),
     }} topbar={{
       crumbs: [{ label: workspace, onClick: () => setArea('overview') }, { label: areas[area] }],
-      searchPlaceholder: 'Encontrar uma área…', onSearchClick: () => setSearch(true),
+      searchPlaceholder: 'Buscar área ou componente…', onSearchClick: () => setSearch(true),
       actions: <><Tooltip label="Avisos da equipe"><IconButton aria-label="Notificações" icon={Icons.bell} onClick={() => setNotice('Tudo em dia. Esta demonstração usa dados locais.')} /></Tooltip><Avatar initials="AL" size="md" /></>,
     }}>
       <div className={styles.stack}>

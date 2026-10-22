@@ -11,6 +11,20 @@ test('inventário cobre exatamente as famílias e links reais do catálogo', asy
   for (const entry of componentCatalog) expect(index.entries[entry.storyId], entry.storyId).toBeTruthy();
 });
 
+test('busca abre a família na área correspondente e preserva personalização', async ({ page }) => {
+  await page.goto(`${url}&globals=theme:dark;fonts:studio`);
+  const scope = page.getByTestId('playground');
+  await scope.getByRole('button', { name: 'Buscar área ou componente…' }).click();
+  const dialog = scope.getByRole('dialog');
+  await dialog.getByRole('combobox').fill('EventTimeline');
+  await dialog.getByRole('combobox').press('ArrowDown');
+  await dialog.getByRole('combobox').press('Enter');
+  await expect(scope.getByRole('heading', { name: 'Dados e atividades', exact: true })).toBeVisible();
+  await expect(scope.getByTestId('component-demo')).toHaveAttribute('data-component', 'EventTimeline');
+  await expect(scope).toHaveAttribute('data-theme', 'dark');
+  await expect(scope.getByTestId('component-demo')).toHaveCSS('font-family', /DM Sans/);
+});
+
 for (const [area, label] of Object.entries(componentAreas)) for (const mode of ['light', 'dark']) {
   test(`${label} / ${mode}: todas as famílias, fontes e contraste`, async ({ page }) => {
     test.setTimeout(180000);
