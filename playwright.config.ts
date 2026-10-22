@@ -11,5 +11,5 @@ export default defineConfig({
     { name: "firefox", use: { ...devices["Desktop Firefox"] } },
     { name: "webkit", use: { ...devices["Desktop Safari"] } },
   ],
-  webServer: { command: "npm run storybook -- --ci", url: "http://127.0.0.1:6006", reuseExistingServer: !process.env.CI, timeout: 120000 },
+  webServer: { command: process.env.CI ? "vite preview --outDir storybook-static --host 127.0.0.1 --port 6006 --strictPort" : "npm run storybook -- --ci", url: "http://127.0.0.1:6006", reuseExistingServer: !process.env.CI, timeout: 120000 },
 });

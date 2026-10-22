@@ -42,7 +42,7 @@ Falhas detectadas e corrigidas durante esta execução: item desabilitado inicia
 no Menu; IDs de campo repetidos; descrição externa escondendo erro; foco de retorno
 em cliques do WebKit; perda de foco ao dispensar aviso; timers reiniciados por callback;
 contraste da ação de aviso na superfície invertida; tooltip hoverável e sem recorte.
-A câmera manual de teclado encontrou perda de foco que a primeira versão do teste
+A verificação manual de teclado encontrou perda de foco que a primeira versão do teste
 não cobria: foi acrescentada regressão e o roteiro manual foi repetido com sucesso.
 Diferenças visuais de rasterização durante animação do tooltip foram diagnosticadas
 na imagem diff; captura agora parte de movimento reduzido, sem relaxar tolerância.
@@ -58,3 +58,11 @@ As famílias continuam experimentais. Não sincronizar/promover specs desta muda
 como certificadas nem liberar as fases seguintes por substituição da evidência manual.
 O mantenedor recebeu pergunta nesta conversa sobre execução do roteiro; sem resposta,
 não se presume aprovação nem execução. Nenhuma aplicação consumidora foi migrada.
+
+Revisão adicional dos callers de Menu: Breadcrumb, FabMenu, HelpMenu, UserMenu e SplitButton. Foram preservados o trigger ARIA/foco do botão de opções, abertura superior e largura do UserMenu após a mudança para top layer. tests/compositions.spec.ts: 14 casos Chromium/WebKit passaram, incluindo aviso de identidade distinta sem captura pelo outro diálogo. Não é certificação integral dessas cinco famílias.
+
+## Revisão Linux e nova execução
+
+A execução 39716998021 concluiu 226 testes e falhou em 36 casos sem referência Linux, primeira carga Chromium e foco do Menu WebKit. Falhas preservadas, sem declarar gate aprovado. O foco obrigatório deixou de depender de requestAnimationFrame; CI agora usa o Storybook compilado. Suite local atual: 190 testes passaram; mais 28 testes focados no build estático passaram com a configuração CI, sem atualizar imagens.
+
+54 referências Linux foram revisadas nas nove folhas de engine/tema e incorporadas sem sobrescrever as 36 referências Mac. Procedimento/versões em docs/CORE_VISUAL.md. Aguarda CI final comparando as referências e exercitando os novos callers.

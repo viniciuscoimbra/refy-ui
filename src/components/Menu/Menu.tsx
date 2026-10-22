@@ -1,6 +1,6 @@
 import { AnchoredSurface } from "../../lib/AnchoredSurface";
-import { cloneElement, isValidElement, useEffect, useId, useMemo, useRef, useState } from "react";
-import type { ReactNode, ReactElement, HTMLAttributes } from "react";
+import { cloneElement, isValidElement, useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from "react";
+import type { ReactNode, HTMLAttributes } from "react";
 import { Kbd } from "../Kbd";
 import { cn } from "../../lib/cn";
 import styles from "./Menu.module.css";
@@ -26,6 +26,9 @@ export type MenuEntry =
 
 /** Props for the Menu popover. */
 export interface MenuProps {
+  id?: string;
+  /** Acompanha a largura do grupo âncora, inclusive em composições. */
+  matchWidth?: boolean;
   /** Menu visível (controlado). */
   open: boolean;
   /** Pedido de fechamento: Esc, clique fora ou seleção. */
@@ -65,8 +68,11 @@ export function Menu({
   side = "bottom",
   className,
   ariaLabel = "Ações",
+  id,
+  matchWidth = false,
 }: MenuProps) {
-  const menuId = useId();
+  const generatedId = useId();
+  const menuId = id ?? generatedId;
   const initial = useRef("first");
   const wrapRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -76,13 +82,12 @@ export function Menu({
     [entries]
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!open) return;
     const enabled = items.map((item, index) => item.disabled ? -1 : index).filter(index => index >= 0);
     setActiveIndex(initial.current === "last" ? enabled[enabled.length - 1] ?? -1 : enabled[0] ?? -1);
     initial.current = "first";
-    const frame = requestAnimationFrame(() => wrapRef.current?.querySelector<HTMLElement>(`[role="menu"]`)?.focus());
-    return () => cancelAnimationFrame(frame);
+    wrapRef.current?.querySelector<HTMLElement>('[role="menu"]')?.focus();
   }, [open]);
 
   useEffect(() => {
@@ -143,12 +148,15 @@ export function Menu({
   }
 
   let itemIndex = -1;
+  const trigger = isValidElement<HTMLAttributes<HTMLElement>>(children) &&
+    (typeof children.type === "string" ? ["button", "a", "input"].includes(children.type) || children.props.role === "button" : typeof children.type !== "symbol")
+    ? cloneElement(children, { "aria-haspopup": "menu", "aria-expanded": open, "aria-controls": open ? menuId : undefined }) : children;
 
   return (
     <div ref={wrapRef} className={cn(styles.wrap, className)} onKeyDown={onKeyDown}>
-      {isValidElement(children) ? cloneElement(children as ReactElement<HTMLAttributes<HTMLElement>>, { "aria-haspopup": "menu", "aria-expanded": open, "aria-controls": open ? menuId : undefined }) : children}
+      {trigger}
       {open && (
-        <AnchoredSurface onClose={() => onOpenChange(false)} side={side} align={align}
+        <AnchoredSurface onClose={() => onOpenChange(false)} side={side} align={align} matchWidth={matchWidth}
           id={menuId} tabIndex={0} aria-label={ariaLabel}
           role="menu"
           aria-activedescendant={items[activeIndex] ? `${menuId}-${items[activeIndex].id}` : undefined}

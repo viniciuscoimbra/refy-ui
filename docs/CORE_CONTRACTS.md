@@ -32,9 +32,12 @@ input; a aplicação conserva dados quando desmonta uma página/diálogo.
 
 Lista de ações, não seleção de valor de formulário. `open/onOpenChange` são
 controlados; `entries` descreve ações/separadores/rótulos. `align=start`,
-`side=bottom`, `ariaLabel=Ações`. Não há defaultOpen nem valor interno.
+`side=bottom`, `ariaLabel=Ações`, `matchWidth=false`. id explícito é opcional. Não há defaultOpen nem valor interno.
 Use um único botão como trigger, com onClick alternando open. O botão precisa
 aceitar atributos ARIA; a biblioteca fornece haspopup/expanded/controls.
+Em composições com um contêiner e vários botões (SplitButton), use id explícito
+no Menu e associe haspopup/expanded/controls ao botão correto, não ao contêiner.
+UserMenu usa side e matchWidth para preservar direção e largura no top layer.
 Ao abrir, foco fica no menu e aria-activedescendant aponta um ID exclusivo.
 Setas circulam entre ações habilitadas; Home/End vão aos extremos; letras buscam
 pela inicial de rótulos textuais; Enter/Espaço selecionam uma vez; Tab sai;

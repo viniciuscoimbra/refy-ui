@@ -68,5 +68,5 @@ export function AnchoredSurface({ onClose, side = "bottom", align = "start", mat
       doc.removeEventListener("animationend", update, true);
     };
   }, [align, side, matchWidth]);
-  return <div {...props} ref={ref} popover="manual" data-ds-floating="" style={{ ...style, position: "fixed", inset: "auto", margin: 0, translate: "none", overflowY: "auto", overflowWrap: "anywhere", color: "var(--ink-1)", boxSizing: "border-box" }} />;
+  return <div {...props} ref={ref} popover="manual" data-ds-floating="" style={{ ...style, position: "fixed", inset: "auto", margin: 0, minWidth: matchWidth ? 0 : undefined, translate: "none", overflowY: "auto", overflowWrap: "anywhere", color: "var(--ink-1)", boxSizing: "border-box" }} />;
 }

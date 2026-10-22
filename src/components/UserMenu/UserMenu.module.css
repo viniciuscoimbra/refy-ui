@@ -2,18 +2,6 @@
   width: 100%;
 }
 
-/* menu acima do trigger (rodapé da sidebar) */
-.sideTop :global([role="menu"]) {
-  top: auto;
-  bottom: calc(100% + 6px);
-}
-
-/* no modo padrão o menu acompanha a largura do trigger */
-.fullWidthMenu :global([role="menu"]) {
-  width: 100%;
-  min-width: 100%;
-}
-
 .trigger {
   appearance: none;
   width: 100%;

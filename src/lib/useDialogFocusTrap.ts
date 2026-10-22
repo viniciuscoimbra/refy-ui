@@ -32,7 +32,7 @@ export function useDialogFocusTrap(open: boolean, containerRef: RefObject<HTMLEl
     const doc = container.ownerDocument;
     const previous = lastTrigger.current ?? doc.activeElement as HTMLElement | null;
     const unregister = registerDialog(container);
-    const initial = requestAnimationFrame(() => { if (!container.contains(doc.activeElement)) (focusable(container)[0] ?? container).focus(); });
+    if (!container.contains(doc.activeElement)) focusFirst(container);
     function onKey(event: KeyboardEvent) {
       if (event.defaultPrevented || activeDialog(doc) !== container) return;
       if (event.key === "Escape") { event.preventDefault(); close.current(); return; }
@@ -49,7 +49,6 @@ export function useDialogFocusTrap(open: boolean, containerRef: RefObject<HTMLEl
     doc.addEventListener("keydown", onKey);
     doc.addEventListener("focusin", onFocus);
     return () => {
-      cancelAnimationFrame(initial);
       doc.removeEventListener("keydown", onKey);
       doc.removeEventListener("focusin", onFocus);
       unregister();
