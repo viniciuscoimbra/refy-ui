@@ -1,4 +1,6 @@
-.field { display: inline-flex; flex-direction: column; gap: 6px; }
+.field {
+  min-width: 0;
+  max-width: 100%; display: inline-flex; flex-direction: column; gap: 6px; }
 .block { display: flex; width: 100%; }
 
 .label {
@@ -11,11 +13,12 @@
 }
 
 .textarea {
+  box-shadow: var(--field-shadow, none);
   width: 100%;
-  padding: 9px 12px;
-  background: var(--surface);
-  border: 1px solid var(--legacy-line);
-  border-radius: var(--radius-default);
+  padding: 9px var(--field-padding-inline, 12px);
+  background: var(--field-background, var(--surface));
+  border: var(--field-border-width, 1px) var(--control-border-style, solid) var(--field-border, var(--outline));
+  border-radius: var(--field-radius, var(--radius-default));
   font-family: var(--font-body);
   font-size: var(--field-font-size, var(--text-sm));
   line-height: var(--leading-normal);

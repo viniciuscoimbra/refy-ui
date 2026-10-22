@@ -2,14 +2,15 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Accordion } from "./Accordion";
 
 const meta = {
-  title: "Components/Molecules/Accordion",
+  id: "components-molecules-accordion",
+  title: "Componentes/Moléculas/Accordion",
   component: Accordion,
   tags: ["autodocs"],
   args: {
     items: [
-      { id: "a", title: "Como os créditos são cobrados?", content: <p>100 créditos por análise padrão, 300 por síntese profunda. Créditos são acumulativos e nunca expiram.</p> },
-      { id: "b", title: "Posso mudar de plano a qualquer momento?", content: <p>Sim. O upgrade vale na hora; o downgrade entra no próximo ciclo. Créditos acumulados permanecem.</p> },
-      { id: "c", title: "O que acontece se eu cancelar?", content: <p>Você mantém acesso até o fim do período pago. Depois, o ambiente fica somente leitura e os créditos ficam disponíveis para consumo.</p> },
+      { id: "a", title: "Como organizar meus arquivos?", content: <p>Crie coleções e agrupe os arquivos por projeto. Você pode reorganizar os itens a qualquer momento.</p> },
+      { id: "b", title: "Posso compartilhar uma coleção?", content: <p>Sim. Escolha as pessoas que terão acesso e defina se podem visualizar ou editar.</p> },
+      { id: "c", title: "Como arquivar um projeto?", content: <p>Use a opção Arquivar nas configurações. Os arquivos continuam disponíveis para consulta e o projeto pode ser restaurado.</p> },
     ],
   },
   argTypes: {

@@ -6,7 +6,8 @@ import { Pagination } from "./Pagination";
  * `Pagination` — paginação numérica em mono; ativa em ink-1, demais ghost.
  */
 const meta = {
-  title: "Components/Atoms/Pagination",
+  id: "components-atoms-pagination",
+  title: "Componentes/Átomos/Pagination",
   component: Pagination,
   tags: ["autodocs"],
   parameters: {

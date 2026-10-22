@@ -4,7 +4,8 @@ import { ChoiceCard, ChoiceCardGroup } from "./ChoiceCard";
 
 /** `ChoiceCard` — card selecionável com semântica de radio/checkbox. */
 const meta = {
-  title: "Components/Molecules/ChoiceCard",
+  id: "components-molecules-choicecard",
+  title: "Componentes/Moléculas/ChoiceCard",
   component: ChoiceCardGroup,
   tags: ["autodocs"],
   parameters: {
@@ -14,7 +15,7 @@ const meta = {
         component: [
           "Card-como-radio (ou checkbox, `mode=\"multiple\"`): título + descrição + ícone/preview + meta. Grupo com navegação por teclado — roving tabindex no modo single (setas movem E selecionam, como radio nativo; Home/End vão às pontas). Seleção com anel primário e transição por tokens de motion.",
           "",
-          "**Onde usar:** escolha de tema (claro/escuro/sistema), pacotes de créditos com preço, propriedades no fluxo GSC, e o caso futuro dos **perfis do motor de recomendação — Criterioso / Equilibrado / Explorador** (uma escolha, cada opção com nome + descrição do comportamento).",
+          "**Onde usar:** escolha de tema (claro/escuro/sistema), pacotes de créditos com preço, itens de uma coleção, e o caso futuro dos **perfis do motor de recomendação — Criterioso / Equilibrado / Explorador** (uma escolha, cada opção com nome + descrição do comportamento).",
           "",
           "**Onde NÃO usar:** escolha simples sem descrição/preview (use `RadioGroup`); alternância compacta em toolbar (use `Segmented`/`ToggleGroup`); card que navega (use `NavCard`); plano com CTA próprio (use `PlanCard`).",
         ].join("\n"),
@@ -136,15 +137,15 @@ export const MultiplaControlada: Story = {
         <ChoiceCardGroup
           mode="multiple"
           columns={1}
-          label="Propriedades do Search Console"
+          label="Coleções disponíveis"
           value={values}
           onChange={(v) => setValues(v as string[])}
         >
-          <ChoiceCard value="globo" title="sc-domain:globo.com" meta="42 mil cliques / 28d" />
-          <ChoiceCard value="vogue" title="sc-domain:vogue.com.br" meta="8 mil cliques / 28d" />
+          <ChoiceCard value="globo" title="sc-domain:example.com" meta="42 mil cliques / 28d" />
+          <ChoiceCard value="vogue" title="sc-domain:design.example.com" meta="8 mil cliques / 28d" />
           <ChoiceCard
             value="casavogue"
-            title="sc-domain:casavogue.globo.com"
+            title="sc-domain:colecao.example.com"
             meta="3 mil cliques / 28d"
           />
         </ChoiceCardGroup>

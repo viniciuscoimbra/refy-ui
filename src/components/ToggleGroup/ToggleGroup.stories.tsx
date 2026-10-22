@@ -6,7 +6,8 @@ import { ToggleGroup } from "./ToggleGroup";
  * `ToggleGroup` — botões liga/desliga independentes (seleção múltipla).
  */
 const meta = {
-  title: "Components/Atoms/ToggleGroup",
+  id: "components-atoms-togglegroup",
+  title: "Componentes/Átomos/ToggleGroup",
   component: ToggleGroup,
   tags: ["autodocs"],
   parameters: {

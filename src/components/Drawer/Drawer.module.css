@@ -28,7 +28,7 @@
 .right {
   top: 0;
   bottom: 0;
-  width: 320px;
+  width: var(--drawer-width, 320px);
   max-width: 90vw;
 }
 .left {
@@ -47,8 +47,8 @@
   bottom: 0;
   max-height: 85vh;
   border-top: 1px solid var(--line, var(--surface-container-high));
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: var(--drawer-radius, 20px);
+  border-top-right-radius: var(--drawer-radius, 20px);
   box-shadow: var(--elev-5);
   animation: slide-up var(--duration-slow) var(--ease-emph);
 }

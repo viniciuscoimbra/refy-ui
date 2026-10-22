@@ -4,7 +4,7 @@ import { Avatar } from "../Avatar";
 import { cn } from "../../lib/cn";
 import styles from "./Combobox.module.css";
 
-/** Avatar de uma opção "pessoa" (corretor, imobiliária…). */
+/** Avatar de uma opção "pessoa ou equipe". */
 export interface ComboboxOptionAvatar {
   /** Nome — origem das iniciais quando não há foto. */
   name: string;
@@ -117,7 +117,7 @@ const SearchIcon = (
  * `aria-activedescendant`. Controlado (`value`/`onChange`) ou não-controlado
  * (`defaultValue`); texto também pode ser controlado via `inputValue`.
  *
- *   <Combobox label="Concorrente" options={domains} onChange={setCompetitor} />
+ *   <Combobox label="Projeto" options={projects} onChange={setProject} />
  */
 export const Combobox = forwardRef<HTMLInputElement, ComboboxProps>(function Combobox(
   {

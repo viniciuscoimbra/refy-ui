@@ -7,7 +7,8 @@ import { Toast, ToastRegion, type ToastData } from "./Toast";
  * `Toast` / `ToastRegion` — notificações empilhadas num canto da tela.
  */
 const meta = {
-  title: "Components/Molecules/Toast",
+  id: "components-molecules-toast",
+  title: "Componentes/Moléculas/Toast",
   component: ToastRegion,
   tags: ["autodocs"],
   parameters: {
@@ -48,7 +49,7 @@ export const Playground: Story = {
         <Button onClick={() => push({ title: "Falha ao exportar", description: "O servidor não respondeu.", tone: "danger" })}>
           Erro
         </Button>
-        <Button onClick={() => push({ title: "Issue movida para Backlog", action: { label: "Desfazer", onClick: () => {} } })}>
+        <Button onClick={() => push({ title: "Issue movida para Tarefas", action: { label: "Desfazer", onClick: () => {} } })}>
           Com ação
         </Button>
         <ToastRegion {...args} toasts={toasts} onDismiss={dismiss} />
@@ -65,7 +66,7 @@ export const Isolado: Story = {
     <div style={{ padding: 24, display: "flex", flexDirection: "column", gap: 10, alignItems: "flex-start" }}>
       <Toast id="a" title="Análise concluída" description="84 páginas rastreadas." tone="success" duration={null} />
       <Toast id="b" title="Falha ao exportar" description="O servidor não respondeu." tone="danger" duration={null} />
-      <Toast id="c" title="Issue movida para Backlog" action={{ label: "Desfazer", onClick: () => {} }} duration={null} />
+      <Toast id="c" title="Issue movida para Tarefas" action={{ label: "Desfazer", onClick: () => {} }} duration={null} />
     </div>
   ),
 };

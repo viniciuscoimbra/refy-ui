@@ -1,4 +1,6 @@
 .field {
+  min-width: 0;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
@@ -23,13 +25,14 @@
 
 /* altura fixa: chips excedentes rolam, nunca quebram linha */
 .shell {
+  box-shadow: var(--field-shadow, none);
   height: var(--field-height, 42px);
   display: flex;
   align-items: center;
   gap: var(--space-2);
   padding: 0 var(--space-2) 0 10px;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: var(--field-background, var(--surface));
+  border: var(--field-border-width, 1px) var(--control-border-style, solid) var(--field-border, var(--outline));
   border-radius: var(--field-radius, var(--radius-lg-token));
   overflow: hidden;
   cursor: text;
@@ -213,7 +216,7 @@
   padding: 6px;
   max-height: 240px;
   overflow-y: auto;
-  background: var(--surface);
+  background: var(--field-background, var(--surface));
   border: 1px solid var(--border-soft, var(--border));
   border-radius: var(--radius-xl-token);
   box-shadow: var(--elev-4);
@@ -263,7 +266,7 @@
   height: 16px;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--border);
-  background: var(--surface);
+  background: var(--field-background, var(--surface));
   color: transparent;
   display: inline-flex;
   align-items: center;

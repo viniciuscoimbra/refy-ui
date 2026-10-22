@@ -11,24 +11,24 @@ import type { Workspace } from "../WorkspaceSwitcher";
 import { Icons } from "../../_demo/icons";
 
 const workspaces: Workspace[] = [
-  { id: "horizonte", name: "Horizonte Imóveis", role: "Imobiliária · Pro", initials: "HI" },
-  { id: "coimbra", name: "Vinícius Coimbra", role: "Corretor autônomo", initials: "VC" },
-  { id: "pampulha", name: "Pampulha Lar", role: "Imobiliária · Starter", initials: "PL" },
+  { id: "horizonte", name: "Equipe Horizonte", role: "Equipe · Pro", initials: "HI" },
+  { id: "coimbra", name: "Ana Silva", role: "Profissional", initials: "VC" },
+  { id: "pampulha", name: "Equipe Sul", role: "Equipe · Inicial", initials: "PL" },
 ];
 
 const notifications: NotificationItem[] = [
-  { id: "n1", title: "Novo cliente interessado", description: "Marina guardou um apartamento no Itapoã.", time: "há 5min", unread: true },
-  { id: "n2", title: "Visita solicitada", description: "Três horários foram enviados para confirmação.", time: "há 2h", unread: true },
-  { id: "n3", title: "Corretor associado", description: "Ana Costa entrou na imobiliária.", time: "há 3d" },
+  { id: "n1", title: "Novo conteúdo salvo", description: "Marina salvou um conteúdo na coleção.", time: "há 5min", unread: true },
+  { id: "n2", title: "Revisão solicitada", description: "Três horários foram enviados para confirmação.", time: "há 2h", unread: true },
+  { id: "n3", title: "Novo integrante", description: "Ana Costa entrou na equipe.", time: "há 3d" },
 ];
 
 const commands: CommandItem[] = [
-  { id: "new", label: "Cadastrar cliente", group: "Ações", shortcut: "⌘N" },
-  { id: "visit", label: "Ver próximas visitas", group: "Ações", shortcut: "⌘V" },
-  { id: "property", label: "Apartamento · Itapoã", group: "Imóveis recentes", lead: "IT" },
+  { id: "new", label: "Adicionar pessoa", group: "Ações", shortcut: "⌘N" },
+  { id: "visit", label: "Ver próximas atividades", group: "Ações", shortcut: "⌘V" },
+  { id: "property", label: "Coleção · Referências", group: "Conteúdos recentes", lead: "IT" },
 ];
 
-const user = { name: "João Mendes", email: "joao@globoeditorial.com", initials: "JM" };
+const user = { name: "João Mendes", email: "joao@example.com", initials: "JM" };
 
 const sidebar = {
   brand: "refy",
@@ -41,10 +41,10 @@ const sidebar = {
       section: "Trabalho",
       items: [
         { id: "dashboard", label: "Visão geral", icon: Icons.dashboard },
-        { id: "projects", label: "Imóveis", icon: Icons.projects },
+        { id: "projects", label: "Conteúdos", icon: Icons.projects },
         { id: "backlog", label: "Clientes", icon: Icons.backlog, badge: 12 },
-        { id: "monitor", label: "Visitas", icon: Icons.monitor },
-        { id: "competitors", label: "Leads", icon: Icons.competitors },
+        { id: "monitor", label: "Atividades", icon: Icons.monitor },
+        { id: "competitors", label: "Pessoas", icon: Icons.competitors },
       ],
     },
     {
@@ -58,10 +58,11 @@ const sidebar = {
 };
 
 const meta = {
-  title: "Components/Organisms/AppShell",
+  id: "components-organisms-appshell",
+  title: "Componentes/Organismos/AppShell",
   component: AppShell,
   tags: ["autodocs"],
-  parameters: { layout: "fullscreen" },
+  parameters: { layout: "fullscreen", refyFullPage: true },
   argTypes: {
     sidebar: { control: false },
     topbar: { control: false },
@@ -95,9 +96,10 @@ export const Completo: Story = {
     return (
       <>
         <AppShell
+          responsiveSidebar
           sidebar={sidebar}
           topbar={{
-            crumbs: [{ label: "Horizonte Imóveis", href: "#" }, { label: "Visão geral" }],
+            crumbs: [{ label: "Equipe Horizonte", href: "#" }, { label: "Visão geral" }],
             onSearchClick: () => setCommandOpen(true),
             actions: (
               <>
@@ -112,23 +114,23 @@ export const Completo: Story = {
           }}
         >
           <p style={{ fontFamily: "var(--font-mono)", fontSize: 10, textTransform: "uppercase", letterSpacing: ".16em", color: "var(--ink-3)", margin: "0 0 8px" }}>
-            Imobiliária · Horizonte Imóveis
+            Organização · Equipe Horizonte
           </p>
           <h1 style={{ fontFamily: "var(--font-headline)", fontSize: 30, fontWeight: 700, letterSpacing: "-.025em", color: "var(--ink-1)", margin: "0 0 20px" }}>
             Visão geral
           </h1>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 14, marginBottom: 20 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: 14, marginBottom: 20 }}>
             <Card><div style={{ fontFamily: "var(--font-mono)", fontSize: 10, textTransform: "uppercase", letterSpacing: ".12em", color: "var(--ink-3)" }}>Clientes ativos</div><div style={{ fontFamily: "var(--font-headline)", fontSize: 26, fontWeight: 600, color: "var(--ink-1)", marginTop: 6 }}>128</div></Card>
-            <Card><div style={{ fontFamily: "var(--font-mono)", fontSize: 10, textTransform: "uppercase", letterSpacing: ".12em", color: "var(--ink-3)" }}>Visitas · semana</div><div style={{ fontFamily: "var(--font-headline)", fontSize: 26, fontWeight: 600, color: "var(--ink-1)", marginTop: 6 }}>24</div></Card>
-            <Card><div style={{ fontFamily: "var(--font-mono)", fontSize: 10, textTransform: "uppercase", letterSpacing: ".12em", color: "var(--ink-3)" }}>Imóveis ativos</div><div style={{ fontFamily: "var(--font-headline)", fontSize: 26, fontWeight: 600, color: "var(--ink-1)", marginTop: 6 }}>386</div></Card>
+            <Card><div style={{ fontFamily: "var(--font-mono)", fontSize: 10, textTransform: "uppercase", letterSpacing: ".12em", color: "var(--ink-3)" }}>Atividades · semana</div><div style={{ fontFamily: "var(--font-headline)", fontSize: 26, fontWeight: 600, color: "var(--ink-1)", marginTop: 6 }}>24</div></Card>
+            <Card><div style={{ fontFamily: "var(--font-mono)", fontSize: 10, textTransform: "uppercase", letterSpacing: ".12em", color: "var(--ink-3)" }}>Conteúdos ativos</div><div style={{ fontFamily: "var(--font-headline)", fontSize: 26, fontWeight: 600, color: "var(--ink-1)", marginTop: 6 }}>386</div></Card>
           </div>
           <Card>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 16, justifyContent: "space-between", alignItems: "center" }}>
               <div>
                 <div style={{ fontWeight: 600, color: "var(--ink-1)", fontSize: 14 }}>Novo cliente</div>
-                <div style={{ fontSize: 12.5, color: "var(--ink-3)", marginTop: 2 }}>Cadastre o perfil e encontre imóveis compatíveis.</div>
+                <div style={{ fontSize: 12.5, color: "var(--ink-3)", marginTop: 2 }}>Adicione conteúdo e organize seus projetos.</div>
               </div>
-              <Button variant="primary" leadingIcon={Icons.plus}>Cadastrar cliente</Button>
+              <Button variant="primary" leadingIcon={Icons.plus}>Adicionar pessoa</Button>
             </div>
           </Card>
         </AppShell>

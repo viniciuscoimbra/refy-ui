@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import type { KeyboardEvent, PointerEvent } from "react";
+import type { KeyboardEvent, PointerEvent, ReactNode } from "react";
 import { Button } from "../Button";
 import { EmptyState } from "../EmptyState";
 import { PropertyActionGroup } from "../PropertyActionGroup";
 import type { PropertyAction } from "../PropertyActionGroup";
+import type { DecisionAction } from "../PropertyActionGroup/PropertyActionGroup";
 import { PropertyCard } from "../PropertyCard";
 import type { PropertyCardProps } from "../PropertyCard";
 import { cn } from "../../lib/cn";
@@ -21,6 +22,7 @@ export interface SwipeDeckProps {
   gestureEnabled?: boolean;
   motion?: "auto" | "reduced";
   className?: string;
+  title?: ReactNode;
 }
 
 /** Fila Tinder-like: botões são o caminho principal; gesto e teclado são atalhos equivalentes. */
@@ -34,6 +36,7 @@ export function SwipeDeck({
   gestureEnabled = true,
   motion = "auto",
   className,
+  title = "Revisar conteúdos",
 }: SwipeDeckProps) {
   const [internalIndex, setInternalIndex] = useState(defaultIndex);
   const [activeAction, setActiveAction] = useState<PropertyAction>();
@@ -104,7 +107,7 @@ export function SwipeDeck({
       <div className={cn(styles.end, className)}>
         <EmptyState
           bordered
-          title="Você viu todos os imóveis desta fila"
+          title="Todos os itens foram revisados"
           message="Suas escolhas foram guardadas. Você pode revisar as classificações ou atualizar a busca."
           action={onReset ? <Button variant="primary" onClick={onReset}>Recomeçar fila</Button> : undefined}
         />
@@ -116,9 +119,9 @@ export function SwipeDeck({
   const rotation = offset / 28;
 
   return (
-    <section className={cn(styles.root, motion === "reduced" && styles.reduced, className)} aria-label="Fila de imóveis">
+    <section className={cn(styles.root, motion === "reduced" && styles.reduced, className)} aria-label="Fila de revisão">
       <div className={styles.queueMeta}>
-        <strong>Seu próximo imóvel ideal</strong>
+        <strong>{title}</strong>
         <span>{remaining} depois deste</span>
       </div>
       <div className={styles.stage}>
@@ -128,7 +131,7 @@ export function SwipeDeck({
           className={cn(styles.current, processing && activeAction && styles[`leaving-${activeAction}`])}
           style={{ transform: `translateX(${offset}px) rotate(${rotation}deg)` }}
           role="region"
-          aria-label={`Imóvel ${currentIndex + 1} de ${items.length}`}
+          aria-label={`Item ${currentIndex + 1} de ${items.length}`}
           tabIndex={0}
           onKeyDown={handleKeyDown}
           onPointerDown={handlePointerDown}
@@ -137,8 +140,8 @@ export function SwipeDeck({
           onPointerCancel={handlePointerEnd}
         >
           <PropertyCard {...cardProps} layout="deck" actions={false} />
-          {offset <= -32 && <span className={cn(styles.gestureLabel, styles.rejectLabel)}>Não quero</span>}
-          {offset >= 32 && <span className={cn(styles.gestureLabel, styles.saveLabel)}>Guardar</span>}
+          {offset <= -32 && <span className={cn(styles.gestureLabel, styles.rejectLabel)}>Descartar</span>}
+          {offset >= 32 && <span className={cn(styles.gestureLabel, styles.saveLabel)}>Salvar</span>}
         </div>
       </div>
       <PropertyActionGroup
@@ -146,8 +149,16 @@ export function SwipeDeck({
         state={processing ? "processing" : "idle"}
         activeAction={activeAction}
         onAction={commit}
-        statusMessage={gestureEnabled ? "Use os botões. Arrastar e ← → são atalhos; V agenda uma visita." : "Use os botões para classificar este imóvel."}
+        statusMessage={gestureEnabled ? "Use os botões ou as setas ← →. Arraste para descartar ou salvar; V seleciona." : "Use os botões para classificar este item."}
       />
     </section>
   );
+}
+
+export type DecisionDeckItem = SwipeDeckItem;
+export interface DecisionDeckProps extends Omit<SwipeDeckProps, "onAction"> {
+  onAction?: (action: DecisionAction, item: DecisionDeckItem) => void;
+}
+export function DecisionDeck({ onAction, ...rest }: DecisionDeckProps) {
+  return <SwipeDeck {...rest} onAction={(action, item) => onAction?.(action === "visit" ? "select" : action, item)} />;
 }

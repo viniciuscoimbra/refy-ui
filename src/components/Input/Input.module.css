@@ -1,4 +1,6 @@
 .field {
+  min-width: 0;
+  max-width: 100%;
   display: inline-flex;
   flex-direction: column;
   gap: 6px;
@@ -15,14 +17,15 @@
 }
 
 .shell {
+  box-shadow: var(--field-shadow, none);
   display: flex;
   align-items: center;
   gap: 8px;
   height: var(--field-height, 38px);
-  padding: 0 12px;
-  background: var(--surface);
-  border: 1px solid var(--field-border, var(--outline));
-  border-radius: var(--radius-default);
+  padding: 0 var(--field-padding-inline, 12px);
+  background: var(--field-background, var(--surface));
+  border: var(--field-border-width, 1px) var(--control-border-style, solid) var(--field-border, var(--outline));
+  border-radius: var(--field-radius, var(--radius-default));
   transition: border-color var(--duration-fast) var(--ease-out),
     box-shadow var(--duration-fast) var(--ease-out);
 }

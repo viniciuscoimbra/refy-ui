@@ -10,7 +10,8 @@ const DIST = [3, 5, 9, 14, 18, 24, 30, 34, 30, 26, 22, 18, 15, 12, 10, 8, 6, 5, 
  * o handle mais próximo; o mínimo nunca cruza o máximo.
  */
 const meta = {
-  title: "Components/Atoms/Range",
+  id: "components-atoms-range",
+  title: "Componentes/Átomos/Range",
   component: Range,
   tags: ["autodocs"],
   parameters: {
@@ -24,7 +25,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: 460 }}>
+      <div style={{ width: "100%", maxWidth: 460 }}>
         <Story />
       </div>
     ),
@@ -52,7 +53,7 @@ type Story = StoryObj<typeof Range>;
 /** Playground — faixa de Domain Authority com ticks. */
 export const Playground: Story = {
   args: {
-    label: "Faixa de DA",
+    label: "Intervalo de valores",
     defaultValue: [30, 80],
     ticks: ["0", "25", "50", "75", "100"],
   },
@@ -62,7 +63,7 @@ export const Playground: Story = {
 export const ComHistograma: Story = {
   name: "Com histograma",
   args: {
-    label: "Faixa de DA",
+    label: "Intervalo de valores",
     defaultValue: [30, 80],
     histogram: DIST,
     ticks: ["0", "25", "50", "75", "100"],
@@ -86,7 +87,7 @@ export const Formatado: Story = {
 /** Controlado — o intervalo vive no pai. */
 export const Controlled: Story = {
   name: "Controlado",
-  args: { label: "Faixa de DA" },
+  args: { label: "Intervalo de valores" },
   render: (args) => {
     const [range, setRange] = useState<RangeValue>([20, 60]);
     return (
@@ -117,7 +118,7 @@ export const MinimoFixo: Story = {
 /** Desabilitado. */
 export const Disabled: Story = {
   args: {
-    label: "Faixa de DA",
+    label: "Intervalo de valores",
     defaultValue: [30, 80],
     disabled: true,
   },

@@ -1,4 +1,6 @@
 .breadcrumb {
+  min-width: 0;
+  max-width: 100%;
   font-family: var(--interface-detail-font, var(--font-mono));
   font-size: var(--text-2xs);
   text-transform: var(--interface-label-transform, uppercase);
@@ -23,13 +25,13 @@
   align-items: center;
   gap: 6px;
   min-width: 0;
-  flex: none;
+  flex: 0 1 auto;
 }
 
 .link {
+  min-width: 0;
   min-height: var(--navigation-hit-height, auto);
-  display: inline-flex;
-  align-items: center;
+  display: block;
   appearance: none;
   background: transparent;
   border: 0;
@@ -44,7 +46,7 @@
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
-  opacity: 0.64;
+  opacity: 1;
   cursor: pointer;
   transition: color var(--duration-fast) var(--ease-out);
 }
@@ -60,7 +62,8 @@
 }
 
 .current {
-  display: inline-flex;
+  min-width: 0;
+  display: block;
   max-width: var(--breadcrumb-item-max, 180px);
   overflow: hidden;
   padding: 4px 6px;
@@ -88,7 +91,7 @@
   background: transparent;
   color: inherit;
   cursor: pointer;
-  opacity: 0.64;
+  opacity: 1;
   transition: opacity var(--duration-fast) var(--ease-out), background var(--duration-fast) var(--ease-out);
 }
 .root:hover,
@@ -106,3 +109,5 @@
     transition: none;
   }
 }
+
+.root, .collapsed { flex-shrink: 0; }

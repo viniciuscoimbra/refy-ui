@@ -5,7 +5,8 @@ import { Breadcrumb } from "./Breadcrumb";
  * `Breadcrumb` — trilha de navegação mono uppercase.
  */
 const meta = {
-  title: "Components/Molecules/Breadcrumb",
+  id: "components-molecules-breadcrumb",
+  title: "Componentes/Moléculas/Breadcrumb",
   component: Breadcrumb,
   tags: ["autodocs"],
   parameters: {
@@ -32,7 +33,7 @@ export const Playground: Story = {
     items: [
       { label: "Projetos", href: "#projetos" },
       { label: "refy.com.br", href: "#refy" },
-      { label: "SEO Técnico" },
+      { label: "Documentação" },
     ],
   },
 };
@@ -56,12 +57,12 @@ export const SeteNiveis: Story = {
     root: { label: "Início", href: "#inicio" },
     items: [
       { label: "Workspaces", href: "#workspaces" },
-      { label: "Imobiliária Horizonte", href: "#imobiliaria" },
+      { label: "Equipe Horizonte", href: "#equipe" },
       { label: "Clientes", href: "#clientes" },
-      { label: "Vinícius Coimbra", href: "#cliente" },
+      { label: "Ana Silva", href: "#cliente" },
       { label: "Buscas", href: "#buscas" },
-      { label: "Imóveis ideais", href: "#imoveis" },
-      { label: "Apartamento no Sion" },
+      { label: "Conteúdos sugeridos", href: "#conteudos" },
+      { label: "Guia de identidade" },
     ],
   },
 };
@@ -71,9 +72,9 @@ export const TermoLongo: Story = {
   args: {
     root: { label: "Início", href: "#inicio" },
     items: [
-      { label: "Imóveis", href: "#imoveis" },
-      { label: "Apartamento de três quartos com varanda e duas vagas no Sion, Belo Horizonte" },
+      { label: "Conteúdos", href: "#conteudos" },
+      { label: "Guia completo de identidade visual e recomendações para publicar novos conteúdos" },
     ],
   },
-  render: (args) => <div style={{ width: 420, overflow: "hidden" }}><Breadcrumb {...args} /></div>,
+  render: (args) => <div style={{ width: "100%", maxWidth: 420 }}><Breadcrumb {...args} /></div>,
 };

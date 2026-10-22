@@ -2,8 +2,8 @@ import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { FileUpload } from "./FileUpload";
 
-function documentFile() { return new File(["comprovante"], "comprovante-de-renda.pdf", { type: "application/pdf", lastModified: 1 }); }
-function imageFile() { return new File([`<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200"><rect width="320" height="200" fill="#bedcf0"/><path d="M40 150 160 40l120 110" fill="#fff8f2" stroke="#bd4b30" stroke-width="12"/></svg>`], "fachada.svg", { type: "image/svg+xml", lastModified: 2 }); }
+function documentFile() { return new File(["comprovante"], "documento-exemplo.pdf", { type: "application/pdf", lastModified: 1 }); }
+function imageFile() { return new File([`<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200"><rect width="320" height="200" fill="#bedcf0"/><path d="M40 150 160 40l120 110" fill="#fff8f2" stroke="#bd4b30" stroke-width="12"/></svg>`], "composicao.svg", { type: "image/svg+xml", lastModified: 2 }); }
 function typeFiles() {
   return [
     new File(["pdf"], "contrato-social.pdf", { type: "application/pdf", lastModified: 3 }),
@@ -13,7 +13,8 @@ function typeFiles() {
 }
 
 const meta = {
-  title: "Components/Molecules/FileUpload",
+  id: "components-molecules-fileupload",
+  title: "Componentes/Moléculas/FileUpload",
   component: FileUpload,
   tags: ["autodocs"],
   parameters: { layout: "padded" },

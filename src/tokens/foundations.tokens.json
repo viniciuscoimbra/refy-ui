@@ -314,6 +314,231 @@
           "value": "var(--weight-semi)",
           "description": "Papel CSS --weight-semibold; origem Refy 0.4.0; escopo base; ativo, sem remoção prevista.",
           "deprecated": false
+        },
+        "--control-border-width": {
+          "value": "1px",
+          "description": "Skin: control-border-width. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--control-border-style": {
+          "value": "solid",
+          "description": "Skin: control-border-style. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--control-radius": {
+          "value": "var(--radius-default)",
+          "description": "Skin: control-radius. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-radius": {
+          "value": "var(--control-radius)",
+          "description": "Skin: button-radius. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-border-width": {
+          "value": "var(--control-border-width)",
+          "description": "Skin: button-border-width. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-primary-background": {
+          "value": "var(--primary)",
+          "description": "Skin: button-primary-background. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-primary-background-hover": {
+          "value": "var(--primary-hover)",
+          "description": "Skin: button-primary-background-hover. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-primary-background-active": {
+          "value": "var(--primary-container)",
+          "description": "Skin: button-primary-background-active. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-primary-foreground": {
+          "value": "var(--on-primary)",
+          "description": "Skin: button-primary-foreground. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-primary-foreground-hover": {
+          "value": "var(--on-primary)",
+          "description": "Skin: button-primary-foreground-hover. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-primary-foreground-active": {
+          "value": "var(--on-primary-container)",
+          "description": "Skin: button-primary-foreground-active. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-primary-border": {
+          "value": "transparent",
+          "description": "Skin: button-primary-border. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-primary-shadow": {
+          "value": "var(--legacy-button-shadow)",
+          "description": "Skin: button-primary-shadow. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-secondary-background": {
+          "value": "var(--surface)",
+          "description": "Skin: button-secondary-background. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-secondary-background-hover": {
+          "value": "var(--surface-2)",
+          "description": "Skin: button-secondary-background-hover. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-secondary-background-active": {
+          "value": "color-mix(in srgb, var(--ink-1) 8%, var(--surface))",
+          "description": "Skin: button-secondary-background-active. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-secondary-foreground": {
+          "value": "var(--ink-1)",
+          "description": "Skin: button-secondary-foreground. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-secondary-border": {
+          "value": "var(--legacy-line)",
+          "description": "Skin: button-secondary-border. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-secondary-border-hover": {
+          "value": "var(--legacy-line-strong)",
+          "description": "Skin: button-secondary-border-hover. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-ghost-background": {
+          "value": "transparent",
+          "description": "Skin: button-ghost-background. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-ghost-background-hover": {
+          "value": "var(--surface-2)",
+          "description": "Skin: button-ghost-background-hover. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-ghost-background-active": {
+          "value": "color-mix(in srgb, var(--ink-1) 10%, transparent)",
+          "description": "Skin: button-ghost-background-active. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-ghost-foreground": {
+          "value": "var(--ink-2)",
+          "description": "Skin: button-ghost-foreground. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-ghost-foreground-hover": {
+          "value": "var(--ink-1)",
+          "description": "Skin: button-ghost-foreground-hover. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-danger-background": {
+          "value": "var(--surface)",
+          "description": "Skin: button-danger-background. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-danger-background-hover": {
+          "value": "var(--critical-soft)",
+          "description": "Skin: button-danger-background-hover. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-danger-background-active": {
+          "value": "color-mix(in srgb, var(--critical) 16%, var(--surface))",
+          "description": "Skin: button-danger-background-active. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-danger-foreground": {
+          "value": "var(--critical)",
+          "description": "Skin: button-danger-foreground. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-danger-border": {
+          "value": "var(--legacy-danger-line)",
+          "description": "Skin: button-danger-border. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--button-danger-border-hover": {
+          "value": "var(--legacy-danger-line-hover)",
+          "description": "Skin: button-danger-border-hover. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--field-border-width": {
+          "value": "var(--control-border-width)",
+          "description": "Skin: field-border-width. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--field-radius": {
+          "value": "var(--control-radius)",
+          "description": "Skin: field-radius. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--field-background": {
+          "value": "var(--surface)",
+          "description": "Skin: field-background. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--field-shadow": {
+          "value": "none",
+          "description": "Skin: field-shadow. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--field-padding-inline": {
+          "value": "12px",
+          "description": "Skin: field-padding-inline. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--card-border-width": {
+          "value": "1px",
+          "description": "Skin: card-border-width. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--card-radius": {
+          "value": "var(--radius-lg-token)",
+          "description": "Skin: card-radius. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--card-background": {
+          "value": "var(--surface)",
+          "description": "Skin: card-background. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--card-padding": {
+          "value": "var(--space-5)",
+          "description": "Skin: card-padding. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--dialog-surface": {
+          "value": "var(--surface)",
+          "description": "Skin: dialog-surface. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--dialog-border-width": {
+          "value": "0px",
+          "description": "Skin: dialog-border-width. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--dialog-border-color": {
+          "value": "var(--line)",
+          "description": "Skin: dialog-border-color. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--dialog-shadow": {
+          "value": "var(--elev-5)",
+          "description": "Skin: dialog-shadow. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--drawer-width": {
+          "value": "320px",
+          "description": "Skin: drawer-width. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
+        },
+        "--drawer-radius": {
+          "value": "var(--radius-xl)",
+          "description": "Skin: drawer-radius. Override opcional por ThemeProvider; preserva o papel semântico de cor.",
+          "deprecated": false
         }
       }
     },
@@ -4676,12 +4901,12 @@
         "colorSpace": "srgb",
         "components": [
           0,
-          0.2196078431372549,
-          0.1411764705882353
+          0.08627450980392157,
+          0.054901960784313725
         ],
         "alpha": 1
       },
-      "$description": "Papel CSS --on-good; origem Refy 0.4.0; escopo editorial; ativo, sem remoção prevista.",
+      "$description": "Papel CSS --on-good; origem Refy 0.4.0; escopo editorial; ativo, sem remoção prevista. Ajuste de contraste em 22/10/2026: texto sobre --good usa a tinta escura já definida para --on-primary.",
       "$deprecated": false
     },
     "good-ink": {

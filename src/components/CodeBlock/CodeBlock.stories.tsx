@@ -2,7 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { CodeBlock } from "./CodeBlock";
 
 const meta = {
-  title: "Components/Molecules/CodeBlock",
+  id: "components-molecules-codeblock",
+  title: "Componentes/Moléculas/CodeBlock",
   component: CodeBlock,
   tags: ["autodocs"],
   parameters: {
@@ -25,21 +26,21 @@ export default meta;
 
 type Story = StoryObj<typeof CodeBlock>;
 
-const curlSnippet = `curl https://api.refy.app/v1/imoveis \\
-  -H "Authorization: Bearer refy_live_sk_..." \\
+const curlSnippet = `curl https://api.example.com/v1/items \\
+  -H "Authorization: Bearer example_token" \\
   -H "Content-Type: application/json" \\
-  -d '{ "bairro": "Itapoã", "quartos": 3 }'`;
+  -d '{ "category": "design", "limit": 3 }'`;
 
 export const Snippet: Story = {
   args: {
     code: curlSnippet,
-    label: "Buscar imóveis",
+    label: "Buscar itens",
     language: "bash",
   },
   render: (args) => (
     <div style={{ maxWidth: 560 }}>
       <CodeBlock {...args}>
-        <><span style={{ color: "#82aaff" }}>curl</span> <span style={{ color: "#c3e88d" }}>https://api.refy.app/v1/imoveis</span> \\{"\n"}  <span style={{ color: "#89ddff" }}>-H</span> <span style={{ color: "#f6c177" }}>&quot;Authorization: Bearer refy_live_sk_...&quot;</span> \\{"\n"}  <span style={{ color: "#89ddff" }}>-H</span> <span style={{ color: "#f6c177" }}>&quot;Content-Type: application/json&quot;</span> \\{"\n"}  <span style={{ color: "#89ddff" }}>-d</span> <span style={{ color: "#c3e88d" }}>&apos;{`{ "bairro": "Itapoã", "quartos": 3 }`}&apos;</span></>
+        <><span style={{ color: "#82aaff" }}>curl</span> <span style={{ color: "#c3e88d" }}>https://api.example.com/v1/items</span> \\{"\n"}  <span style={{ color: "#89ddff" }}>-H</span> <span style={{ color: "#f6c177" }}>&quot;Authorization: Bearer example_token&quot;</span> \\{"\n"}  <span style={{ color: "#89ddff" }}>-H</span> <span style={{ color: "#f6c177" }}>&quot;Content-Type: application/json&quot;</span> \\{"\n"}  <span style={{ color: "#89ddff" }}>-d</span> <span style={{ color: "#c3e88d" }}>&apos;{`{ "category": "design", "limit": 3 }`}&apos;</span></>
       </CodeBlock>
     </div>
   ),
@@ -47,8 +48,8 @@ export const Snippet: Story = {
 
 export const SaidaDoLint: Story = {
   name: "Saída de lint",
-  args: { code: "src/busca.ts:18:7  error  'bairro' is assigned but never used  no-unused-vars", label: "npm run lint", language: "text" },
-  render: (args) => <div style={{ maxWidth: 720 }}><CodeBlock {...args}><><span style={{ color: "#89ddff" }}>src/busca.ts:18:7</span>  <span style={{ color: "#ff6b6b", fontWeight: 700 }}>error</span>  <span style={{ color: "#e6edf3" }}>&apos;bairros&apos; is assigned but never used</span>  <span style={{ color: "#c792ea" }}>no-unused-vars</span></></CodeBlock></div>,
+  args: { code: "src/busca.ts:18:7  error  'categoria' is assigned but never used  no-unused-vars", label: "npm run lint", language: "text" },
+  render: (args) => <div style={{ maxWidth: 720 }}><CodeBlock {...args}><><span style={{ color: "#89ddff" }}>src/busca.ts:18:7</span>  <span style={{ color: "#ff6b6b", fontWeight: 700 }}>error</span>  <span style={{ color: "#e6edf3" }}>&apos;categorias&apos; is assigned but never used</span>  <span style={{ color: "#c792ea" }}>no-unused-vars</span></></CodeBlock></div>,
 };
 
 export const SemCabecalho: Story = {
@@ -66,7 +67,7 @@ export const SemCabecalho: Story = {
 export const ChaveSecreta: Story = {
   name: "Chave secreta (secret)",
   args: {
-    code: "refy_live_sk_8f2hd92hd8a2b1c9d0e4f7a3cN9k",
+    code: "example_sk_8f2hd92hd8a2b1c9d0e4f7a3cN9k",
     label: "API key · Produção",
     secret: true,
   },
@@ -80,7 +81,7 @@ export const ChaveSecreta: Story = {
 export const OverflowHorizontal: Story = {
   name: "Overflow horizontal",
   args: {
-    code: `https://api.refy.app/v1/imoveis?bairro=itapoa&tipo=apartamento&quartos=3&ordenar=compatibilidade`,
+    code: `https://api.example.com/v1/items?category=design&type=document&limit=3&sort=updated`,
     label: "URL assinada",
     language: "http",
   },

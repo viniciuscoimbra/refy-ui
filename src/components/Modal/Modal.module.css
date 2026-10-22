@@ -19,9 +19,10 @@
   max-height: var(--dialog-max-height, calc(100vh - 64px));
   display: flex;
   flex-direction: column;
-  background: var(--surface);
+  background: var(--dialog-surface, var(--surface));
+  border: var(--dialog-border-width, 0px) var(--control-border-style, solid) var(--dialog-border-color, var(--line));
   border-radius: var(--dialog-radius, var(--radius-xl));
-  box-shadow: var(--elev-5);
+  box-shadow: var(--dialog-shadow, var(--elev-5));
   overflow: hidden;
   animation: modalIn var(--duration-mid) var(--ease-out);
 }

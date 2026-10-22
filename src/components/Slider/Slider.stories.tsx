@@ -7,7 +7,8 @@ import { Slider } from "./Slider";
  * setas ←/→ ajustam por step (Shift = 10×). Suporta steps discretos com `marks`.
  */
 const meta = {
-  title: "Components/Atoms/Slider",
+  id: "components-atoms-slider",
+  title: "Componentes/Átomos/Slider",
   component: Slider,
   tags: ["autodocs"],
   parameters: {
@@ -21,7 +22,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: 460 }}>
+      <div style={{ width: "100%", maxWidth: 460 }}>
         <Story />
       </div>
     ),
@@ -48,7 +49,7 @@ type Story = StoryObj<typeof Slider>;
 /** Playground — contínuo 0–100 com readout em %. */
 export const Playground: Story = {
   args: {
-    label: "Profundidade da análise",
+    label: "Nível de detalhe",
     defaultValue: 35,
     formatValue: (v: number) => `${v}%`,
     ticks: ["Rasa", "Profunda"],
@@ -103,7 +104,7 @@ export const Controlled: Story = {
 /** Desabilitado. */
 export const Disabled: Story = {
   args: {
-    label: "Profundidade da análise",
+    label: "Nível de detalhe",
     defaultValue: 35,
     formatValue: (v: number) => `${v}%`,
     disabled: true,

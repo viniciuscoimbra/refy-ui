@@ -4,17 +4,18 @@ import { WizardStepper } from "./WizardStepper";
 import type { WizardStep } from "./WizardStepper";
 
 const steps: WizardStep[] = [
-  { id: "pedido", label: "Pedido" },
-  { id: "sobre", label: "Sobre você" },
-  { id: "tipos", label: "Tipos" },
-  { id: "bairros", label: "Bairros" },
-  { id: "investimento", label: "Investimento" },
+  { id: "pedido", label: "Objetivo" },
+  { id: "sobre", label: "Detalhes" },
+  { id: "tipos", label: "Formato" },
+  { id: "equipe", label: "Equipe" },
+  { id: "permissoes", label: "Permissões" },
   { id: "preferencias", label: "Preferências" },
   { id: "revisao", label: "Revisão" },
 ];
 
 const meta = {
-  title: "Components/Molecules/WizardStepper",
+  id: "components-molecules-wizardstepper",
+  title: "Componentes/Moléculas/WizardStepper",
   component: WizardStepper,
   tags: ["autodocs"],
   parameters: {
@@ -39,7 +40,7 @@ type Story = StoryObj<typeof WizardStepper>;
 /** Jornada real: Pedido → Sobre você → demais critérios → Revisão. */
 export const Horizontal: Story = {
   render: (args) => {
-    const [current, setCurrent] = useState("bairros");
+    const [current, setCurrent] = useState("equipe");
     const index = steps.findIndex((step) => step.id === current);
     return (
       <div style={{ display: "grid", gap: 16, maxWidth: 980 }}>
@@ -48,7 +49,7 @@ export const Horizontal: Story = {
           steps={steps}
           current={current}
           variant="horizontal"
-          label="Montando seu perfil de busca"
+          label="Configurando seu projeto"
           onStepChange={setCurrent}
           onBack={() => setCurrent(steps[Math.max(index - 1, 0)].id)}
         />
@@ -72,7 +73,7 @@ export const Compacto: Story = {
           steps={steps}
           current={current}
           variant="compact"
-          label="Montando seu perfil de busca"
+          label="Configurando seu projeto"
           onStepChange={setCurrent}
           onBack={() => setCurrent(steps[Math.max(index - 1, 0)].id)}
         />
@@ -84,7 +85,7 @@ export const Compacto: Story = {
 /** Concluída, atual, futura e futura indisponível na mesma composição. */
 export const Estados: Story = {
   args: {
-    steps: steps.map((step) => step.id === "investimento" ? { ...step, disabled: true } : step),
+    steps: steps.map((step) => step.id === "permissoes" ? { ...step, disabled: true } : step),
     current: "tipos",
     variant: "horizontal",
     label: "Estados das etapas",

@@ -9,7 +9,8 @@ import { Popover } from "./Popover";
  * Diferente do Tooltip: aceita interação (form curto, filtros).
  */
 const meta = {
-  title: "Components/Molecules/Popover",
+  id: "components-molecules-popover",
+  title: "Componentes/Moléculas/Popover",
   component: Popover,
   tags: ["autodocs"],
   parameters: {
@@ -58,7 +59,7 @@ function FiltroEstagio() {
         Filtrar por estágio
       </span>
       <Checkbox label="Diagnóstico" defaultChecked />
-      <Checkbox label="Backlog" />
+      <Checkbox label="Tarefas" />
       <Checkbox label="Em progresso" />
       <Checkbox label="Resolvido" />
     </div>

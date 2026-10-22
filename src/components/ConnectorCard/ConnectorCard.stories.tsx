@@ -15,7 +15,8 @@ const wpLogo = (
 
 /** `ConnectorCard` — card de integração/conexão OAuth. */
 const meta = {
-  title: "Components/Molecules/ConnectorCard",
+  id: "components-molecules-connectorcard",
+  title: "Componentes/Moléculas/ConnectorCard",
   component: ConnectorCard,
   tags: ["autodocs"],
   parameters: {
@@ -56,7 +57,7 @@ export const Conectado: Story = {
       name="WordPress"
       status={<Badge tone="success">Conectado</Badge>}
       description="Leitura e sugestão de edits direto nos posts, sem publicar nada."
-      meta="globoeditorial.com.br · 4 sites conectados · sincronizado há 12 min"
+      meta="example.com · 4 sites conectados · sincronizado há 12 min"
       actions={
         <Button variant="secondary" size="sm">
           Configurar
@@ -91,7 +92,7 @@ export const ComStatusDot: Story = {
       logo={wpLogo}
       name="Google"
       status={<StatusDot tone="good">Conectado · primário</StatusDot>}
-      meta="joao@globoeditorial.com · conectado em 12 jan. 2026"
+      meta="joao@example.com · conectado em 12 jan. 2026"
       actions={
         <Button variant="ghost" size="sm" disabled>
           Provedor primário

@@ -2,7 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Select } from "./Select";
 
 const meta = {
-  title: "Components/Atoms/Select",
+  id: "components-atoms-select",
+  title: "Componentes/Átomos/Select",
   component: Select,
   tags: ["autodocs"],
   parameters: { layout: "padded" },

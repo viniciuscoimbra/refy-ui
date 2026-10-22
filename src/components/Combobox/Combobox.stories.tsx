@@ -7,7 +7,8 @@ import { Combobox, type ComboboxOption } from "./Combobox";
  * e o fundo do input: uma única superfície que expande, sem gap.
  */
 const meta = {
-  title: "Components/Molecules/Combobox",
+  id: "components-molecules-combobox",
+  title: "Componentes/Moléculas/Combobox",
   component: Combobox,
   tags: ["autodocs"],
   parameters: {
@@ -17,11 +18,11 @@ const meta = {
         component: [
           "Padrão ARIA 1.2 combobox: filtro com destaque do trecho digitado, seções por `group`, teclado completo (setas, Enter, Escape, Home/End) e `aria-activedescendant`. Controlado via `value`/`onChange` ou não-controlado via `defaultValue`; o texto também pode ser controlado (`inputValue`) para suggest assíncrono com `filter={false}`.",
           "",
-          "Variante \"pessoas\": opções com `avatar` (foto/iniciais via átomo `Avatar`) e `description` (meta secundária, ex.: CRECI). O valor selecionado também mostra o avatar no input.",
+          "Variante \"pessoas\": opções com `avatar` (foto/iniciais via átomo `Avatar`) e `description` (meta secundária, ex.: equipe). O valor selecionado também mostra o avatar no input.",
           "",
           "### Onde usar",
-          "- Escolher UMA entidade numa lista pesquisável: página, domínio, imóvel.",
-          "- Variante com `avatar` + `description` sempre que a opção é uma pessoa/imobiliária: escolher corretor, transferir carteira (origem/destino), atribuir responsável.",
+          "- Escolher UMA entidade numa lista pesquisável: página, domínio, conteúdo.",
+          "- Variante com `avatar` + `description` sempre que a opção é uma pessoa/equipe: escolher responsável, transferir itens (origem/destino), atribuir responsável.",
           "",
           "### Onde NÃO usar",
           "- Múltipla seleção — use `Multiselect`.",
@@ -35,7 +36,7 @@ const meta = {
   // Largura fixa para o campo não variar entre estados.
   decorators: [
     (Story) => (
-      <div style={{ width: 400 }}>
+      <div style={{ width: "100%", maxWidth: 400 }}>
         <Story />
       </div>
     ),
@@ -62,28 +63,28 @@ export default meta;
 
 type Story = StoryObj<typeof Combobox>;
 
-const competitors: ComboboxOption[] = [
-  { value: "rdstation", label: "rdstation.com", lead: "RS", meta: "DA 78", group: "Sugestões" },
-  { value: "rdsaude", label: "rdsaude.com.br", lead: "RS", meta: "DA 64", group: "Sugestões" },
-  { value: "rdrentacar", label: "rdrentacar.com", lead: "RR", meta: "DA 51", group: "Sugestões" },
-  { value: "resultadigital", label: "resultadigital.com.br", lead: "RD", meta: "DA 43", group: "Sugestões" },
-  { value: "remaxbrasil", label: "remaxbrasil.com.br", lead: "RB", meta: "DA 60", group: "Sugestões" },
+const projects: ComboboxOption[] = [
+  { value: "aurora", label: "aurora.example.com", lead: "RS", meta: "12 tarefas", group: "Sugestões" },
+  { value: "horizonte", label: "horizonte.example.com", lead: "RS", meta: "8 tarefas", group: "Sugestões" },
+  { value: "origem", label: "origem.example.com", lead: "RR", meta: "5 tarefas", group: "Sugestões" },
+  { value: "atlas", label: "atlas.example.com", lead: "RD", meta: "4 tarefas", group: "Sugestões" },
+  { value: "norte", label: "norte.example.com", lead: "RB", meta: "6 tarefas", group: "Sugestões" },
 ];
 
 const pages: ComboboxOption[] = [
   { value: "/checkout/confirmacao", label: "/checkout/confirmacao", lead: "/", meta: "2.3k/mês", group: "Recentes" },
   { value: "/checkout/pix", label: "/checkout/pix", lead: "/", meta: "980/mês", group: "Recentes" },
   { value: "/planos", label: "/planos", lead: "/", meta: "5.1k/mês", group: "Mais visitadas" },
-  { value: "/blog/seo-tecnico", label: "/blog/seo-tecnico", lead: "/", meta: "3.4k/mês", group: "Mais visitadas" },
+  { value: "/guias/primeiros-passos", label: "/guias/primeiros-passos", lead: "/", meta: "3.4k/mês", group: "Mais visitadas" },
   { value: "/precos", label: "/precos", lead: "/", meta: "1.9k/mês", group: "Mais visitadas" },
 ];
 
-/** Playground — digite "rd" para ver filtro + destaque. */
+/** Playground — digite "aurora" para ver filtro + destaque. */
 export const Playground: Story = {
   args: {
-    label: "Concorrente",
-    placeholder: "Buscar domínio…",
-    options: competitors,
+    label: "Projeto",
+    placeholder: "Buscar projeto…",
+    options: projects,
   },
 };
 
@@ -91,17 +92,17 @@ export const Playground: Story = {
 export const Default: Story = {
   name: "Padrão · não-controlado",
   args: {
-    label: "Concorrente",
-    placeholder: "Buscar domínio…",
-    options: competitors,
-    defaultValue: "rdstation",
+    label: "Projeto",
+    placeholder: "Buscar projeto…",
+    options: projects,
+    defaultValue: "aurora",
   },
 };
 
 /** Controlado — a seleção vive no pai e aparece abaixo. */
 export const Controlled: Story = {
   name: "Controlado",
-  args: { label: "Concorrente", options: competitors },
+  args: { label: "Projeto", options: projects },
   render: (args) => {
     const [selected, setSelected] = useState<string | null>(null);
     return (
@@ -133,8 +134,8 @@ export const Grouped: Story = {
 export const Empty: Story = {
   name: "Sem resultados",
   args: {
-    label: "Concorrente",
-    options: competitors,
+    label: "Projeto",
+    options: projects,
     inputValue: "zzz",
     emptyMessage: "Nenhum domínio encontrado",
   },
@@ -144,39 +145,39 @@ export const Empty: Story = {
 export const WithError: Story = {
   name: "Com erro",
   args: {
-    label: "Concorrente",
-    options: competitors,
-    error: "Selecione um domínio válido.",
+    label: "Projeto",
+    options: projects,
+    error: "Selecione um projeto válido.",
   },
 };
 
-const corretores: ComboboxOption[] = [
-  { value: "joana", label: "Joana Martins", avatar: { name: "Joana Martins" }, description: "CRECI 34.512-MG" },
-  { value: "marcos", label: "Marcos Silva", avatar: { name: "Marcos Silva", color: "var(--legacy-ink-2)" }, description: "CRECI 21.877-MG" },
-  { value: "renata", label: "Renata Costa", avatar: { name: "Renata Costa" }, description: "CRECI 40.203-MG" },
-  { value: "paulo", label: "Paulo Braga", avatar: { name: "Paulo Braga", color: "var(--legacy-ink-3)" }, description: "CRECI 18.665-MG" },
-  { value: "ana", label: "Ana Lúcia Prado", avatar: { name: "Ana Lúcia Prado" }, description: "CRECI 44.910-MG" },
+const pessoas: ComboboxOption[] = [
+  { value: "joana", label: "Joana Martins", avatar: { name: "Joana Martins" }, description: "Design · Equipe Aurora" },
+  { value: "marcos", label: "Marcos Silva", avatar: { name: "Marcos Silva", color: "var(--legacy-ink-2)" }, description: "Produto · Equipe Aurora" },
+  { value: "renata", label: "Renata Costa", avatar: { name: "Renata Costa" }, description: "Conteúdo · Equipe Horizonte" },
+  { value: "paulo", label: "Paulo Braga", avatar: { name: "Paulo Braga", color: "var(--legacy-ink-3)" }, description: "Design · Equipe Horizonte" },
+  { value: "ana", label: "Ana Lúcia Prado", avatar: { name: "Ana Lúcia Prado" }, description: "Operações · Equipe Origem" },
 ];
 
 /**
- * Caso guia — transferir carteira: corretor de ORIGEM (selecionado, avatar no
- * input) em cima; DESTINO embaixo. Cada opção mostra Avatar + nome + CRECI.
+ * Caso guia — transferir responsabilidade: responsável de ORIGEM (selecionado, avatar no
+ * input) em cima; DESTINO embaixo. Cada opção mostra Avatar + nome + equipe.
  */
 export const ComAvatar: Story = {
   name: "Com avatar (pessoas)",
-  args: { options: corretores },
+  args: { options: pessoas },
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
       <Combobox
-        label="Corretor de origem"
-        placeholder="Buscar corretor…"
-        options={corretores}
+        label="Responsável de origem"
+        placeholder="Buscar pessoa…"
+        options={pessoas}
         defaultValue="joana"
       />
       <Combobox
-        label="Corretor de destino"
-        placeholder="Buscar corretor…"
-        options={corretores.filter((c) => c.value !== "joana")}
+        label="Responsável de destino"
+        placeholder="Buscar pessoa…"
+        options={pessoas.filter((c) => c.value !== "joana")}
       />
     </div>
   ),
@@ -185,8 +186,8 @@ export const ComAvatar: Story = {
 /** Campo desabilitado. */
 export const Disabled: Story = {
   args: {
-    label: "Concorrente",
-    options: competitors,
+    label: "Projeto",
+    options: projects,
     disabled: true,
     placeholder: "Indisponível",
   },

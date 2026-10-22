@@ -85,6 +85,7 @@ export const Multiselect = forwardRef<HTMLInputElement, MultiselectProps>(functi
   const chipsRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [chipsOverflow, setChipsOverflow] = useState(false);
+  const previousSelectionCount = useRef(selectedOptions.length);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -118,7 +119,8 @@ export const Multiselect = forwardRef<HTMLInputElement, MultiselectProps>(functi
     const el = chipsRef.current;
     if (!el) return;
     setChipsOverflow(el.scrollWidth > el.clientWidth);
-    el.scrollLeft = el.scrollWidth;
+    if (selectedOptions.length > previousSelectionCount.current) el.scrollLeft = el.scrollWidth;
+    previousSelectionCount.current = selectedOptions.length;
   }, [selectedOptions.length, maxVisibleChips]);
 
   function setSelected(next: string[]) {

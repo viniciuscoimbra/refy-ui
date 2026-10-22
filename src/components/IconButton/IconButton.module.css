@@ -2,8 +2,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid transparent;
-  border-radius: var(--radius-default);
+  border: var(--control-border-width, 1px) var(--control-border-style, solid) transparent;
+  border-radius: var(--control-radius, var(--radius-default));
   background: transparent;
   color: var(--ink-2);
   box-shadow: var(--control-shadow, none);
@@ -65,16 +65,16 @@
   background: color-mix(in srgb, var(--ink-1) 8%, var(--surface));
 }
 .solid {
-  background: var(--primary);
-  color: var(--on-primary);
+  background: var(--button-primary-background, var(--primary));
+  color: var(--button-primary-foreground, var(--on-primary));
 }
 .solid:hover {
-  background: var(--primary-hover, var(--primary));
-  color: var(--on-primary);
+  background: var(--button-primary-background-hover, var(--primary-hover, var(--primary)));
+  color: var(--button-primary-foreground, var(--on-primary));
 }
 .solid:not(:disabled):active {
-  background: var(--primary-container);
-  color: var(--on-primary-container);
+  background: var(--button-primary-background-active, var(--primary-container));
+  color: var(--button-primary-foreground-active, var(--on-primary-container));
 }
 .iconbtn:disabled {
   opacity: var(--control-disabled-opacity, 0.5);

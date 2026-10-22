@@ -67,7 +67,8 @@
     "README.md",
     "THIRD_PARTY_NOTICES.md",
     "src/tokens/foundations.tokens.json",
-    "src/styles/fonts.css"
+    "src/styles/fonts.css",
+    "src/assets/fonts"
   ],
   "author": "Vinícius Coimbra",
   "repository": {

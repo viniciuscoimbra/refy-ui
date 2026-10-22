@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import { AppShell } from "../../components/AppShell";
+import { Modal, Input, Command, ToastRegion } from "../../index";
 import { Card, CardHeader } from "../../components/Card";
 import { ProgressBar } from "../../components/ProgressBar";
 import { Badge } from "../../components/Badge";
@@ -15,22 +17,56 @@ import styles from "./DashboardPage.module.css";
  * arranjo (grid, espaçamento). É o teste de fogo do design system.
  */
 export function DashboardPage() {
+  const [creating, setCreating] = useState(false);
+  const [searching, setSearching] = useState(false);
+  const [name, setName] = useState("");
+  const [notice, setNotice] = useState("");
+  const [projects, setProjects] = useState([
+    { name: "Projeto Aurora", url: "example.com/projeto-a", score: 84, tone: "primary" as const, badge: "Bom", bt: "success" as const },
+    { name: "Projeto Horizonte", url: "example.com/projeto-b", score: 71, tone: "warn" as const, badge: "Atenção", bt: "warn" as const },
+    { name: "Projeto Origem", url: "example.com/projeto-c", score: 40, tone: "critical" as const, badge: "Crítico", bt: "danger" as const },
+  ]);
+  useEffect(() => {
+    const shortcut = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key === "k") {
+        event.preventDefault(); setSearching(true);
+      }
+    };
+    window.addEventListener("keydown", shortcut);
+    return () => window.removeEventListener("keydown", shortcut);
+  }, []);
+  function exportProjects(format: "csv" | "json") {
+    const text = format === "json" ? JSON.stringify(projects, null, 2) :
+      ["Projeto,Progresso,Status", ...projects.map(project => [project.name, project.score, project.badge].map(value => {
+        const safe = String(value).replace(/^[=+@\-\t\r]/, "'$&");
+        return `"${safe.replace(/"/g, '""')}"`;
+      }).join(","))].join("\n");
+    const url = URL.createObjectURL(new Blob([text], { type: format === "json" ? "application/json" : "text/csv;charset=utf-8" }));
+    const link = document.createElement("a"); link.href = url; link.download = `projetos.${format}`; link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
   return (
+    <>
     <AppShell
+      responsiveSidebar
       sidebar={{
         activeId: "dashboard",
-        workspace: { name: "Globo Editorial", role: "Workspace · Pro", initials: "GE" },
-        account: { name: "João Mendes", email: "joao@globoeditorial.com", initials: "JM" },
-        cta: { label: "Nova análise", icon: Icons.plus },
+        workspace: { name: "Equipe Exemplo", role: "Workspace · Pro", initials: "GE" },
+        account: { name: "João Mendes", email: "joao@example.com", initials: "JM" },
+        cta: { label: "Novo projeto", icon: Icons.plus, onClick: () => setCreating(true) },
+        onNavigate: (item) => {
+          if (item.id === "projects") setSearching(true);
+          else if (item.id !== "dashboard") setNotice(`${item.label}: esta composição demonstra a navegação; conecte sua rota no projeto.`);
+        },
         groups: [
           {
             section: "Trabalho",
             items: [
               { id: "dashboard", label: "Visão geral", icon: Icons.dashboard },
               { id: "projects", label: "Projetos", icon: Icons.projects },
-              { id: "backlog", label: "Backlog", icon: Icons.backlog, badge: 12 },
-              { id: "monitor", label: "Monitor", icon: Icons.monitor },
-              { id: "competitors", label: "Concorrentes", icon: Icons.competitors },
+              { id: "backlog", label: "Tarefas", icon: Icons.backlog, badge: 12 },
+              { id: "monitor", label: "Atividades", icon: Icons.monitor },
+              { id: "competitors", label: "Arquivos", icon: Icons.competitors },
             ],
           },
           {
@@ -43,11 +79,13 @@ export function DashboardPage() {
         ],
       }}
       topbar={{
-        crumbs: [{ label: "Globo Editorial", href: "#" }, { label: "Visão geral" }],
+        crumbs: [{ label: "Equipe Exemplo", onClick: () => setSearching(true) }, { label: "Visão geral" }],
+        searchPlaceholder: "Buscar projetos…",
+        onSearchClick: () => setSearching(true),
         actions: (
           <>
-            <IconButton aria-label="Notificações" icon={Icons.bell} />
-            <IconButton aria-label="Ajuda" icon={Icons.help} />
+            <IconButton aria-label="Notificações" icon={Icons.bell} onClick={() => setNotice("Você está em dia. Nenhuma nova notificação.")} />
+            <IconButton aria-label="Ajuda" icon={Icons.help} onClick={() => setNotice("Crie um projeto, encontre-o na busca e exporte a lista. Os dados ficam nesta demonstração.")} />
             <Avatar size="md" initials="JM" style={{ marginLeft: 4 }} />
           </>
         ),
@@ -56,11 +94,11 @@ export function DashboardPage() {
       {/* Header da página */}
       <header className={styles.head}>
         <div>
-          <p className={styles.eyebrow}>Workspace · última análise há 14min</p>
+          <p className={styles.eyebrow}>Workspace · última atualização há 14min</p>
           <h1 className={styles.h1}>Visão geral</h1>
           <p className={styles.sub}>
-            3 projetos · <span className={styles.mono}>2.451</span> créditos usados este ciclo ·{" "}
-            <span className={styles.mono}>8</span> tarefas no backlog
+            {projects.length} projetos · <span className={styles.mono}>2.451</span> atividades concluídas neste ciclo ·{" "}
+            <span className={styles.mono}>8</span> tarefas pendentes
           </p>
         </div>
         <div className={styles.headActions}>
@@ -68,14 +106,12 @@ export function DashboardPage() {
             label="Exportar"
             leadingIcon={Icons.download}
             options={[
-              { label: "PDF", hint: ".pdf" },
-              { label: "CSV", hint: ".csv" },
-              { label: "Markdown", hint: ".md" },
-              { label: "JSON", hint: ".json" },
+              { label: "CSV", hint: ".csv", onSelect: () => exportProjects("csv") },
+              { label: "JSON", hint: ".json", onSelect: () => exportProjects("json") },
             ]}
           />
-          <Button variant="primary" leadingIcon={Icons.plus}>
-            Analisar URL
+          <Button variant="primary" leadingIcon={Icons.plus} onClick={() => setCreating(true)}>
+            Criar projeto
           </Button>
         </div>
       </header>
@@ -83,9 +119,9 @@ export function DashboardPage() {
       {/* KPIs */}
       <div className={styles.kpis}>
         {[
-          { label: "Score médio", value: "78", tone: "primary" as const, pct: 78, foot: "+4 vs. ciclo anterior" },
-          { label: "Issues críticas", value: "3", tone: "critical" as const, pct: 30, foot: "em 2 projetos" },
-          { label: "Cobertura de busca", value: "64%", tone: "warn" as const, pct: 64, foot: "12 lacunas mapeadas" },
+          { label: "Progresso médio", value: "78", tone: "primary" as const, pct: 78, foot: "+4 vs. ciclo anterior" },
+          { label: "Pendências", value: "3", tone: "critical" as const, pct: 30, foot: "em 2 projetos" },
+          { label: "Conclusão do ciclo", value: "64%", tone: "warn" as const, pct: 64, foot: "12 tarefas concluídas" },
         ].map((k) => (
           <Card key={k.label} elevation={1}>
             <p className={styles.kpiLabel}>{k.label}</p>
@@ -101,16 +137,12 @@ export function DashboardPage() {
         <Card>
           <CardHeader
             title="Projetos"
-            count="3 ativos"
-            action={<Button variant="ghost" size="sm">Gerenciar</Button>}
+            count={`${projects.length} ativos`}
+            action={<Button variant="ghost" size="sm" onClick={() => setSearching(true)}>Encontrar</Button>}
           />
           <div className={styles.projList}>
-            {[
-              { name: "Economia", url: "g1.globo.com/economia", score: 84, tone: "primary" as const, badge: "Bom" as const, bt: "success" as const },
-              { name: "Beleza", url: "vogue.com.br/beleza", score: 71, tone: "warn" as const, badge: "Atenção" as const, bt: "warn" as const },
-              { name: "Realeza", url: "quem.globo.com/realeza", score: 40, tone: "critical" as const, badge: "Crítico" as const, bt: "danger" as const },
-            ].map((p) => (
-              <div key={p.name} className={styles.projRow}>
+            {projects.map((p, index) => (
+              <div key={index} className={styles.projRow}>
                 <Avatar size="md" initials={p.name.slice(0, 2)} style={{ borderRadius: 7 }} />
                 <div className={styles.projInfo}>
                   <div className={styles.projName}>{p.name}</div>
@@ -129,13 +161,13 @@ export function DashboardPage() {
         <Card>
           <CardHeader
             title="Uso este ciclo"
-            action={<Button variant="ghost" size="sm">Detalhes</Button>}
+            action={<Button variant="ghost" size="sm" onClick={() => setNotice("Ciclo de exemplo: os limites de uso e indicadores são dados ilustrativos.")}>Detalhes</Button>}
           />
           <div className={styles.usage}>
             {[
-              { label: "Créditos do plano", val: "2.451 / 5.000", pct: 49, tone: "primary" as const },
-              { label: "Análises padrão", val: "18 / 40", pct: 45, tone: "primary" as const },
-              { label: "Sínteses profundas", val: "6 / 10", pct: 60, tone: "warn" as const },
+              { label: "Atividades do ciclo", val: "2.451 / 5.000", pct: 49, tone: "primary" as const },
+              { label: "Projetos em andamento", val: "18 / 40", pct: 45, tone: "primary" as const },
+              { label: "Revisões concluídas", val: "6 / 10", pct: 60, tone: "warn" as const },
             ].map((u) => (
               <div key={u.label}>
                 <div className={styles.usageMeta}>
@@ -149,5 +181,19 @@ export function DashboardPage() {
         </Card>
       </div>
     </AppShell>
+    <Modal open={creating} onClose={() => setCreating(false)} title="Criar projeto">
+      <form className={styles.createForm} onSubmit={event => {
+        event.preventDefault();
+        if (!name.trim()) return;
+        setProjects(items => [...items, { name: name.trim(), url: "Rascunho · somente nesta sessão", score: 0, tone: "primary", badge: "Novo", bt: "success" }]);
+        setNotice(`Projeto ${name.trim()} criado nesta demonstração.`); setName(""); setCreating(false);
+      }}>
+        <Input label="Nome do projeto" value={name} onChange={event => setName(event.target.value)} required maxLength={120} block />
+        <div className={styles.headActions}><Button type="button" onClick={() => setCreating(false)}>Cancelar</Button><Button type="submit" variant="primary">Criar</Button></div>
+      </form>
+    </Modal>
+    <Command open={searching} onOpenChange={setSearching} placeholder="Buscar projetos…" items={projects.map((project, index) => ({ id: String(index), label: project.name, group: "Projetos" }))} onSelect={item => { setSearching(false); setNotice(`${item.label}: ${projects[Number(item.id)].score}% concluído.`); }} />
+    <ToastRegion toasts={notice ? [{ id: "dashboard", title: notice, duration: null }] : []} onDismiss={() => setNotice("")} />
+    </>
   );
 }

@@ -48,7 +48,7 @@ export interface EventTimelineProps {
   className?: string;
 }
 
-/** Linha do tempo reutilizável para eventos de cliente, imóvel, visita e auditoria. */
+/** Linha do tempo reutilizável para eventos, alterações, atividades e auditoria. */
 export function EventTimeline({
   title = "Histórico de interações",
   context = "Eventos deste relacionamento em ordem cronológica.",

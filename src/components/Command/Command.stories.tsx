@@ -16,10 +16,10 @@ const RerunIcon = (
 );
 
 const items: CommandItem[] = [
-  { id: "new", label: "Iniciar nova análise", group: "Ações", icon: PlusIcon, shortcut: "⌘N", keywords: "criar começar" },
-  { id: "rerun", label: "Re-rodar última análise", group: "Ações", icon: RerunIcon, shortcut: "⌘R", keywords: "repetir atualizar" },
-  { id: "rd", label: "rdstation.com", group: "Domínios recentes", lead: "RD" },
-  { id: "rr", label: "resultadosdigitais.com.br", group: "Domínios recentes", lead: "RR" },
+  { id: "new", label: "Criar novo projeto", group: "Ações", icon: PlusIcon, shortcut: "⌘N", keywords: "criar começar" },
+  { id: "rerun", label: "Re-rodar última atualização", group: "Ações", icon: RerunIcon, shortcut: "⌘R", keywords: "repetir atualizar" },
+  { id: "rd", label: "aurora.example.com", group: "Projetos recentes", lead: "RD" },
+  { id: "rr", label: "horizonte.example.com", group: "Projetos recentes", lead: "RR" },
   { id: "settings", label: "Abrir configurações", group: "Ações", shortcut: "⌘," },
 ];
 
@@ -27,7 +27,8 @@ const items: CommandItem[] = [
  * `Command` — paleta de comandos (⌘K) com busca global, grupos e atalhos.
  */
 const meta = {
-  title: "Components/Organisms/Command",
+  id: "components-organisms-command",
+  title: "Componentes/Organismos/Command",
   component: Command,
   tags: ["autodocs"],
   parameters: {

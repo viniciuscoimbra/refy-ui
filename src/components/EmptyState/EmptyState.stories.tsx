@@ -13,7 +13,8 @@ const SearchIcon = (
  * `EmptyState` — estado de "nada aqui" com ícone, título, copy e CTA opcional.
  */
 const meta = {
-  title: "Components/Molecules/EmptyState",
+  id: "components-molecules-emptystate",
+  title: "Componentes/Moléculas/EmptyState",
   component: EmptyState,
   tags: ["autodocs"],
   parameters: {
@@ -27,7 +28,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: 480 }}>
+      <div style={{ width: "100%", maxWidth: 480 }}>
         <Story />
       </div>
     ),
@@ -48,8 +49,8 @@ type Story = StoryObj<typeof EmptyState>;
 export const Playground: Story = {
   args: {
     icon: SearchIcon,
-    title: "Nenhuma issue corresponde",
-    message: "Tente remover filtros ou trocar a busca. Você tem 12 issues no total.",
+    title: "Nenhum item encontrado",
+    message: "Tente remover filtros ou trocar a busca. Você tem 12 itens no total.",
     action: <Button size="sm">Limpar filtros</Button>,
   },
 };

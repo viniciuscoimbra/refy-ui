@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { Button, Input, BrandLogo, ThemeProvider } from '../dist/index.js';
+import { Button, Input, BrandLogo, ThemeProvider, ContentCard, PropertyCard, MediaGallery, PropertyMedia, SchedulePicker, VisitSchedulePicker, DecisionActions, DecisionDeck } from '../dist/index.js';
 
 const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
 assert.equal(pkg.license, 'MIT');
@@ -31,3 +31,21 @@ const scoped = renderToStaticMarkup(React.createElement(ThemeProvider, { theme: 
 assert.match(scoped, /data-refy-brand="synthetic"/);
 assert.match(scoped, /data-theme="light"/);
 assert.match(scoped, /--radius-default:12px/);
+
+// Canonical names keep the existing implementation and translate only the domain event.
+assert.equal(ContentCard, PropertyCard);
+assert.equal(MediaGallery, PropertyMedia);
+assert.equal(SchedulePicker, VisitSchedulePicker);
+let decision;
+const actions = DecisionActions({ activeAction: 'select', onAction: value => { decision = value; } });
+assert.equal(actions.props.activeAction, 'visit');
+actions.props.onAction('visit');
+assert.equal(decision, 'select');
+const deck = DecisionDeck({ items: [], onAction: (action, item) => { decision = [action, item.id]; } });
+deck.props.onAction('visit', { id: 'example' });
+assert.deepEqual(decision, ['select', 'example']);
+for (const file of ['inter', 'space-grotesk', 'jetbrains-mono']) {
+  assert(existsSync(`src/assets/fonts/${file}-latin.woff2`));
+  assert(existsSync(`src/assets/fonts/${file}-OFL.txt`));
+}
+console.log('OK: nomes canônicos, compatibilidade de eventos e fontes locais licenciadas.');

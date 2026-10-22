@@ -51,7 +51,7 @@ export interface SidebarProps {
   /** Itens do menu de conta (abre acima do rodapé). Padrão: Perfil/Configurações/Sair. */
   accountMenu?: MenuEntry[];
   onAccountSelect?: (id: string) => void;
-  /** CTA primário no topo (ex.: Nova análise). */
+  /** CTA primário no topo (ex.: Novo projeto). */
   cta?: { label: string; icon?: ReactNode; onClick?: () => void; href?: string };
   /** Wordmark/logo exibido no topo. Aceita texto ou markup (ex.: `<img>`). Default `"refy"`. */
   brand?: ReactNode;

@@ -11,7 +11,7 @@ const SECTIONS = [
   {
     id: "senha",
     label: "Senha",
-    body: "Troque a senha periodicamente e nunca reutilize a de outros serviços. Uma senha forte tem 12+ caracteres, mistura maiúsculas, números e símbolos. Se você entrou por SSO, esta seção fica somente leitura.",
+    body: "Use uma senha exclusiva e atualize-a se houver suspeita de comprometimento. Uma senha forte tem 12+ caracteres, mistura maiúsculas, números e símbolos. Se você entrou por SSO, esta seção fica somente leitura.",
   },
   {
     id: "twofa",
@@ -41,7 +41,8 @@ const ITEMS = SECTIONS.map(({ id, label }) => ({ id, label }));
  * `TableOfContents` — trilho "Nesta página" com scrollspy.
  */
 const meta = {
-  title: "Components/Molecules/TableOfContents",
+  id: "components-molecules-tableofcontents",
+  title: "Componentes/Moléculas/TableOfContents",
   component: TableOfContents,
   tags: ["autodocs"],
   parameters: {
@@ -91,7 +92,7 @@ export const Playground: Story = {
           height: 420,
           overflowY: "auto",
           display: "grid",
-          gridTemplateColumns: "1fr 200px",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
           gap: 32,
           border: "1px solid var(--line)",
           borderRadius: "var(--radius-default)",

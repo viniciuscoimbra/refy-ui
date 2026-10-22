@@ -52,7 +52,7 @@ const chevron = (
  * `<button>`. Composição: `leading` recebe `Avatar`/ícone; `meta` recebe
  * `Badge`/pill. Teclado nativo (Tab + Enter/Espaço) e foco visível.
  *
- *   <NavCard leading={<Avatar initials="GE" />} title="Globo Editorial"
+ *   <NavCard leading={<Avatar initials="GE" />} title="Equipe Exemplo"
  *     description="4 membros · 3 projetos" href="/ws/globo" />
  */
 export const NavCard = forwardRef<HTMLAnchorElement | HTMLButtonElement, NavCardProps>(

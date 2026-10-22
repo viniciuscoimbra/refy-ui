@@ -15,6 +15,7 @@
   line-height: var(--leading-tight);
 }
 .donutFrame {
+  flex-wrap: wrap;
   display: inline-flex;
   flex-direction: row;
   align-items: center;

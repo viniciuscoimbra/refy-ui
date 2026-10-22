@@ -50,7 +50,7 @@ function Playground() {
     <ThemeProvider theme={compact} mode={mode} data-testid="parent"><p>Escopo pai</p><Sample id="nested" theme={rounded} mode={mode}/></ThemeProvider>
   </>;
 }
-const meta = { title: "Fundacao/Temas por aplicacao", component: Playground, tags: ["autodocs"] } satisfies Meta<typeof Playground>;
+const meta = { id: "fundacao-temas-por-aplicacao", title: "Verificacao/Isolamento de temas", component: Playground, tags: ["autodocs"] } satisfies Meta<typeof Playground>;
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const Instancias: Story = {};

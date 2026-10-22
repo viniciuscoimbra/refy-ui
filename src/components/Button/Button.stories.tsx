@@ -10,11 +10,12 @@ const PlusIcon = (
 );
 
 const meta = {
-  title: "Components/Atoms/Button",
+  id: "components-atoms-button",
+  title: "Componentes/Átomos/Button",
   component: Button,
   tags: ["autodocs"],
   args: {
-    children: "Analisar agora",
+    children: "Continuar",
     variant: "primary",
     size: "md",
   },
@@ -35,7 +36,7 @@ export const Primary: Story = {};
 export const Secondary: Story = { args: { variant: "secondary", children: "Cancelar" } };
 export const Ghost: Story = { args: { variant: "ghost", children: "Ver detalhes" } };
 export const Danger: Story = { args: { variant: "danger", children: "Cancelar plano" } };
-export const ComIcone: Story = { args: { leadingIcon: PlusIcon, children: "Nova análise" } };
+export const ComIcone: Story = { args: { leadingIcon: PlusIcon, children: "Novo projeto" } };
 export const Carregando: Story = { args: { loading: true, children: "Analisando" } };
 export const Concluido: Story = { args: { status: "success", children: "Concluído" } };
 export const Erro: Story = { args: { status: "error", children: "Tentar novamente" } };

@@ -25,8 +25,14 @@ export interface PropertyCardFact {
 
 export interface PropertyCardProps {
   title: ReactNode;
-  address: ReactNode;
-  price: ReactNode;
+  subtitle?: ReactNode;
+  value?: ReactNode;
+  valueSuffix?: ReactNode;
+  /** @deprecated Use subtitle. */
+  address?: ReactNode;
+  /** @deprecated Use value. */
+  price?: ReactNode;
+  /** @deprecated Use valueSuffix. */
   priceSuffix?: ReactNode;
   media: PropertyMediaItem[];
   mediaProps?: Omit<PropertyMediaProps, "items">;
@@ -41,9 +47,12 @@ export interface PropertyCardProps {
   className?: string;
 }
 
-/** Card canônico do imóvel; muda composição, nunca duplica mídia ou ações. */
+/** Card de conteúdo com mídia; muda composição, nunca duplica mídia ou ações. */
 export function PropertyCard({
   title,
+  subtitle,
+  value,
+  valueSuffix,
   address,
   price,
   priceSuffix,
@@ -73,7 +82,7 @@ export function PropertyCard({
       <div className={styles.media}>
         <PropertyMedia {...mediaProps} items={media} aspectRatio={mediaProps?.aspectRatio ?? (layout === "deck" ? "16 / 10" : "4 / 3")} />
         {badges.length > 0 && (
-          <div className={styles.badges} aria-label="Destaques do imóvel">
+          <div className={styles.badges} aria-label="Destaques do conteúdo">
             {badges.map((badge, index) => <Badge key={index} tone={badge.tone}>{badge.label}</Badge>)}
           </div>
         )}
@@ -83,7 +92,7 @@ export function PropertyCard({
         <div className={styles.headingRow}>
           <div className={styles.headingCopy}>
             <h3 id={headingId} className={styles.title}>{title}</h3>
-            <p className={styles.address}>{address}</p>
+            {(subtitle ?? address) != null && <p className={styles.address}>{subtitle ?? address}</p>}
           </div>
           {matchScore != null && (
             <div className={styles.compatibility} aria-label={`Índice de compatibilidade: ${Math.round(matchScore)}%`}>
@@ -94,7 +103,7 @@ export function PropertyCard({
           {headerAction && <div className={styles.headerAction}>{headerAction}</div>}
         </div>
 
-        <p className={styles.price}>{price}{priceSuffix && <small>{priceSuffix}</small>}</p>
+        {(value ?? price) != null && <p className={styles.price}>{value ?? price}{(valueSuffix ?? priceSuffix) && <small>{valueSuffix ?? priceSuffix}</small>}</p>}
 
         {facts.length > 0 && (
           <dl className={styles.facts}>
@@ -115,3 +124,6 @@ export function PropertyCard({
     </Card>
   );
 }
+
+export const ContentCard = PropertyCard;
+export type ContentCardProps = PropertyCardProps;

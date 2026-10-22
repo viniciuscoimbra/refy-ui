@@ -7,7 +7,8 @@ import { Multiselect, type MultiselectOption } from "./Multiselect";
  * Altura fixa: mostra até três chips e acumula o restante em `+N`.
  */
 const meta = {
-  title: "Components/Molecules/Multiselect",
+  id: "components-molecules-multiselect",
+  title: "Componentes/Moléculas/Multiselect",
   component: Multiselect,
   tags: ["autodocs"],
   parameters: {
@@ -22,7 +23,7 @@ const meta = {
   // Largura fixa: o campo não cresce conforme chips são adicionados.
   decorators: [
     (Story) => (
-      <div style={{ width: 460 }}>
+      <div style={{ width: "100%", maxWidth: 460 }}>
         <Story />
       </div>
     ),
@@ -46,9 +47,9 @@ export default meta;
 type Story = StoryObj<typeof Multiselect>;
 
 const areas: MultiselectOption[] = [
-  { value: "seo", label: "SEO Técnico" },
+  { value: "design", label: "Documentação" },
   { value: "content", label: "Conteúdo" },
-  { value: "links", label: "Backlinks" },
+  { value: "links", label: "Arquivos" },
   { value: "perf", label: "Performance" },
   { value: "a11y", label: "Acessibilidade" },
   { value: "schema", label: "Schema · JSON-LD" },
@@ -61,10 +62,10 @@ const areas: MultiselectOption[] = [
 /** Playground — digite para filtrar, Backspace remove o último chip. */
 export const Playground: Story = {
   args: {
-    label: "Áreas de análise",
+    label: "Áreas de trabalho",
     placeholder: "Adicionar áreas…",
     options: areas,
-    defaultValue: ["seo", "content", "links", "perf", "a11y", "schema"],
+    defaultValue: ["design", "content", "links", "perf", "a11y", "schema"],
   },
 };
 
@@ -72,9 +73,9 @@ export const Playground: Story = {
 export const Selected: Story = {
   name: "Com seleção",
   args: {
-    label: "Áreas de análise",
+    label: "Áreas de trabalho",
     options: areas,
-    defaultValue: ["seo", "content", "links"],
+    defaultValue: ["design", "content", "links"],
     hint: "Clique no × para remover ou pressione Backspace com o input vazio.",
   },
 };
@@ -83,9 +84,9 @@ export const Selected: Story = {
 export const OverflowScroll: Story = {
   name: "Overflow · contador automático",
   args: {
-    label: "Áreas de análise",
+    label: "Áreas de trabalho",
     options: areas,
-    defaultValue: ["seo", "content", "links", "perf", "a11y", "schema", "intl"],
+    defaultValue: ["design", "content", "links", "perf", "a11y", "schema", "intl"],
     hint: "Três chips visíveis +4 itens selecionados.",
   },
 };
@@ -94,9 +95,9 @@ export const OverflowScroll: Story = {
 export const OverflowCounter: Story = {
   name: "Overflow · contador +N",
   args: {
-    label: "Áreas de análise",
+    label: "Áreas de trabalho",
     options: areas,
-    defaultValue: ["seo", "content", "links", "perf", "a11y"],
+    defaultValue: ["design", "content", "links", "perf", "a11y"],
     maxVisibleChips: 2,
   },
 };
@@ -104,9 +105,9 @@ export const OverflowCounter: Story = {
 /** Controlado — o estado vive no pai e aparece abaixo. */
 export const Controlled: Story = {
   name: "Controlado",
-  args: { label: "Áreas de análise", options: areas },
+  args: { label: "Áreas de trabalho", options: areas },
   render: (args) => {
-    const [values, setValues] = useState<string[]>(["seo"]);
+    const [values, setValues] = useState<string[]>(["design"]);
     return (
       <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         <Multiselect {...args} value={values} onChange={setValues} />
@@ -122,9 +123,9 @@ export const Controlled: Story = {
 export const WithError: Story = {
   name: "Com erro",
   args: {
-    label: "Áreas de análise",
+    label: "Áreas de trabalho",
     options: areas,
-    defaultValue: ["seo"],
+    defaultValue: ["design"],
     error: "Selecione ao menos duas áreas.",
   },
 };
@@ -132,9 +133,9 @@ export const WithError: Story = {
 /** Campo desabilitado. */
 export const Disabled: Story = {
   args: {
-    label: "Áreas de análise",
+    label: "Áreas de trabalho",
     options: areas,
-    defaultValue: ["seo", "content"],
+    defaultValue: ["design", "content"],
     disabled: true,
   },
 };

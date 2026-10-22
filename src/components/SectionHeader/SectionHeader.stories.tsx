@@ -7,7 +7,8 @@ import { SectionHeader } from "./SectionHeader";
  * count (`Badge`) + ação inline, com `id` de âncora para o `TableOfContents`.
  */
 const meta = {
-  title: "Components/Molecules/SectionHeader",
+  id: "components-molecules-sectionheader",
+  title: "Componentes/Moléculas/SectionHeader",
   component: SectionHeader,
   tags: ["autodocs"],
   parameters: {

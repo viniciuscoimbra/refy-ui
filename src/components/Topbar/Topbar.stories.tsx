@@ -8,14 +8,14 @@ import { UserMenu } from "../UserMenu";
 
 const notifications: NotificationItem[] = [
   { id: "n1", title: "Análise concluída", description: "refy.com.br: 84 páginas, 12 críticos.", time: "há 5min", unread: true },
-  { id: "n2", title: "Concorrente subiu 4 posições", description: "rdstation.com para 'seo técnico'.", time: "há 2h", unread: true },
+  { id: "n2", title: "Projeto avançou 4 etapas", description: "Projeto Aurora no ciclo atual.", time: "há 2h", unread: true },
   { id: "n3", title: "Convite aceito", description: "Ana Costa entrou no ambiente.", time: "há 3d" },
 ];
 
 const commands: CommandItem[] = [
-  { id: "new", label: "Iniciar nova análise", group: "Ações", shortcut: "⌘N" },
-  { id: "rerun", label: "Re-rodar última análise", group: "Ações", shortcut: "⌘R" },
-  { id: "rd", label: "rdstation.com", group: "Domínios recentes", lead: "RD" },
+  { id: "new", label: "Criar novo projeto", group: "Ações", shortcut: "⌘N" },
+  { id: "rerun", label: "Re-rodar última atualização", group: "Ações", shortcut: "⌘R" },
+  { id: "rd", label: "aurora.example.com", group: "Projetos recentes", lead: "RD" },
 ];
 
 /**
@@ -24,7 +24,8 @@ const commands: CommandItem[] = [
  * `HelpMenu` e `UserMenu`.
  */
 const meta = {
-  title: "Components/Organisms/Topbar",
+  id: "components-organisms-topbar",
+  title: "Componentes/Organismos/Topbar",
   component: Topbar,
   tags: ["autodocs"],
   parameters: {
@@ -70,7 +71,7 @@ export const Padrao: Story = {
       <div style={{ minHeight: 480 }}>
         <Topbar
           brand="refy"
-          crumbs={[{ label: "Globo Editorial", href: "#" }, { label: "Visão geral" }]}
+          crumbs={[{ label: "Equipe Exemplo", href: "#" }, { label: "Visão geral" }]}
           onSearchClick={() => setCommandOpen(true)}
           actions={
             <>
@@ -82,7 +83,7 @@ export const Padrao: Story = {
                 onMarkAllRead={() => setItems((l) => l.map((n) => ({ ...n, unread: false })))}
               />
               <HelpMenu />
-              <UserMenu user={{ name: "João Mendes", email: "joao@globoeditorial.com", initials: "JM" }} compact />
+              <UserMenu user={{ name: "João Mendes", email: "joao@example.com", initials: "JM" }} compact />
             </>
           }
         />
@@ -98,8 +99,8 @@ export const Padrao: Story = {
 const appTabs = [
   { id: "visao", label: "Visão" },
   { id: "clientes", label: "Clientes", badge: 18 },
-  { id: "imoveis", label: "Imóveis" },
-  { id: "visitas", label: "Visitas", badge: 4 },
+  { id: "conteudos", label: "Conteúdos" },
+  { id: "atividades", label: "Atividades", badge: 4 },
 ];
 
 /** Composição com Tabs pill canônico e navegação real. */
@@ -115,7 +116,7 @@ export const TabsPill: Story = {
           tabs={appTabs}
           tabValue={tab}
           onTabChange={setTab}
-          actions={<UserMenu user={{ name: "Vinícius Coimbra", email: "vinicius@refy.app", initials: "VC" }} compact />}
+          actions={<UserMenu user={{ name: "Ana Silva", email: "vinicius@example.com", initials: "VC" }} compact />}
         />
         <p role="status" style={{ padding: 24, color: "var(--ink-2)" }}>Área ativa: {tab}.</p>
       </div>
@@ -140,7 +141,7 @@ export const DensaSegmentada: Story = {
           ]}
           segmentValue={view}
           onSegmentChange={setView}
-          actions={<UserMenu user={{ name: "Vinícius Coimbra", email: "vinicius@refy.app", initials: "VC" }} compact />}
+          actions={<UserMenu user={{ name: "Ana Silva", email: "vinicius@example.com", initials: "VC" }} compact />}
         />
         <p role="status" style={{ padding: 24, color: "var(--ink-2)" }}>Visualização: {view}.</p>
       </div>
@@ -155,9 +156,9 @@ export const Responsiva: Story = {
     <div style={{ minHeight: 320 }}>
       <Topbar
         brand="refy"
-        crumbs={[{ label: "Carteira" }, { label: "Clientes com visitas agendadas nesta semana" }]}
+        crumbs={[{ label: "Carteira" }, { label: "Atividades agendadas nesta semana" }]}
         onSearchClick={() => {}}
-        actions={<UserMenu user={{ name: "Vinícius Coimbra", email: "vinicius@refy.app", initials: "VC" }} compact />}
+        actions={<UserMenu user={{ name: "Ana Silva", email: "vinicius@example.com", initials: "VC" }} compact />}
       />
     </div>
   ),

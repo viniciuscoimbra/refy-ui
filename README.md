@@ -104,10 +104,16 @@ Consulte [SECURITY.md](SECURITY.md) para relatar problemas e conferir os alertas
 
 A evolução da qualidade do Refy é planejada em [OpenSpec](openspec/README.md), na ordem: governança, fundação e temas, componentes essenciais, documentação e release/adoção. Cada mudança registra proposta, design, requisitos com cenários de aceite e tarefas com evidências esperadas.
 
-Esse programa está em planejamento. Artefatos validados não significam componentes certificados ou implementação concluída; a execução segue o gate de entrada de cada fase.
+Governança, fundação de temas e contratos essenciais já têm implementações e evidências registradas. A recuperação visual autorizada em 22/10/2026 tem prioridade, com o roteiro manual de leitor de tela adiado. Artefatos e testes parciais não certificam todo o catálogo; cada fase mantém seu gate explícito.
 
 ## Temas por aplicação
 
 Use a mesma implementação com identidade e modos independentes via ThemeProvider. Veja [instalação e customização](docs/THEMING.md), [de–para dos consumidores](docs/CONSUMERS.md) e [inventário de tokens](docs/TOKEN_INVENTORY.md). Os exemplos são sintéticos; os produtos existentes ainda não estão homologados na nova distribuição.
 
 A execução atual e os limites estão nos [contratos essenciais](docs/CORE_CONTRACTS.md) e no [roteiro assistivo pendente](docs/ASSISTIVE_QA.md). O CI mantém regressão por navegador/tema/viewport; referências visuais exigem revisão antes de atualização.
+
+## Revisão visual e liberdade de aparência
+
+No Storybook, comece por **Fundamentos → Refy**. **Personalizar** permite alternar entre Refy original, contorno quadrado e degradê arredondado, mantendo o mesmo formulário e suas interações. **Tokens → Explorar** pesquisa e exporta os valores de cada modo. **Revisão → Visual → Antes e depois** mostra as capturas reais e o motivo das mudanças.
+
+Consulte [o guia de aparência e nomes genéricos](docs/SKINS.md) e [o registro da revisão visual](docs/VISUAL_REVIEW.md). As páginas de exemplo usam dados locais; não constituem um produto integrado.

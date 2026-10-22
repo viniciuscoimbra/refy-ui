@@ -3,10 +3,11 @@ import { Avatar } from "./Avatar";
 
 /**
  * `Avatar` — pessoa (circular) ou entidade (quadrado arredondado):
- * workspace, projeto, logo de imobiliária.
+ * workspace, projeto, logo de organização.
  */
 const meta = {
-  title: "Components/Atoms/Avatar",
+  id: "components-atoms-avatar",
+  title: "Componentes/Átomos/Avatar",
   component: Avatar,
   tags: ["autodocs"],
   parameters: {
@@ -15,7 +16,7 @@ const meta = {
         component: [
           "Avatar com iniciais ou imagem. `shape=\"circle\"` (default) para pessoa; `shape=\"square\"` para entidade (workspace, projeto, logo). `seed` gera gradiente de marca determinístico por string — o mesmo nome sempre recebe a mesma cor, em qualquer tela.",
           "",
-          "**Onde usar:** toda pessoa (corretor, membro do time, conta) e toda entidade nomeável (workspace no picker, projeto em tabela, logo sem imagem). Tamanhos: `xs`/`sm` em células de tabela e listas; `md` em menus e topos; `lg` no picker; `xl` (72px) só no perfil (foto da conta).",
+          "**Onde usar:** toda pessoa (profissional, membro do time, conta) e toda entidade nomeável (workspace no picker, projeto em tabela, logo sem imagem). Tamanhos: `xs`/`sm` em células de tabela e listas; `md` em menus e topos; `lg` no picker; `xl` (72px) só no perfil (foto da conta).",
           "",
           "**Onde NÃO usar:** logo de serviço externo com SVG próprio (WordPress, Google — use o slot de logo do `ConnectorCard`); ícone de ação (use `IconButton`); grupos empilhados (use `AvatarGroup`).",
         ].join("\n"),
@@ -52,10 +53,10 @@ export const QuadradoEntidade: Story = {
   name: "Quadrado (entidade)",
   render: () => (
     <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-      <Avatar shape="square" size="sm" initials="GE" seed="Globo Editorial" />
-      <Avatar shape="square" size="md" initials="GE" seed="Globo Editorial" />
-      <Avatar shape="square" size="lg" initials="VG" seed="Vogue Brasil" />
-      <Avatar shape="square" size="xl" initials="CV" seed="Casa Vogue" />
+      <Avatar shape="square" size="sm" initials="GE" seed="Equipe Exemplo" />
+      <Avatar shape="square" size="md" initials="GE" seed="Equipe Exemplo" />
+      <Avatar shape="square" size="lg" initials="VG" seed="Equipe Aurora" />
+      <Avatar shape="square" size="xl" initials="CV" seed="Equipe Origem" />
     </div>
   ),
 };
@@ -64,7 +65,7 @@ export const GradienteDeterministico: Story = {
   name: "Gradiente determinístico (seed)",
   render: () => (
     <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-      {["Globo Editorial", "Vogue Brasil", "Casa Vogue", "João Mendes", "Marina Salgado"].map(
+      {["Equipe Exemplo", "Equipe Aurora", "Equipe Origem", "João Mendes", "Marina Salgado"].map(
         (name) => (
           <Avatar
             key={name}

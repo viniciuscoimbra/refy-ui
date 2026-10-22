@@ -1,6 +1,6 @@
 .wrap {
-  max-width: var(--calendar-max-width, none);
-  flex-wrap: var(--calendar-wrap, nowrap);
+  max-width: var(--calendar-max-width, 100%);
+  flex-wrap: var(--calendar-wrap, wrap);
   display: inline-flex;
   gap: 20px;
   background: var(--surface);
@@ -13,6 +13,7 @@
 }
 .month {
   width: 252px;
+  max-width: 100%;
 }
 .head {
   display: flex;

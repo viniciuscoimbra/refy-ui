@@ -2,7 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Tabs } from "./Tabs";
 
 const meta = {
-  title: "Components/Molecules/Tabs",
+  id: "components-molecules-tabs",
+  title: "Componentes/Moléculas/Tabs",
   component: Tabs,
   tags: ["autodocs"],
   parameters: { layout: "padded" },
@@ -22,7 +23,7 @@ type Story = StoryObj<typeof Tabs>;
 const items = [
   { id: "geral", label: "Visão geral", content: <p style={{ color: "var(--ink-2)" }}>Painel de cobertura.</p> },
   { id: "issues", label: "Issues", badge: 14, content: <p style={{ color: "var(--ink-2)" }}>14 issues mapeadas.</p> },
-  { id: "backlog", label: "Backlog", badge: 23, content: <p style={{ color: "var(--ink-2)" }}>Backlog priorizado.</p> },
+  { id: "backlog", label: "Tarefas", badge: 23, content: <p style={{ color: "var(--ink-2)" }}>Tarefas priorizado.</p> },
   { id: "hist", label: "Histórico", content: <p style={{ color: "var(--ink-2)" }}>Análises anteriores.</p> },
 ];
 
@@ -59,7 +60,7 @@ export const ConteudoExtremo: Story = {
   args: {
     items: [
       { id: "curto", label: "Geral", content: <p style={{ color: "var(--ink-2)" }}>Conteúdo curto.</p> },
-      { id: "longo", label: "Clientes aguardando a confirmação definitiva de visita", badge: 128, content: <p style={{ color: "var(--ink-2)", maxWidth: 760 }}>Uma aba deliberadamente longa permanece em uma linha e a lista ganha rolagem horizontal silenciosa quando necessário.</p> },
+      { id: "longo", label: "Documentos aguardando a confirmação definitiva de revisão", badge: 128, content: <p style={{ color: "var(--ink-2)", maxWidth: 760 }}>Uma aba deliberadamente longa permanece em uma linha e a lista ganha rolagem horizontal silenciosa quando necessário.</p> },
       { id: "outro", label: "Histórico completo de atribuição e atendimento", content: <p style={{ color: "var(--ink-2)" }}>Histórico.</p> },
     ],
     variant: "underline",

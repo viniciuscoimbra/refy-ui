@@ -33,7 +33,7 @@ const entries: MenuEntry[] = [
   { id: "config", label: "Configurações", icon: GearIcon },
   { type: "separator" },
   { type: "label", label: "Ações" },
-  { id: "nova", label: "Nova análise", icon: PlusIcon },
+  { id: "nova", label: "Novo projeto", icon: PlusIcon },
   { type: "separator" },
   { id: "apagar", label: "Apagar análise", icon: TrashIcon, danger: true },
 ];
@@ -42,7 +42,8 @@ const entries: MenuEntry[] = [
  * `Menu` — lista de ações pop-up ancorada a um trigger.
  */
 const meta = {
-  title: "Components/Molecules/Menu",
+  id: "components-molecules-menu",
+  title: "Componentes/Moléculas/Menu",
   component: Menu,
   tags: ["autodocs"],
   parameters: {

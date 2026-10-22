@@ -6,7 +6,7 @@ import styles from "./PageHeader.module.css";
 /** Props for the PageHeader page hero. */
 export interface PageHeaderProps
   extends Omit<HTMLAttributes<HTMLElement>, "title"> {
-  /** Eyebrow mono uppercase acima do título (ex.: "Workspace · Globo Editorial"). */
+  /** Eyebrow mono uppercase acima do título (ex.: "Workspace · Equipe Exemplo"). */
   eyebrow?: ReactNode;
   /** Título da página (vira o `<h1>` — só existe um por página). */
   title: ReactNode;

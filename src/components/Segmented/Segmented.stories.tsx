@@ -6,7 +6,8 @@ import { Segmented } from "./Segmented";
  * `Segmented` — seleção única em pílula (switch de visões).
  */
 const meta = {
-  title: "Components/Atoms/Segmented",
+  id: "components-atoms-segmented",
+  title: "Componentes/Átomos/Segmented",
   component: Segmented,
   tags: ["autodocs"],
   parameters: {

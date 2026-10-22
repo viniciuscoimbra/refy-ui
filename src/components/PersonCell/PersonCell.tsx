@@ -6,7 +6,7 @@ import styles from "./PersonCell.module.css";
 export interface PersonCellProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Slot inicial — `Avatar` (circle p/ pessoa, `shape="square"` p/ entidade:
-   * projeto, workspace, imobiliária). Composição: o átomo vem de fora.
+   * projeto, workspace, organização). Composição: o átomo vem de fora.
    */
   avatar?: ReactNode;
   /** Nome (linha principal). */

@@ -8,7 +8,8 @@ import { Calendar, type DateRange } from "./Calendar";
  * baseada em tokens. Esta página cobre todos os estados possíveis.
  */
 const meta = {
-  title: "Components/Molecules/Calendar",
+  id: "components-molecules-calendar",
+  title: "Componentes/Moléculas/Calendar",
   component: Calendar,
   tags: ["autodocs"],
   parameters: {

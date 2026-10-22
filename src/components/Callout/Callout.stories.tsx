@@ -22,7 +22,8 @@ const iconLock = (
 );
 
 const meta = {
-  title: "Components/Molecules/Callout",
+  id: "components-molecules-callout",
+  title: "Componentes/Moléculas/Callout",
   component: Callout,
   tags: ["autodocs"],
   parameters: {
@@ -51,8 +52,8 @@ export const Info: Story = {
   args: {
     tone: "info",
     icon: iconInfo,
-    title: "Sua primeira análise está rodando",
-    children: "Em alguns minutos o score do projeto aparece aqui. Enquanto isso, conecte o Search Console para enriquecer os dados.",
+    title: "Sua coleção está sendo preparada",
+    children: "Os arquivos estão sendo organizados. Você pode continuar trabalhando e será avisado quando a coleção estiver pronta.",
   },
   render: (args) => (
     <div style={{ maxWidth: 560 }}>

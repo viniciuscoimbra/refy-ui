@@ -8,8 +8,8 @@
 
 .split {
   display: inline-flex;
-  border-radius: var(--radius-default);
-  box-shadow: var(--legacy-button-shadow);
+  border-radius: var(--button-radius, var(--radius-default));
+  box-shadow: var(--button-primary-shadow, var(--legacy-button-shadow));
 }
 
 .main {
@@ -22,7 +22,7 @@
   padding-inline: 0;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  margin-left: -1px;
+  margin-left: calc(-1 * var(--button-border-width, 1px));
 }
 
 .caretIcon {

@@ -2,9 +2,10 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { DashboardPage } from "./DashboardPage";
 
 const dashboardMeta: Meta<typeof DashboardPage> = {
-  title: "Páginas/Dashboard",
+  id: "páginas-dashboard",
+  title: "Exemplos/Painel de projetos",
   component: DashboardPage,
-  parameters: { layout: "fullscreen" },
+  parameters: { layout: "fullscreen", refyFullPage: true },
 };
 export default dashboardMeta;
 

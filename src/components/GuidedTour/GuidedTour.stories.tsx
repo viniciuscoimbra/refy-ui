@@ -7,7 +7,8 @@ import { GuidedTour, GuidedTourAnchor } from "./GuidedTour";
 import type { GuidedTourStep } from "./GuidedTour";
 
 const meta = {
-  title: "Components/Organisms/GuidedTour",
+  id: "components-organisms-guidedtour",
+  title: "Componentes/Organismos/GuidedTour",
   component: GuidedTour,
   tags: ["autodocs"],
   parameters: {
@@ -31,14 +32,14 @@ type Story = StoryObj<typeof GuidedTour>;
 function TourDemo({ startStep = "operacao", initiallyOpen = true }: { startStep?: string; initiallyOpen?: boolean }) {
   const [open, setOpen] = useState(initiallyOpen);
   const [current, setCurrent] = useState(startStep);
-  const [operation, setOperation] = useState("comprar");
-  const [types, setTypes] = useState(["apartamento"]);
+  const [operation, setOperation] = useState("criar");
+  const [types, setTypes] = useState(["documento"]);
   const [message, setMessage] = useState("Tour iniciado.");
 
   const steps = useMemo<GuidedTourStep[]>(() => [
     {
       id: "operacao",
-      title: "Comprar ou alugar?",
+      title: "Criar ou organizar?",
       description: "Comece pela operação. Você pode trocar esta escolha depois.",
       side: "bottom",
       align: "start",
@@ -46,13 +47,13 @@ function TourDemo({ startStep = "operacao", initiallyOpen = true }: { startStep?
     {
       id: "tipos",
       title: "Escolha mais de um tipo",
-      description: "Apartamento e casa podem entrar juntos na mesma busca.",
+      description: "Documento e imagem podem entrar juntos na mesma busca.",
       side: "bottom",
       action: {
-        label: types.includes("casa") ? "Casa já selecionada" : "Selecionar Casa agora",
+        label: types.includes("imagem") ? "Imagem já selecionada" : "Selecionar Imagem agora",
         onAction: () => {
-          setTypes((value) => value.includes("casa") ? value : [...value, "casa"]);
-          setMessage("A ação do tour selecionou Casa no controle real.");
+          setTypes((value) => value.includes("imagem") ? value : [...value, "imagem"]);
+          setMessage("A ação do tour selecionou Imagem no controle real.");
         },
       },
     },
@@ -89,13 +90,13 @@ function TourDemo({ startStep = "operacao", initiallyOpen = true }: { startStep?
               label="Operação"
               value={operation}
               onChange={setOperation}
-              options={[{ value: "comprar", label: "Comprar" }, { value: "alugar", label: "Alugar" }]}
+              options={[{ value: "criar", label: "Criar" }, { value: "organizar", label: "Organizar" }]}
             />
           </GuidedTourAnchor>
 
           <GuidedTourAnchor stepId="tipos" block>
-            <div role="group" aria-label="Tipos de imóvel" style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-              {["apartamento", "casa", "cobertura"].map((type) => (
+            <div role="group" aria-label="Formatos de conteúdo" style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              {["documento", "imagem", "video"].map((type) => (
                 <Chip
                   key={type}
                   selected={types.includes(type)}
@@ -121,7 +122,7 @@ function TourDemo({ startStep = "operacao", initiallyOpen = true }: { startStep?
 /** Três âncoras reais, avanço/retorno, foco, Escape e conclusão. */
 export const MultiEtapas: Story = { render: () => <TourDemo /> };
 
-/** Começa no passo cuja ação seleciona Casa no mesmo Chip exibido na tela. */
+/** Começa no passo cuja ação seleciona Imagem no mesmo Chip exibido na tela. */
 export const AcaoNoControle: Story = { render: () => <TourDemo startStep="tipos" /> };
 
 /** Estado fechado; Reiniciar tour abre e posiciona o primeiro passo. */

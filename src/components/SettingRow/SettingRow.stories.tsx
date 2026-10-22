@@ -33,7 +33,8 @@ const copyIcon = (
  * meta mono + ações. Estática, clicável (`href`/`onClick`) ou com `Switch`.
  */
 const meta = {
-  title: "Components/Molecules/SettingRow",
+  id: "components-molecules-settingrow",
+  title: "Componentes/Moléculas/SettingRow",
   component: SettingRow,
   tags: ["autodocs"],
   parameters: {
@@ -102,7 +103,7 @@ export const ConexoesOauth: Story = {
               </Badge>
             </>
           }
-          meta="joao@globoeditorial.com · conectado em 12 jan. 2026"
+          meta="joao@example.com · conectado em 12 jan. 2026"
           actions={
             <Button size="sm" variant="ghost" disabled>
               Provedor primário
@@ -169,7 +170,7 @@ export const Preferencias: Story = {
           switchProps={{ defaultChecked: true }}
         />
         <SettingRow
-          title="Monitor detectou mudanças"
+          title="Atividades detectou mudanças"
           description="URLs monitoradas que mudaram score ou aparição em busca."
           switchProps={{ defaultChecked: true }}
         />
@@ -228,14 +229,14 @@ export const AtividadeRecente: Story = {
       <SettingRowGroup aria-label="Atividade recente">
         <SettingRow
           leading={<Avatar initials="JM" size="sm" />}
-          title="Análise · globo.com/economia/desempenho-do-real"
-          meta="João Mendes · há 2h · projeto Economia"
+          title="Análise · example.com/projetos/aurora"
+          meta="João Mendes · há 2h · projeto Projeto Aurora"
           actions={<span style={{ fontFamily: "var(--font-mono)", fontSize: 11 }}>−100 cr.</span>}
         />
         <SettingRow
           leading={<Avatar initials="MC" size="sm" />}
-          title="Síntese profunda · vogue.com.br/beleza/skincare-coreana"
-          meta="Marina Costa · há 5h · projeto Beleza"
+          title="Síntese profunda · example.com/projeto-b/skincare-coreana"
+          meta="Marina Costa · há 5h · projeto Projeto Horizonte"
           actions={<span style={{ fontFamily: "var(--font-mono)", fontSize: 11 }}>−300 cr.</span>}
         />
       </SettingRowGroup>
@@ -249,12 +250,12 @@ export const Clicavel: Story = {
   args: { title: "" },
   render: () => (
     <Card>
-      <SettingRowGroup aria-label="Backlog">
+      <SettingRowGroup aria-label="Tarefas">
         <SettingRow
           href="#issue-1"
           title="Título duplicado na home"
           description="Prioridade 1 · ganho estimado +12 pts"
-          meta="globoeditorial.com · detectado há 2 dias"
+          meta="example.com · detectado há 2 dias"
         />
         <SettingRow
           onClick={() => {}}

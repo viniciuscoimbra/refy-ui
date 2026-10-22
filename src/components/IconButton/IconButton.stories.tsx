@@ -9,7 +9,8 @@ const Search = (
 );
 
 const meta = {
-  title: "Components/Atoms/IconButton",
+  id: "components-atoms-iconbutton",
+  title: "Componentes/Átomos/IconButton",
   component: IconButton,
   tags: ["autodocs"],
   args: { "aria-label": "Pesquisar", icon: Search, variant: "ghost", size: "md" },

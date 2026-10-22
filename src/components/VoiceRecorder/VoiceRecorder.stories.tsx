@@ -4,7 +4,8 @@ import { VoiceRecorder } from "./VoiceRecorder";
 import type { VoiceRecorderState } from "./VoiceRecorder";
 
 const meta = {
-  title: "Components/Molecules/VoiceRecorder",
+  id: "components-molecules-voicerecorder",
+  title: "Componentes/Moléculas/VoiceRecorder",
   component: VoiceRecorder,
   tags: ["autodocs"],
   parameters: {

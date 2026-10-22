@@ -10,6 +10,9 @@ context: |
   Ordem: establish-refy-governance -> standardize-refy-foundations ->
   certify-refy-core-components -> standardize-refy-documentation ->
   establish-refy-release-and-adoption.
+  Em 22/10/2026, o mantenedor priorizou restore-refy-visual-coherence.
+  Recuperação visual, catálogo neutro, skins e evidência antes/depois podem
+  avançar com o roteiro assistivo adiado, sem declarar certificação.
   As dependências entre mudanças são condições de execução documentadas;
   o CLI não as bloqueia automaticamente. Artefatos completos não significam
   implementação aprovada ou tarefas executadas.

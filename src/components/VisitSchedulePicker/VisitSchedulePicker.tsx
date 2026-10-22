@@ -165,7 +165,7 @@ export function VisitSchedulePicker({
         <div className={styles.summaryHeading}>
           <div>
             <h3 id="visit-summary-title">Sua disponibilidade</h3>
-            <p>O corretor confirmará um destes intervalos.</p>
+            <p>Selecione os intervalos disponíveis para o agendamento.</p>
           </div>
           <Badge tone={chosenCount ? "success" : "neutral"}>{chosenCount} com horário</Badge>
         </div>
@@ -185,3 +185,6 @@ export function VisitSchedulePicker({
     </section>
   );
 }
+
+export const SchedulePicker = VisitSchedulePicker;
+export type SchedulePickerProps = VisitSchedulePickerProps;

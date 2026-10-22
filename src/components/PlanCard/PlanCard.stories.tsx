@@ -3,7 +3,8 @@ import { PlanCard } from "./PlanCard";
 import { Button } from "../Button";
 
 const meta = {
-  title: "Components/Molecules/PlanCard",
+  id: "components-molecules-plancard",
+  title: "Componentes/Moléculas/PlanCard",
   component: PlanCard,
   tags: ["autodocs"],
   parameters: {
@@ -31,13 +32,13 @@ const starterFeatures = [
   <span key="1"><strong>800 créditos</strong> por mês</span>,
   "1 membro · 5 projetos",
   "Análise padrão, rerun, recomendações",
-  "Monitoramento básico",
+  "Atividadesamento básico",
 ];
 const proFeatures = [
   <span key="1"><strong>2.500 créditos</strong> por mês</span>,
   "3 membros · 20 projetos",
   "Tudo do Starter +",
-  "Monitoramento completo",
+  "Atividadesamento completo",
   "API/MCP completos",
 ];
 const agencyFeatures = [

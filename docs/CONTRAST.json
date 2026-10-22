@@ -58,6 +58,17 @@
     },
     {
       "mode": "light",
+      "context": "Button concluído",
+      "fg": "--on-good",
+      "bg": "--good",
+      "foreground": "#003824",
+      "background": "#10b981",
+      "ratio": 5.203,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "mode": "light",
       "context": "Button hover",
       "fg": "--on-primary",
       "bg": "--primary-hover",
@@ -168,6 +179,17 @@
     },
     {
       "mode": "dark",
+      "context": "Button concluído",
+      "fg": "--on-good",
+      "bg": "--good",
+      "foreground": "#003824",
+      "background": "#10b981",
+      "ratio": 5.203,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "mode": "dark",
       "context": "Button hover",
       "fg": "--on-primary",
       "bg": "--primary-hover",
@@ -270,6 +292,17 @@
       "context": "Button repouso",
       "fg": "--on-primary",
       "bg": "--primary",
+      "foreground": "#00160e",
+      "background": "#0fa875",
+      "ratio": 6.135,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "mode": "editorial",
+      "context": "Button concluído",
+      "fg": "--on-good",
+      "bg": "--good",
       "foreground": "#00160e",
       "background": "#0fa875",
       "ratio": 6.135,

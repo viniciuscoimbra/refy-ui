@@ -4,7 +4,8 @@ import { Sparkline } from "../Charts";
 import { Card, CardHeader } from "../Card";
 
 const meta = {
-  title: "Components/Molecules/Stat",
+  id: "components-molecules-stat",
+  title: "Componentes/Moléculas/Stat",
   component: Stat,
   tags: ["autodocs"],
   parameters: {
@@ -46,7 +47,7 @@ export const ComDelta: Story = {
         description="vs ciclo anterior"
       />
       <Stat
-        label="Score médio"
+        label="Progresso médio"
         value="74"
         delta={{ value: "-3 pts", trend: "down" }}
         description="vs ciclo anterior"

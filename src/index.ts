@@ -311,3 +311,13 @@ export type { ScoreGaugeProps, ScoreGaugeSize, ScoreBand } from "./components/Sc
 export { cn } from "./lib/cn";
 export { ThemeProvider } from "./lib/ThemeProvider";
 export type { ThemeProviderProps, RefyTheme, ThemeTokens, ThemeMode } from "./lib/ThemeProvider";
+export { ContentCard } from "./components/PropertyCard";
+export type { ContentCardProps } from "./components/PropertyCard";
+export { DecisionActions } from "./components/PropertyActionGroup";
+export type { DecisionActionsProps, DecisionAction } from "./components/PropertyActionGroup";
+export { DecisionDeck } from "./components/SwipeDeck";
+export type { DecisionDeckProps, DecisionDeckItem } from "./components/SwipeDeck";
+export { MediaGallery } from "./components/PropertyMedia";
+export type { MediaGalleryProps } from "./components/PropertyMedia";
+export { SchedulePicker } from "./components/VisitSchedulePicker";
+export type { SchedulePickerProps } from "./components/VisitSchedulePicker";

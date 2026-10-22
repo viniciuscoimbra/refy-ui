@@ -2,7 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { GoogleButton } from "./GoogleButton";
 
 const meta = {
-  title: "Components/Atoms/GoogleButton",
+  id: "components-atoms-googlebutton",
+  title: "Componentes/Átomos/GoogleButton",
   component: GoogleButton,
   tags: ["autodocs"],
   args: { children: "Continuar com Google" },

@@ -16,7 +16,8 @@ const items: ApprovalWorkbenchItem[] = [
 ];
 
 const meta = {
-  title: "Components/Organisms/ApprovalWorkbench",
+  id: "components-organisms-approvalworkbench",
+  title: "Componentes/Organismos/ApprovalWorkbench",
   component: ApprovalWorkbench,
   tags: ["autodocs"],
   parameters: {

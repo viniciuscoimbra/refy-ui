@@ -3,7 +3,8 @@ import { DangerZone, DangerZoneRow } from "./DangerZone";
 
 /** `DangerZone` — seção padrão de ações destrutivas. */
 const meta = {
-  title: "Components/Molecules/DangerZone",
+  id: "components-molecules-dangerzone",
+  title: "Componentes/Moléculas/DangerZone",
   component: DangerZone,
   tags: ["autodocs"],
   parameters: {

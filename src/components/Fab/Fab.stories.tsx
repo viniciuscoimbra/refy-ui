@@ -3,10 +3,11 @@ import { Fab } from "./Fab";
 import { Icons } from "../../_demo/icons";
 
 const meta = {
-  title: "Components/Atoms/Fab",
+  id: "components-atoms-fab",
+  title: "Componentes/Átomos/Fab",
   component: Fab,
   tags: ["autodocs"],
-  args: { icon: Icons.plus, label: "Nova análise" },
+  args: { icon: Icons.plus, label: "Novo projeto" },
   argTypes: {
     size: { control: "inline-radio", options: ["md", "lg"] },
     variant: { control: "inline-radio", options: ["primary", "surface"] },

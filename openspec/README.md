@@ -4,6 +4,8 @@ O programa define contratos e evidências para evoluir a biblioteca Refy. O mant
 
 ## Ordem de execução
 
+**Prioridade atual, autorizada em 22/10/2026:** [recuperação visual](changes/restore-refy-visual-coherence/proposal.md), revisão do catálogo e customização ampla. Essa mudança e sua documentação avançam agora; o roteiro de leitor de tela foi adiado pelo mantenedor. A certificação assistiva continua pendente e não é usada para impedir correções visuais. A ordem abaixo permanece como programa de certificação/release, com essa recuperação inserida antes de sua conclusão.
+
 | Ordem | Mudança | Depende de | Gate de saída |
 |---|---|---|---|
 | 1 | [Governança](changes/establish-refy-governance/proposal.md) | Revisão e autorização de execução desta fase | Processo, responsabilidade, maturidade e evidência definidos e verificados |

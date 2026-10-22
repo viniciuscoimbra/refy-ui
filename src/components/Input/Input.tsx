@@ -11,7 +11,7 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   hint?: string;
   /** Mensagem de erro (substitui hint e pinta a borda). */
   error?: string;
-  /** Conteúdo fixo à esquerda (ícone ou prefixo tipo "refy.app/"). */
+  /** Conteúdo fixo à esquerda (ícone ou prefixo tipo "example.com/"). */
   prefix?: ReactNode;
   /** Conteúdo fixo à direita (ícone ou sufixo). */
   suffix?: ReactNode;

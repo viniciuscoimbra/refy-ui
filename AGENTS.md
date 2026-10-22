@@ -6,6 +6,12 @@ Uma proposta completa não equivale a autorização: registre a instrução huma
 aplicável em `evidence.md`. A autorização de 21/10/2026 permite executar as cinco
 fases aprovadas, por ordem e com os respectivos gates.
 
+Em 22/10/2026, o mantenedor priorizou `restore-refy-visual-coherence`: recuperar
+o visual, neutralizar o catálogo, ampliar skins e mostrar antes/depois. Essa
+mudança e sua documentação podem avançar enquanto o roteiro assistivo fica
+adiado. A pendência continua obrigatória para declarar certificação, não para
+corrigir a interface. Consulte PRODUCT.md e DESIGN.md antes de alterar o visual.
+
 Use a implementação e os helpers existentes antes de criar abstrações. Preserve
 exports, props, aliases e defaults ou documente a migração aprovada. Investigue
 impacto em Dommus/Domuz, Plyngo e bioma; assets e regras privados ficam fora daqui.

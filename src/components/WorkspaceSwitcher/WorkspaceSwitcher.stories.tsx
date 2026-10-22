@@ -3,10 +3,10 @@ import { useState } from "react";
 import { WorkspaceSwitcher, type Workspace } from "./WorkspaceSwitcher";
 
 const workspaces: Workspace[] = [
-  { id: "globo", name: "Globo Editorial", role: "Workspace · Pro", initials: "GE" },
+  { id: "globo", name: "Equipe Exemplo", role: "Workspace · Pro", initials: "GE" },
   { id: "refy", name: "Refy Labs", role: "Workspace · Interno", initials: "RL" },
   { id: "acme", name: "Acme Marketing", role: "Workspace · Starter", initials: "AM" },
-  { id: "nexus", name: "Nexus Imóveis", role: "Workspace · Pro", initials: "NI" },
+  { id: "nexus", name: "Equipe Norte", role: "Workspace · Pro", initials: "NI" },
   { id: "vertex", name: "Vertex Consultoria", role: "Workspace · Trial", initials: "VC" },
 ];
 
@@ -14,7 +14,8 @@ const workspaces: Workspace[] = [
  * `WorkspaceSwitcher` — seletor de workspace estilo combobox.
  */
 const meta = {
-  title: "Components/Molecules/WorkspaceSwitcher",
+  id: "components-molecules-workspaceswitcher",
+  title: "Componentes/Moléculas/WorkspaceSwitcher",
   component: WorkspaceSwitcher,
   tags: ["autodocs"],
   parameters: {

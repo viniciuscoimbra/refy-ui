@@ -16,7 +16,7 @@ for (const mode of ['light', 'dark', 'editorial']) {
   for (const [fg, bg, context, minimum] of [
     ['--ink-1', '--surface', 'título', 4.5], ['--ink-2', '--surface', 'corpo', 4.5],
     ['--ink-3', '--surface', 'label/ajuda', 4.5], ['--ink-4', '--surface', 'placeholder', 4.5],
-    ['--on-primary', '--primary', 'Button repouso', 4.5], ['--on-primary', '--primary-hover', 'Button hover', 4.5],
+    ['--on-primary', '--primary', 'Button repouso', 4.5], ['--on-good', '--good', 'Button concluído', 4.5], ['--on-primary', '--primary-hover', 'Button hover', 4.5],
     ['--on-primary-container', '--primary-container', 'Button active', 4.5],
     ['--primary-ink', '--surface', 'foco externo na superfície', 3],
     ['--outline', '--surface', 'borda identificadora de Input', 3],

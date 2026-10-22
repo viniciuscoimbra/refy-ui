@@ -46,7 +46,8 @@ function ChipShowcase({ theme }: { theme: "light" | "dark" }) {
 }
 
 const meta = {
-  title: "Components/Atoms/Chip",
+  id: "components-atoms-chip",
+  title: "Componentes/Átomos/Chip",
   component: Chip,
   tags: ["autodocs"],
   parameters: { layout: "padded" },
@@ -89,8 +90,8 @@ export const FiltrosDeSeveridade: Story = {
 export const Removivel: Story = {
   render: () => (
     <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-      <Chip selected removable onRemove={() => {}}>Economia</Chip>
-      <Chip selected removable onRemove={() => {}}>Beleza</Chip>
+      <Chip selected removable onRemove={() => {}}>Projeto Aurora</Chip>
+      <Chip selected removable onRemove={() => {}}>Projeto Horizonte</Chip>
       <Chip selected removable onRemove={() => {}}>Política</Chip>
     </div>
   ),
@@ -98,6 +99,6 @@ export const Removivel: Story = {
 
 export const VariacoesDoHandoff: Story = {
   name: "Variações · toggle, radio e removível",
-  render: () => <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))" }}><ChipShowcase theme="light" /><ChipShowcase theme="dark" /></div>,
+  render: () => <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 360px), 1fr))" }}><ChipShowcase theme="light" /><ChipShowcase theme="dark" /></div>,
   parameters: { layout: "fullscreen" },
 };

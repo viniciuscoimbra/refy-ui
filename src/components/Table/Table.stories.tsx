@@ -16,18 +16,18 @@ interface Fatura {
 }
 
 const rows: Fatura[] = [
-  ["DMS-2026-0512", "02 mai. 2026", "2026-05-02", "Plano Imobiliária Pro", "Pago", 2388],
-  ["DMS-2026-0488", "28 abr. 2026", "2026-04-28", "Pacote 2.000 créditos", "Pago", 299],
-  ["DMS-2026-0441", "17 abr. 2026", "2026-04-17", "Plano Corretor Autônomo", "Pendente", 149],
-  ["DMS-2026-0398", "02 abr. 2026", "2026-04-02", "Assinatura mensal", "Pago", 199],
-  ["DMS-2026-0312", "14 mar. 2026", "2026-03-14", "Créditos de captação", "Pago", 79],
-  ["DMS-2026-0277", "03 mar. 2026", "2026-03-03", "Plano Imobiliária Starter", "Encerrado", 948],
-  ["DMS-2026-0204", "21 fev. 2026", "2026-02-21", "Assinatura mensal", "Pago", 199],
-  ["DMS-2026-0182", "08 fev. 2026", "2026-02-08", "Pacote de mensagens", "Pendente", 59],
-  ["DMS-2026-0121", "19 jan. 2026", "2026-01-19", "Plano Corretor Autônomo", "Pago", 149],
-  ["DMS-2025-1192", "18 dez. 2025", "2025-12-18", "Créditos de captação", "Pago", 79],
-  ["DMS-2025-1161", "05 dez. 2025", "2025-12-05", "Assinatura mensal", "Encerrado", 199],
-  ["DMS-2025-1102", "02 nov. 2025", "2025-11-02", "Plano Imobiliária Pro", "Pago", 2388],
+  ["DOC-2026-0512", "02 mai. 2026", "2026-05-02", "Plano Equipe Pro", "Pago", 2388],
+  ["DOC-2026-0488", "28 abr. 2026", "2026-04-28", "Pacote 2.000 créditos", "Pago", 299],
+  ["DOC-2026-0441", "17 abr. 2026", "2026-04-17", "Plano Individual", "Pendente", 149],
+  ["DOC-2026-0398", "02 abr. 2026", "2026-04-02", "Assinatura mensal", "Pago", 199],
+  ["DOC-2026-0312", "14 mar. 2026", "2026-03-14", "Créditos adicionais", "Pago", 79],
+  ["DOC-2026-0277", "03 mar. 2026", "2026-03-03", "Plano Equipe Inicial", "Encerrado", 948],
+  ["DOC-2026-0204", "21 fev. 2026", "2026-02-21", "Assinatura mensal", "Pago", 199],
+  ["DOC-2026-0182", "08 fev. 2026", "2026-02-08", "Pacote de mensagens", "Pendente", 59],
+  ["DOC-2026-0121", "19 jan. 2026", "2026-01-19", "Plano Individual", "Pago", 149],
+  ["DOC-2025-1192", "18 dez. 2025", "2025-12-18", "Créditos adicionais", "Pago", 79],
+  ["DOC-2025-1161", "05 dez. 2025", "2025-12-05", "Assinatura mensal", "Encerrado", 199],
+  ["DOC-2025-1102", "02 nov. 2025", "2025-11-02", "Plano Equipe Pro", "Pago", 2388],
 ].map(([numero, data, dataOrd, descricao, status, valorNum]) => ({
   numero: String(numero),
   data: String(data),
@@ -47,7 +47,8 @@ const columns: Column<Fatura>[] = [
 ];
 
 const meta = {
-  title: "Components/Organisms/Table",
+  id: "components-organisms-table",
+  title: "Componentes/Organismos/Table",
   component: Table,
   tags: ["autodocs"],
   parameters: {
@@ -144,7 +145,7 @@ export const ConteudoLongo: Story = {
         caption="Fatura com conteúdo longo"
         columns={[
           ...columns.slice(0, 3),
-          { key: "observacao", header: "Observação operacional detalhada", width: "420px", cell: () => "Conciliação pendente após alteração de responsável financeiro e reprocessamento automático da cobrança da imobiliária." },
+          { key: "observacao", header: "Observação operacional detalhada", width: "420px", cell: () => "Conciliação pendente após alteração de responsável financeiro e reprocessamento automático da cobrança da organização." },
           ...columns.slice(3),
         ]}
         rows={rows.slice(0, 3)}

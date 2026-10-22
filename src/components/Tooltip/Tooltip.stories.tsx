@@ -6,7 +6,8 @@ import { Icons } from "../../_demo/icons";
 import { Tooltip } from "./Tooltip";
 
 const meta = {
-  title: "Components/Molecules/Tooltip",
+  id: "components-molecules-tooltip",
+  title: "Componentes/Moléculas/Tooltip",
   component: Tooltip,
   tags: ["autodocs"],
   parameters: { layout: "centered" },
@@ -38,7 +39,7 @@ export const ComAtalho: Story = {
 
 export const ComDescricao: Story = {
   args: {
-    label: "Correspondência do imóvel",
+    label: "Relevância do conteúdo",
     description: "Calculada a partir do perfil e das preferências confirmadas.",
     defaultOpen: true,
   },
@@ -46,9 +47,9 @@ export const ComDescricao: Story = {
 };
 
 export const Lados: Story = {
-  decorators: [(Story) => <div style={{ padding: 110 }}><Story /></div>],
+  decorators: [(Story) => <div style={{ padding: "100px 16px", width: "100%" }}><Story /></div>],
   render: () => (
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 120px)", gap: 100, placeItems: "center" }}>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 120px))", gap: "80px 24px", placeItems: "center" }}>
       {(["top", "bottom", "left", "right"] as const).map((side) => (
         <Tooltip key={side} label={`Lado ${side}`} side={side} defaultOpen delayMs={0}>
           <Button variant="secondary">{side}</Button>
@@ -59,13 +60,13 @@ export const Lados: Story = {
 };
 
 export const Gatilhos: Story = {
-  decorators: [(Story) => <div style={{ padding: 80 }}><Story /></div>],
+  decorators: [(Story) => <div style={{ padding: "80px 16px" }}><Story /></div>],
   render: () => (
     <div style={{ display: "flex", flexWrap: "wrap", gap: 32, alignItems: "center" }}>
       <Tooltip label="Score consolidado" delayMs={0}><IconButton aria-label="Informações" icon={Icons.help} /></Tooltip>
       <Tooltip label="Atalho principal" shortcut="⌘ Enter" delayMs={0}><Button variant="primary">Analisar</Button></Tooltip>
       <Tooltip label="CSV, JSON ou PDF" delayMs={0}><Button variant="ghost">Exportar</Button></Tooltip>
-      <Tooltip label="Abrir documentação" delayMs={0}><a href="#docs">refy.app/docs</a></Tooltip>
+      <Tooltip label="Abrir documentação" delayMs={0}><a href="#docs">example.com/docs</a></Tooltip>
       <Tooltip label="Paleta de comandos" delayMs={0}><span tabIndex={0}><Kbd>⌘K</Kbd></span></Tooltip>
       <Tooltip label="Última atualização" side="bottom" delayMs={0}><span tabIndex={0}>?</span></Tooltip>
     </div>

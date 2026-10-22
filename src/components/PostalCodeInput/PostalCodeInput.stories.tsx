@@ -3,7 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { PostalCodeInput } from "./PostalCodeInput";
 
 const meta = {
-  title: "Components/Molecules/PostalCodeInput",
+  id: "components-molecules-postalcodeinput",
+  title: "Componentes/Moléculas/PostalCodeInput",
   component: PostalCodeInput,
   tags: ["autodocs"],
   parameters: {
